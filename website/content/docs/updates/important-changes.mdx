@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: docs
 page_title: Important changes
 description: >-
@@ -20,11 +27,11 @@ valid_change_types: >-
 Always review important or breaking changes and remediation recommendations
 before upgrading Vault.
 
-## New behavior 
+## New behavior
 
 None.
 
-## Breaking changes 
+## Breaking changes
 
 ### Breaking configuration change for disable_mlock ((#disable_mlock-config))
 
@@ -128,14 +135,14 @@ keys within the HSM during the setup process.
 | ------------ | ----------------------------------------- | --------------------
 | Known issue  | 1.12.0+                                   | N/A
 
-Vault check-ins for LDAP service accounts performed on a performance standby node or a node in a 
-performance replication secondary cluster can trigger duplicate password changes on the LDAP server. 
-Duplication occurs because the LDAP client on the local node successfully modifies the password before Vault 
-forwards the check-in request to the active node, which then performs a second password update. 
-While users still receive the latest password, it may lead to unexpected LDAP activity and cause 
+Vault check-ins for LDAP service accounts performed on a performance standby node or a node in a
+performance replication secondary cluster can trigger duplicate password changes on the LDAP server.
+Duplication occurs because the LDAP client on the local node successfully modifies the password before Vault
+forwards the check-in request to the active node, which then performs a second password update.
+While users still receive the latest password, it may lead to unexpected LDAP activity and cause
 confusion interpreting audit logs.
 
 ### Recommendation:
 
-Send check-in requests directly to the active node of the primary cluster to prevent duplicate password 
+Send check-in requests directly to the active node of the primary cluster to prevent duplicate password
 rotations on the LDAP server.

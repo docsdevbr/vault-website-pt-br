@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: docs
 page_title: Cloud access management
 sidebar_title: Cloud access management
@@ -25,7 +32,7 @@ Traditionally, a few highly technical administrators manage PAM by accessing pri
 
 </ImageConfig>
 
-The incumbent PAM process is often ticket-based (ITIL), requiring multi-person approval. After that, there is typically a manual follow-up process to rotate the credentials exposed to humans since long-lived credentials are a security and regulatory compliance risk. 
+The incumbent PAM process is often ticket-based (ITIL), requiring multi-person approval. After that, there is typically a manual follow-up process to rotate the credentials exposed to humans since long-lived credentials are a security and regulatory compliance risk.
 In the world of multi- and hybrid-cloud, this traditional PAM framework is ineffective, leading to an exponential increase of human toil and increased risks.
 
 ## Where traditional PAM fails
@@ -34,9 +41,9 @@ Traditional PAM falls short of modern software delivery needs and security threa
 
 ### Dynamic and ephemeral workloads
 
-In the era of dynamic and ephemeral workloads, a PAM process requiring significant manual intervention introduces risk and does not scale. Infrastructure as code (IaC) has become the standard for automating repeatable IT administrative tasks by building a [platform](https://www.hashicorp.com/resources/what-is-a-platform-team-and-why-do-we-need-them) where developers can go for self-service provisioning, security, networking, and deployment tasks with guardrails. Automating these processes drives cost savings through tool consolidation, time savings, and legacy system deprecation. 
+In the era of dynamic and ephemeral workloads, a PAM process requiring significant manual intervention introduces risk and does not scale. Infrastructure as code (IaC) has become the standard for automating repeatable IT administrative tasks by building a [platform](https://www.hashicorp.com/resources/what-is-a-platform-team-and-why-do-we-need-them) where developers can go for self-service provisioning, security, networking, and deployment tasks with guardrails. Automating these processes drives cost savings through tool consolidation, time savings, and legacy system deprecation.
 
-Traditional PAM solutions built in the era before the cloud do not fit into this new standard [cloud operating model](https://www.hashicorp.com/cloud-operating-model). The manual processes need to be faster, the frequency of human intervention invites too many potential errors, and the controls need to be granular and modular enough to meet modern security needs. They can negatively impact developer processes and workflows. 
+Traditional PAM solutions built in the era before the cloud do not fit into this new standard [cloud operating model](https://www.hashicorp.com/cloud-operating-model). The manual processes need to be faster, the frequency of human intervention invites too many potential errors, and the controls need to be granular and modular enough to meet modern security needs. They can negatively impact developer processes and workflows.
 
 ### Identity-based access management and zero trust
 
@@ -50,7 +57,7 @@ NIST's position on how non-human entities authenticate themselves in an enterpri
 
 > "The associated risk is that an attacker will be able to **induce** or coerce an NPE (non-person entities) to perform some task that the attacker is not privileged to perform. There is also a risk that an attacker could access a software agent's **credentials** and **impersonate the agent** when performing tasks." - [NIST 800-207](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-207.pdf).
 
-NIST's concerns are likely based on poor implementation of non-human authentication. At organizations trying to move away from traditional PAM, a common challenge is automating their credential rotation process and making it less cumbersome to rotate frequently. 
+NIST's concerns are likely based on poor implementation of non-human authentication. At organizations trying to move away from traditional PAM, a common challenge is automating their credential rotation process and making it less cumbersome to rotate frequently.
 
 Solving this issue is essential because long-lived secrets in any environment can lead to [credential stuffing](https://owasp.org/www-community/attacks/Credential_stuffing); the automated injection of stolen credentials to fraudulently gain access to user accounts costs large organizations more than [$2 million](https://money.cnn.com/2018/03/18/technology/biometrics-workplace/index.html) annually in remediating actions. It can take 10.5 months to detect and identify credential-stuffing activities.
 
@@ -69,7 +76,7 @@ Let's explore the last two requirements in more detail.
 
 A [workload identity](https://learn.microsoft.com/en-us/entra/workload-id/workload-identities-overview) is an identity you assign to a software workload to authenticate and access other services and resources; it's something you need for your software entity to authenticate with some system.
 
-According to a [Microsoft blog post](https://blog.identitydigest.com/azuread-federate-k8s/): "workload identity is a new capability that allows you to get rid of secrets in several scenarios." 
+According to a [Microsoft blog post](https://blog.identitydigest.com/azuread-federate-k8s/): "workload identity is a new capability that allows you to get rid of secrets in several scenarios."
 
 While using secrets for workload and machine identity is fine as organizations modernize their PAM, they can be compromised in credential stuffing attacks, as mentioned by NIST. It is why more solutions are using major cloud providers and their platforms as identity providers to generate workload identities (sometimes called "machine identities") as an alternative to using secrets for identity.
 
@@ -84,7 +91,7 @@ Zero standing privilege means no long-lived credentials are statically stored an
 
 Short-lived credentials created just in time avoid credential reuse and potential leaks. Boundary integrates with Vault to leverage its dynamic secrets support to enable that pattern, where short-lived credentials are created upon access, and destroyed after the session is complete.  Applying fine-grained role-based access control with this technique enables a least privileged approach. Dynamic generation lets organizations attribute each credential to a single interactive and non-interactive session, making auditing more straightforward and robust.
 
-When managing machine access to secrets, the dynamic nature of HashiCorp Vault comes to the forefront. Vault gives each service access to secrets based on its identity and associated policy. 
+When managing machine access to secrets, the dynamic nature of HashiCorp Vault comes to the forefront. Vault gives each service access to secrets based on its identity and associated policy.
 HashiCorp Vault natively supports several secret engines, including
 
 - Google Cloud secrets engine
@@ -129,7 +136,7 @@ HashiCorp Boundary allows a single workflow to facilitate interactive human sess
 - "Just-in-time" network and credential access for sessions via HashiCorp Vault
 - Single sign-on to target services and applications via external identity providers
 - Automated discovery of target systems
-- Session monitoring and management 
+- Session monitoring and management
 - SSH session recording
 
 The above activities align with the five core principles articulated earlier.

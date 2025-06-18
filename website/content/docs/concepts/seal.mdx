@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: docs
 page_title: Seal/Unseal
 description: >-
@@ -20,7 +27,7 @@ Vault encrypts the data using an encryption key (in the keyring) and stores them
 
 To decrypt the data, Vault needs the root key so that it can decrypt the encryption key. Unsealing is the process of getting access to this root key. Vault encrypts the root key using the unseal key, and stores it alongside all other Vault data.
 
-To summarize, Vault encrypts most data using the encryption key in the keyring. To get the keyring, Vault uses the root key to decrypt it. The root key itself requires the unseal key to decrypt it. 
+To summarize, Vault encrypts most data using the encryption key in the keyring. To get the keyring, Vault uses the root key to decrypt it. The root key itself requires the unseal key to decrypt it.
 
 ## Shamir seals
 
@@ -140,7 +147,7 @@ If you don't set these options, Vault does not initialize; therefore, it will no
 
 #### Unseal key
 
-You can rekey Vault's unseal keys using a `vault operator rekey` operation from the CLI or the matching API calls. Vault authorizes the rekey operation when you meet the threshold of recovery keys. After rekeying, Vault encrypts the new barrier key with the configured HSM or KMS, and stores it in its storage backend. 
+You can rekey Vault's unseal keys using a `vault operator rekey` operation from the CLI or the matching API calls. Vault authorizes the rekey operation when you meet the threshold of recovery keys. After rekeying, Vault encrypts the new barrier key with the configured HSM or KMS, and stores it in its storage backend.
 
 <EnterpriseAlert product="vault">
   Seal wrapping requires Vault Enterprise

@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: docs
 page_title: AWS KMS seal configuration
 description: >-
@@ -11,7 +18,7 @@ description: >-
 
   All Vault versions support **auto-unseal** for AWS, but **seal wrapping**
   requires Vault Enterprise.
-  
+
   Vault Enterprise enables seal wrapping by default, which means the KMS service
   must be available at runtime and not just during the unseal process. Refer to
   the [Seal wrap](/vault/docs/enterprise/sealwrap) overview for more
@@ -55,7 +62,7 @@ These parameters apply to the `seal` stanza in the Vault configuration file:
 
 - `access_key` `(string: <required>)`: The AWS access key ID to use. May also be
   specified by the `AWS_ACCESS_KEY_ID` environment variable or as part of the
-  AWS profile from the AWS CLI or instance profile.  
+  AWS profile from the AWS CLI or instance profile.
 
 - `session_token` `(string: "")`: Specifies the AWS session token. This can
   also be provided via the environment variable `AWS_SESSION_TOKEN`.

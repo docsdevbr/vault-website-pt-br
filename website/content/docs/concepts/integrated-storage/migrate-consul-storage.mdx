@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: docs
 page_title: Migrate Consul storage to Integrated Storage
 description: Learn how to migrate Vault from Consul storage to Integrated Storage.
@@ -35,7 +42,7 @@ You should take a snapshot of the Vault data using [Consul
 Snapshot](/consul/commands/snapshot) before performing an upgrade or Vault
 storage migration.
 
-[Consul Enterprise](/consul/docs/enterprise) users can use the 
+[Consul Enterprise](/consul/docs/enterprise) users can use the
 [automated Snapshot Agent](/consul/commands/snapshot/agent) to
 periodically capture and retain snapshots in a specified destination.
 You can use the latest available snapshot to restore in case of issues
@@ -72,7 +79,7 @@ Version      1
 ```
 
 This output shows the snapshot ID, size in bytes, plus the snapshot index, term,
-and version. You can compare this with the server (for example, with 
+and version. You can compare this with the server (for example, with
 `consul info`) and is useful to detect any data corruption.
 
 <Note>

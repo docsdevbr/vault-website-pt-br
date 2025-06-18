@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: docs
 page_title: auth tune - Command
 description: |-
@@ -9,7 +16,7 @@ description: |-
 # auth tune
 
 The `auth tune` command tunes the configuration options for the auth method at
-the given PATH. 
+the given PATH.
 
 <Note>
 
@@ -27,6 +34,13 @@ auth method enabled at `github/`.
 $ vault read sys/auth/github/tune
 Key                  Value
 ---                  -----
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 default_lease_ttl    768h
 description          n/a
 force_no_cache       false
@@ -59,7 +73,7 @@ token_type           default-service
 
 </CodeBlockConfig>
 
-To restore back to the system default, you can use `-1`. 
+To restore back to the system default, you can use `-1`.
 
 ```shell-session
 $ vault auth tune -default-lease-ttl=-1 github/
@@ -169,20 +183,20 @@ flags](/vault/docs/commands) included on all commands.
   returned by the auth method.
 
 - `-trim-request-trailing-slashes` `(bool: false)` - If true, requests to
-  this mount with trailing slashes will have those slashes trimmed. 
+  this mount with trailing slashes will have those slashes trimmed.
   Necessary for some standards based APIs handled by Vault.
 
 - `-plugin-version` `(string: "")` - Configures the semantic version of the plugin
   to use. The new version will not start running until the mount is
   [reloaded](/vault/docs/commands/plugin/reload).
 
-- `-user-lockout-threshold` `(string: "")` - Specifies the number of failed login attempts 
-  after which the user is locked out. User lockout feature was added in Vault 1.13. 
+- `-user-lockout-threshold` `(string: "")` - Specifies the number of failed login attempts
+  after which the user is locked out. User lockout feature was added in Vault 1.13.
 
 - `-user-lockout-duration` `(duration: "")` - Specifies the duration for which a user will be locked out.
   User lockout feature was added in Vault 1.13.
 
-- `-user-lockout-counter-reset-duration` `(duration: "")` - Specifies the duration after which the lockout 
+- `-user-lockout-counter-reset-duration` `(duration: "")` - Specifies the duration after which the lockout
   counter is reset with no failed login attempts. User lockout feature was added in Vault 1.13.
 
 - `-user-lockout-disable` `(bool: false)` - Disables the user lockout feature if set to true. User lockout feature was added in Vault 1.13.

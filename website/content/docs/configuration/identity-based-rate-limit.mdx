@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: docs
 page_title: Rate limit quotas - collective, by IP, by entity
 description: >-
@@ -17,7 +24,7 @@ The rate limit quotas enforce API rate limiting using a [token
 bucket](https://en.wikipedia.org/wiki/Token_bucket) algorithm. For Vault
 Enterprise clusters, the rate limit quota supports a **`group_by`** option to
 define a group of requests based on the characteristic they have in common, and
-put them in the same bucket. 
+put them in the same bucket.
 
 The available `group_by` modes are:
 
@@ -52,7 +59,7 @@ have an entity such as unauthenticated requests.
 $ vault write sys/quotas/rate-limit/my-rate \
     rate=1000 \
     group_by=entity_then_none \
-    secondary_rate=2000     
+    secondary_rate=2000
 ```
 
 The `entity_then_none` or `entity_then_ip` mode groups requests based on their
@@ -80,7 +87,7 @@ configure a rate limit quota for a specific entity.
 
 Assume you created a rate limit quota on "customer-A" namespace with **group by
 entity** mode. Vault checks the entity ID of the requests coming into the
-"customer-A" namespace, and group them based on the matching entity ID. 
+"customer-A" namespace, and group them based on the matching entity ID.
 
 </Tip>
 
@@ -100,14 +107,14 @@ The `group_by` option supplements the existing quota features.
   [lease explosions](/vault/docs/configuration/prevent-lease-explosions).
 
 - Configure low limits at the namespace level, and higher limits at the specific
-problematic path. The most granular rate limit quotas takes the effect. 
+problematic path. The most granular rate limit quotas takes the effect.
 
   ![A diagram to show the granularity of target paths and corresponding rate](/img/resource-quotas/quota-granularity_light.png#light-theme-only)
   ![A diagram to show the granularity of target paths and corresponding rate](/img/resource-quotas/quota-granularity_dark.png#dark-theme-only)
 
-  Refer to the [Resource Quotas](/vault/docs/concepts/resource-quotas#rate-limit-quota-precedence) page to understand which rate limit quota rule applies to a request. 
+  Refer to the [Resource Quotas](/vault/docs/concepts/resource-quotas#rate-limit-quota-precedence) page to understand which rate limit quota rule applies to a request.
 
-- Use the `none` and `entity_then_none` modes with caution. 
+- Use the `none` and `entity_then_none` modes with caution.
   When you configure a rate limit quota at a high-level (for example, global
   rate limit) with group by **none** mode, your Vault environment can become
   vulnerable to becoming unresponsive if a single application purposefully or

@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: api
 page_title: HTTP API
 description: Vault has an HTTP API that can be used to control every aspect of Vault.
@@ -93,7 +100,7 @@ are available in the Namespace
 
 When you are working with HCP Vault Dedicated, your request must specify the
 target namespace. In absence of an explicit namespace, Vault tries to send
-the request to `root` namespace which results in an error. 
+the request to `root` namespace which results in an error.
 
 The top-level namespace for HCP Vault Dedicated clusters is `admin`, so the
 requests must include `-H "X-Vault-Namespace: admin"` header or `admin` in the

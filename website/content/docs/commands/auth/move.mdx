@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: docs
 page_title: auth move - Command
 description: |-
@@ -14,7 +21,7 @@ leases from the old auth method are revoked, but all configuration associated
 with the engine is preserved. The command can be issued for a move within or across
 namespaces, using namespace prefixes in the arguments.
 
-The command will trigger a remount operation and uses the returned migration ID to poll the 
+The command will trigger a remount operation and uses the returned migration ID to poll the
 status of the operation until a terminal state of `success` or `failure` is reached.
 
 **Moving an existing auth method will revoke any leases from the old

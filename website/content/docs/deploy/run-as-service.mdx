@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: docs
 page_title: Run Vault as a service
 description: >-
@@ -10,7 +17,7 @@ description: >-
 Instead of starting your Vault server manually from the command line, you can
 configure a service to start Vault automatically.
 
-## Before you start 
+## Before you start
 
 - **You must install Vault**. You can [use a package manager](/vault/install)
   or [install a binary manually](/vault/docs/install/install-binary).
@@ -26,7 +33,7 @@ configure a service to start Vault automatically.
 
    The following service definition is a simpler version of the `vault.service`
    example in the Vault GitHub repo: [vault/.release/linux/package/usr/lib/systemd/system/vault.service](https://github.com/hashicorp/vault/blob/main/.release/linux/package/usr/lib/systemd/system/vault.service)
-   
+
 </Highlight>
 
 1. Set the `VAULT_CONFIG` environment variable to your Vault configuration
@@ -40,7 +47,7 @@ configure a service to start Vault automatically.
    ```
    $ VAULT_BINARY=$(which vault)
    ```
-   
+
 1. Create a `systemd` service called `vault.service` that uses the Vault
    binary:
 

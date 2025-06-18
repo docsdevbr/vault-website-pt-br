@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: docs
 page_title: Build Vault from code
 description: >-
@@ -58,26 +65,26 @@ system.
 
 1. Create a `hashicorp` source directory under your `GOPATH` and change to the
    new directory:
-  
+
   ```powershell
   New-Item -ItemType Directory -Force -Path "${env:GOPATH}/src/hashicorp" | Set-Location
   ```
 
 1. Clone the Vault repository from GitHub:
-  
+
   ```powershell
   git clone https://github.com/hashicorp/vault.git
   ```
 
 1. Change to the cloned Vault directory:
-  
+
   ```powershell
   Set-Location vault
   ```
 
 1. Use the included `make` tool to bootstrap the Go project to download and
    compile the libraries and tools needed to compile Vault:
-  
+
   ```powershell
   .\make bootstrap
   ```

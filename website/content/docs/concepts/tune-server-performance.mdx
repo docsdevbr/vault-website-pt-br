@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: docs
 page_title: Tune server performance
 description: >-
@@ -14,8 +21,8 @@ These guidelines and best practices can help you tune the Vault environment to a
 <Tip>
 
 This guidance focuses on tuning your Vault environment for optimal performance.
-Refer to [Vault limits and maximums](/vault/docs/internals/limits) for known 
-upper limits on the size of certain fields and objects, and configurable limits 
+Refer to [Vault limits and maximums](/vault/docs/internals/limits) for known
+upper limits on the size of certain fields and objects, and configurable limits
 on others.
 
 </Tip>
@@ -83,7 +90,7 @@ Your deployments can benefit from smooth Vault operations by properly configurin
 
 ### User limits
 
-The Linux kernel can impose **user limits** (known also as `ulimit` values) on a per-user, per-process, or system-wide basis. These limits were historically designed to help prevent any one user or process from consuming available resources on multi-user and multi-process systems. 
+The Linux kernel can impose **user limits** (known also as `ulimit` values) on a per-user, per-process, or system-wide basis. These limits were historically designed to help prevent any one user or process from consuming available resources on multi-user and multi-process systems.
 
 On a contemporary Linux system, these limits are typically controlled by [systemd process properties](https://www.freedesktop.org/software/systemd/man/systemd.exec.html#Process%20Properties).
 
@@ -320,8 +327,8 @@ Max open files            65536                65536                files
 
 You might expect that Vault will scale linearly up to 100% CPU usage when tuning specific workloads, such as the Transit or Transform Secrets engine encryption. That is typically an unrealistic expectation.
 
-HashiCorp builds Vault with the Go programming language, and part of this relates to its performance characteristics. Go has the notion of [goroutines](https://golang.org/doc/effective_go.html?h=goroutine#goroutines), which are functions or methods that run concurrently with other functions or methods. 
- 
+HashiCorp builds Vault with the Go programming language, and part of this relates to its performance characteristics. Go has the notion of [goroutines](https://golang.org/doc/effective_go.html?h=goroutine#goroutines), which are functions or methods that run concurrently with other functions or methods.
+
  The more goroutines that are simultaneously scheduled, the more context switching the system performs, the more interrupts by the network interface, etc.
 
 This behavior may not represent a large toll on the CPU in terms of real CPU utilization, but it can impair I/O. Each time a goroutine blocks for I/O (or gets preempted due to an interrupt) it can take longer each time before that goroutine is back in service.
@@ -805,7 +812,7 @@ Code: 413. Errors:
 
 
 <Note>
- 
+
  Tuning this improperly can cause Consul to fail in unexpected ways, it may potentially affect leadership stability and prevent regular heartbeat signals by increasing RPC IO duration.
 
 </Note>

@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: docs
 page_title: Augment entropy with external sampling
 description: >-
@@ -34,7 +41,7 @@ configured external entropy source.
 | Root Tokens              | Superuser tokens granting access to all operations in Vault.                         |
 | DR Operation Tokens      | Token that allows certain actions to be performed on a DR secondary.                 |
 
-The [transit secrets engine](/vault/docs/secrets/transit) manages a number of 
+The [transit secrets engine](/vault/docs/secrets/transit) manages a number of
 different key types and leverages the
 [`keysutil`](https://godoc.org/github.com/hashicorp/vault/sdk/helper/keysutil)
 package to generate keys. It will use the external entropy source for key

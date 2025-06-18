@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: docs
 page_title: Best practices for namespaces and mount paths
 description: >-
@@ -30,7 +37,7 @@ path is `auth/token/*`. To manage tokens for the  _education_ namespace, the
 fully-qualified path functionally becomes `education/auth/token/*`.
 
 The following diagram demonstrates the API paths based on where the auth method
-and secrets engines are enabled. 
+and secrets engines are enabled.
 
 ![Namespaces and mount paths](/img/diagram_namespaces_paths.png)
 
@@ -38,12 +45,12 @@ You can isolate secrets using namespaces or mounts dedicated to each Vault
 client. For example, you can create a namespace for each isolated tenant and
 they are responsible for managing the resources under their namespace.
 Alternatively, you can mount a dedicated secrets engine at a path dedicated to
-each team within the organization. 
+each team within the organization.
 
 ![Namespaces best practices](/img/diagram_namespaces_intro.png)
 
 Depending on how you isolate the secrets, it determines who is responsible for
-managing those secrets, and more importantly, policies related to those secrets.  
+managing those secrets, and more importantly, policies related to those secrets.
 
 
 <Note>
@@ -58,7 +65,7 @@ organization, team, or application.
 
 To plan and design the Vault namespaces, auth method paths and secrets engine
 paths, you need to consider how to best structure Vault's logical objects for
-your organization. 
+your organization.
 
 
 <table>
@@ -124,13 +131,13 @@ Vault clients (users, applications, etc.) must be aware of which namespace to
 send requests, and set the target namespace using `-namespace` flag,
 `X-Vault-Namespace` HTTP header, or `VAULT_NAMESPACE` environment variable. If
 the target namespace is not properly set, the request will fail. This can be
-cumbersome. 
+cumbersome.
 
 To simplify, Vault operators can specify additional `listener` stanza in the
 configuration file, and defines `chroot_namespace` to specify an alternate
 top-level namespace.
 
-**Example:** 
+**Example:**
 
 <CodeBlockConfig filename="vault-config.hcl" highlight="17-25">
 
@@ -185,7 +192,7 @@ $ curl --header "X-Vault-Namespace: team_1" \
 The request operates on the `usa-hq/team_1` namespace since the top-level
 namespace is set to `usa-hq` for the listener address, `127.0.0.1:8300`.
 
-The top-level namespace for `https://127.0.0.1:8200` is `root`. 
+The top-level namespace for `https://127.0.0.1:8200` is `root`.
 
 
 ## General guidance
@@ -270,7 +277,7 @@ you, depending on the auth methods used.
 
 <CodeBlockConfig lineNumbers>
 
-```hcl 
+```hcl
 path "kvv1-{{identity.entity.metadata.team_name}}/*" {
    capabilities = [ "create", "read", "update", "delete", "list" ]
 }
@@ -283,7 +290,7 @@ path "transit/encrypt/{{identity.entity.aliases.auth_approle_b2560218.name}}" {
 </CodeBlockConfig>
 
 Those templated values get resolved dynamically based on the requester's entity
-token metadata. 
+token metadata.
 
 At line 1, the `{{identity.entity.metadata.team_name}}` value retrieves the
 `team_name` value set on the entity's metadata. Similarly, the
@@ -296,7 +303,7 @@ static.
  The number of identity entities is how Vault determines the number
 of active clients for reporting and licensing purposes. Refer to the [Client
 Count](/vault/docs/concepts/client-count) documentation for
-more detail. 
+more detail.
 
 </Note>
 
@@ -324,12 +331,12 @@ It's important to understand [Vault's sizing
 restrictions](/vault/docs/internals/limits) for mounts. All
 secrets engine and auth method mount points must each fit within a single storage
 entry. For Consul, the storage limit is 512KB. For Integrated Storage the limit
-is 1MB. 
+is 1MB.
 
 Each JSON object describing a mount uses ~500 bytes, but in compressed form
 it's ~75 bytes. Since auth mounts, secrets engine mount points, local-only auth
 methods, and local-only secrets engine mounts are stored separately the limit
-applies to each independently. 
+applies to each independently.
 
 By default, each namespace is created with a token auth mount (`/auth/`), an
 identity mount (`/identity/`), and system mount (`/sys/`). This means that each
@@ -337,29 +344,29 @@ namespace requires three different mounts and then you will add your custom
 mounts. Multiply that by 1,000s means that your mount tables will grow
 exponentially.
 
-### Granularity of paths 
+### Granularity of paths
 
 When thinking about Vault's logical structure, you want to find the right
 balance of granularity between the various mounts needed and the roles defined
-within the mounts. 
+within the mounts.
 
 Sharing mounts between teams has benefits and risk. It is up to you to find the
 right balance of granularity between the various mounts needed and the roles
 defined within the mounts. Below are a couple use cases with their benefits and
-risks. 
+risks.
 
 You create a single KV mount with a sub-path for every team within the same
-mount.  
+mount.
 
-- **Benefit:** reduces potential of hitting mount table limits.  
-- **Risk:** the KV mount is accidentally deleted causing all users of that secret 
+- **Benefit:** reduces potential of hitting mount table limits.
+- **Risk:** the KV mount is accidentally deleted causing all users of that secret
 engine to be
 impacted.
 
-You create a unique mount per LOB.  
+You create a unique mount per LOB.
 
-- **Benefit:** can provide sub-paths for different teams and limit the 
-blast-radius  of an errant change to a single mount.  
+- **Benefit:** can provide sub-paths for different teams and limit the
+blast-radius  of an errant change to a single mount.
 - **Risk:** unique KV mounts per team becomes inefficient from a mount
 management perspective.
 

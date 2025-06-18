@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: api
 page_title: /sys/internal/counters - HTTP API
 description: >-
@@ -212,7 +219,7 @@ in the queried period. The `end_time` is the end of the final month of the queri
 period.
 
 - If the `end_date` supplied to the API is the current month, exact activity
-information will be returned for all months in the queried period. The last element 
+information will be returned for all months in the queried period. The last element
 in the `months` response stanza will signify the current month.
 
 @include 'counters-api-new-clients-behavior-change.mdx'
@@ -223,9 +230,9 @@ The `start_time` and `end_time` request parameters behave differently between
 Vault Enterprise and Vault Community edition.
 
 In Vault Enterprise edition, the time parameters must align with the entire default
-billing period of 12 months. In Vault Community edition, the Get Client Count endpoint  
+billing period of 12 months. In Vault Community edition, the Get Client Count endpoint
 supports flexible historical time ranges, but excludes the current month and any
-future dates. 
+future dates.
 
 
 <Tabs>
@@ -236,7 +243,7 @@ In Vault Enterprise, the Get Client Count endpoint adjusts `start_time` and
 `end_time` to align with the start and end of the corresponding billing period.
 
 - The endpoint only returns data for an entire billing period.
-- By default, the endpoint returns activity data from the start of the current 
+- By default, the endpoint returns activity data from the start of the current
   billing period up to the time you call the endpoint.
 - If you provide a start time outside the current billing period, Vault
   aligns the query to the full default billing period associated with the

@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 layout: docs
 page_title: kv - Command
 description: |-
@@ -19,11 +26,11 @@ Option flags for a given subcommand are provided after the subcommand, but befor
 The path to where the secrets engine is mounted can be indicated with the `-mount` flag, such as `vault kv get -mount=secret creds`.
 
 The deprecated path-like syntax can also be used (e.g. `vault kv get secret/creds`), but this should be avoided
-for KV v2, because it is not actually the full API path to the secret 
+for KV v2, because it is not actually the full API path to the secret
 (secret/data/foo) and may cause confusion.
 
-~> A `flag provided but not defined: -mount` error means you are using an older version of Vault before the 
-mount flag syntax was introduced. Upgrade to at least Vault 1.11, or refer to previous versions of the docs 
+~> A `flag provided but not defined: -mount` error means you are using an older version of Vault before the
+mount flag syntax was introduced. Upgrade to at least Vault 1.11, or refer to previous versions of the docs
 which only use the old syntax to refer to the mount path.
 
 ## Mount flag syntax (KV)
@@ -61,6 +68,13 @@ secret/data/creds
 ======= Metadata =======
 Key                Value
 ---                -----
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/main/LICENSE
+
 created_time       2022-06-15T20:14:17.107852Z
 custom_metadata    <nil>
 deletion_time      n/a
