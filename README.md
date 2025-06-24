@@ -2,6 +2,7 @@
 
 [![Arquivo README em inglês][badge-readme-en]][readme-en]
 [![Arquivo README em português brasileiro][badge-readme-pt-br]][readme-pt-br]
+[![Licença: BUSL-1.1][badge-license]][LICENSE]
 [![GitHub Sponsors][badge-github-sponsors]][github-sponsors]
 
 Tradução da Documentação do Vault para português brasileiro.
@@ -33,9 +34,11 @@ A obra original foi traduzida do inglês para o português brasileiro.
 
 [badge-github-sponsors]: https://img.shields.io/github/sponsors/docsdevbr
 
-[badge-readme-en]: https://img.shields.io/badge/lang-en-blue.svg
+[badge-license]: https://img.shields.io/badge/license-BUSL--1.1-blue
 
-[badge-readme-pt-br]: https://img.shields.io/badge/lang-pt--br-dark--green.svg
+[badge-readme-en]: https://img.shields.io/badge/lang-en-blue
+
+[badge-readme-pt-br]: https://img.shields.io/badge/lang-pt--br-blue
 
 [contributing]: https://github.com/docsdevbr/.github/blob/main/CONTRIBUTING.md
 

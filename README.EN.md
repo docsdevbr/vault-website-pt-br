@@ -2,6 +2,7 @@
 
 [![README file in English][badge-readme-en]][readme-en]
 [![README file in Brazilian Portuguese][badge-readme-pt-br]][readme-pt-br]
+[![License: BUSL-1.1][badge-license]][LICENSE]
 [![GitHub Sponsors][badge-github-sponsors]][github-sponsors]
 
 Translation of the Vault Documentation into Brazilian Portuguese.
@@ -33,9 +34,11 @@ The original work was translated from English into Brazilian Portuguese.
 
 [badge-github-sponsors]: https://img.shields.io/github/sponsors/docsdevbr
 
-[badge-readme-en]: https://img.shields.io/badge/lang-en-blue.svg
+[badge-license]: https://img.shields.io/badge/license-BUSL--1.1-blue
 
-[badge-readme-pt-br]: https://img.shields.io/badge/lang-pt--br-dark--green.svg
+[badge-readme-en]: https://img.shields.io/badge/lang-en-blue
+
+[badge-readme-pt-br]: https://img.shields.io/badge/lang-pt--br-blue
 
 [contributing]: https://github.com/docsdevbr/.github/blob/main/CONTRIBUTING.EN.md
 
