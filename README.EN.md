@@ -2,7 +2,8 @@
 
 [![README file in English][badge-readme-en]][readme-en]
 [![README file in Brazilian Portuguese][badge-readme-pt-br]][readme-pt-br]
-[![License: BUSL-1.1][badge-license]][LICENSE]
+[![License: BUSL-1.1][badge-license]][license]
+[![Contributors][badge-contributors]][contributors]
 [![GitHub Sponsors][badge-github-sponsors]][github-sponsors]
 
 Translation of the Vault Documentation into Brazilian Portuguese.
@@ -32,17 +33,21 @@ Vault and the Vault logo are trademarks of HashiCorp.
 Licensed under the [Business Source License, Version 1.1][license].<br>
 The original work was translated from English into Brazilian Portuguese.
 
+[badge-contributors]: https://img.shields.io/github/contributors/docsdevbr/vault-doc-pt-br
+
 [badge-github-sponsors]: https://img.shields.io/github/sponsors/docsdevbr
 
-[badge-license]: https://img.shields.io/badge/license-BUSL--1.1-blue
+[badge-license]: https://img.shields.io/badge/license-BUSL--1.1-green
 
 [badge-readme-en]: https://img.shields.io/badge/lang-en-blue
 
 [badge-readme-pt-br]: https://img.shields.io/badge/lang-pt--br-blue
 
+[code-of-conduct]: https://github.com/docsdevbr/.github/blob/main/CODE_OF_CONDUCT.EN.md
+
 [contributing]: https://github.com/docsdevbr/.github/blob/main/CONTRIBUTING.EN.md
 
-[code-of-conduct]: https://github.com/docsdevbr/.github/blob/main/CODE_OF_CONDUCT.EN.md
+[contributors]: https://github.com/docsdevbr/vault-doc-pt-br/graphs/contributors
 
 [github-sponsors]: https://github.com/sponsors/docsdevbr
 
