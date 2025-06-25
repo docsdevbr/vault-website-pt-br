@@ -30,7 +30,8 @@ You can support the project through [GitHub Sponsors][github-sponsors] or
 Copyright (c) 2024 HashiCorp, Inc.<br>
 Vault and the Vault logo are trademarks of HashiCorp.
 
-Licensed under the [Business Source License, Version 1.1][license].<br>
+Documentation licensed under the
+[Business Source License, Version 1.1][license].<br>
 The original work was translated from English into Brazilian Portuguese.
 
 [badge-contributors]: https://img.shields.io/github/contributors/docsdevbr/vault-doc-pt-br
