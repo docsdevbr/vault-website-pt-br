@@ -1,0 +1,27 @@
+---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/web-unified-docs/blob/main/LICENSE
+
+layout: docs
+page_title: Auto-auth with Cloud Foundry
+description: >-
+  Use Cloud Foundry (CF) for auto-authentication with Vault Agent or Vault Proxy.
+---
+
+# Auto-auth method: Cloud Foundry (CF)
+
+The `cf` method performs authentication against the [CF Auth
+method](/vault/docs/auth/cf).
+
+## Credentials
+
+The Vault agent will use the `CF_INSTANCE_CERT` and `CF_INSTANCE_KEY` env variables to
+construct a valid login call for CF.
+
+## Configuration
+
+- `role` `(string: required)` - The role to authenticate against on Vault.

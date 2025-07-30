@@ -1,0 +1,40 @@
+---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/web-unified-docs/blob/main/LICENSE
+
+layout: docs
+page_title: policy list - Command
+description: |-
+  The "policy list" command Lists the names of the policies that are installed
+  on the Vault server.
+---
+
+# policy list
+
+The `policy list` command Lists the names of the policies that are installed on
+the Vault server.
+
+## Examples
+
+List the available policies:
+
+```shell-session
+$ vault policy list
+default
+root
+```
+
+## Usage
+
+The following flags are available in addition to the [standard set of
+flags](/vault/docs/commands) included on all commands.
+
+### Output options
+
+- `-format` `(string: "table")` - Print the output in the given format. Valid
+  formats are "table", "json", or "yaml". This can also be specified via the
+  `VAULT_FORMAT` environment variable.
