@@ -6,129 +6,135 @@
 # The original work was translated from English into Brazilian Portuguese.
 # https://github.com/hashicorp/web-unified-docs/blob/main/LICENSE
 
+source_url: https://github.com/hashicorp/web-unified-docs/blob/main/content/vault/v1.20.x/content/docs/about-vault/what-is-vault.mdx
+revision: cd0f95162f14a75d9c995bf5390547399d199d77
+status: ready
+
 layout: docs
-page_title: What is Vault?
+page_title: O que é o Vault?
 description: >-
-  Vault provides centralized, encrypted, and audited management for static
-  secrets, dynamic credentials, certificates, identity authentication, and
-  secrets from cloud providers like AWS, Azure, and Google to simplify the
-  secret management lifecycle and regulatory compliance.
+  O Vault oferece gerenciamento centralizado, criptografado e auditado para
+  segredos estáticos, credenciais dinâmicas, certificados, autenticação de
+  identidade e segredos de provedores de nuvem como AWS, Azure e Google para
+  simplificar o ciclo de vida do gerenciamento de segredos e a conformidade
+  regulatória.
 ---
 
-# What is Vault?
+# O que é o Vault?
 
-Vault provides centralized, well-audited privileged access and secret management
-for mission-critical data whether you deploy systems on-premises, in the cloud,
-or in a hybrid environment.
+O Vault oferece acesso privilegiado centralizado e bem auditado, além de
+gerenciamento de segredos para dados de missão crítica, independentemente de
+você implementar sistemas em ambiente local, na nuvem ou em um ambiente híbrido.
 
-With a modular design based around a growing plugin ecosystem, Vault lets you
-integrate with your existing systems and customize your application workflow.
+Com um design modular baseado em um ecossistema de plugins em crescimento, o
+Vault permite que você se integre aos seus sistemas existentes e personalize o
+fluxo de trabalho da sua aplicação.
 
+## Por que devo usar o Vault?
 
-## Why should I use Vault?
+Softwares modernos funcionam por causa de **segredos**.
+Segredos são informações sensíveis e discretas, como credenciais, chaves de
+criptografia, certificados de autenticação e outras informações críticas que
+suas aplicações precisam para funcionar de forma consistente e segura.
 
-Modern software works because of **secrets**. Secrets are sensitive, discrete
-pieces of information like credentials, encryption keys, authentication
-certificates, and other critical pieces of information your applications need
-to run consistently and securely.
+Vault ajuda a proteger aplicações centralizando o gerenciamento de segredos.
+Com o Vault, você pode:
 
-Vault helps harden applications by centralizing secret management. With Vault
-you can:
-
-- [Manage static secrets](/vault/docs/about-vault/why-use-vault/static-secrets)
-- [Manage certificates](/vault/docs/about-vault/why-use-vault/certificates)
-- [Manage identities and authentication](/vault/docs/about-vault/why-use-vault/identities)
-- [Manage 3rd-party secrets](/vault/docs/about-vault/why-use-vault/3rd-party-secrets)
-- [Manage sensitive data](/vault/docs/about-vault/why-use-vault/sensitive-data)
-- [Support regulatory compliance](/vault/docs/about-vault/why-use-vault/regulatory-compliance)
+- [Gerenciar segredos estáticos](/vault/docs/about-vault/why-use-vault/static-secrets)
+- [Gerenciar certificados](/vault/docs/about-vault/why-use-vault/certificates)
+- [Gerenciar identidades e autenticação](/vault/docs/about-vault/why-use-vault/identities)
+- [Gerenciar segredos de terceiros](/vault/docs/about-vault/why-use-vault/3rd-party-secrets)
+- [Gerenciar dados sensíveis](/vault/docs/about-vault/why-use-vault/sensitive-data)
+- [Suportar conformidade regulatória](/vault/docs/about-vault/why-use-vault/regulatory-compliance)
 
 @include 'tips/try-hvd.mdx'
 
+## O que é um plugin?
 
-## What is a plugin?
+Os plugins atuam como blocos de construção no Vault que permitem controlar como
+os dados se movem pelo seu ambiente e como os clientes acessam esses dados.
 
-Plugins act as building blocks in Vault that let you control how data moves
-through your environment and how clients access that data.
+O [ecossistema de plugins](/vault/docs/plugins) inclui:
 
-The [plugin ecosystem](/vault/docs/plugins) includes:
+- plugins de autenticação que gerenciam fluxos de autenticação e controlam o
+  acesso do cliente ao Vault.
+- plugins de segredos geral que geram, armazenam, gerenciam ou transformam
+  informações sensíveis.
+- plugins de segredos de banco de dados que gerenciam credenciais dinâmicas que
+  os clientes usam para acessar dados do banco de dados.
 
-- authentication plugins that handle authentication flows and control client
-  access to Vault.
-- general secret plugins that generate, store, manage, or transform sensitive
-  information.
-- database secret plugins that manage dynamic credentials that clients use to
-  access database data.
+Use plugins do [registro de plugins selecionados](/vault/integrations) ou
+[crie plugins personalizados](/vault/docs/plugins/plugin-development) para
+integrar o Vault da maneira que fizer mais sentido para seus fluxos de trabalho.
 
-Use plugins from the [curated plugin registry](/vault/integrations) or
-[build custom plugins](/vault/docs/plugins/plugin-development) to
-integrate Vault in the way that makes the most sense for you workflows.
+## Quem pode acessar os dados no Vault?
 
+O Vault criptografa dados em repouso e bloqueia o acesso a esses dados com
+métodos de [autenticação](/vault/docs/concepts/auth) e
+[autorização](/vault/docs/concepts/policies) robustos e configuráveis.
 
-## Who can access data in Vault?
+![Como o Vault funciona](/img/how-vault-works.png)
 
-Vault encrypts data at rest and gates access to that data with configurable,
-robust [authentication](/vault/docs/concepts/auth) and
-[authorization](/vault/docs/concepts/policies) methods.
+1. Os clientes se autenticam com tokens gerados manualmente, protocolos como
+   LDAP ou provedores terceirizados como Azure e AWS.
 
-![How Vault works](/img/how-vault-works.png)
+1. O Vault gera um token de acesso que vincula a requisição do cliente a uma
+   entidade interna e às políticas de segurança aplicáveis.
 
-1. Clients authenticate with manually generated tokens, protocols like LDAP, or
-   third-party providers like Azure and AWS.
+1. Os clientes interagem com segredos e operações de criptografia com base em
+   caminhos de recursos montados no Vault.
 
-1. Vault generates an access token that links the client request to an internal
-   entity and applicable security policies.
+1. O Vault autoriza a requisição do cliente em relação às políticas definidas no
+   caminho de recursos e concede ou nega o acesso de acordo.
 
-1. Clients interact with secrets and encryption operations based on resource
-   paths mounted in Vault.
+Durante todo o processo, o Vault audita todas as atividades, independentemente
+de a autenticação ou autorização ser bem-sucedida, para que você possa rastrear
+as interações com os sistemas de missão crítica.
 
-1. Vault authorizes the client request against policies set on the resource path
-   and grants or denies access accordingly.
+## Onde o Vault armazena os dados?
 
-Throughout the process, Vault audits all activity, regardless of whether
-authentication or authorization succeeds so you can track interactions with
-mission critical systems.
+O Vault suporta diversas opções de armazenamento durável de informações.
 
+Tipo de armazenamento                                               | Suporte a alta disponibilidade | Descrição
+--------------------------------------------------------------------|:------------------------------:|----------------------------------------------------------------------------------------------------------------
+[Integrado](/vault/docs/configuration/storage/raft)                 |              SIM               | A opção de armazenamento "integrada" que criptografa e replica dados em um cluster do Vault em operação.
+[Sistema de arquivos](/vault/docs/configuration/storage/filesystem) |              NÃO               | Persiste os dados no sistema de arquivos local na máquina que executa o Vault.
+[Externo](/vault/docs/configuration/storage#integrated-vs-external) |             TALVEZ             | Um sistema de armazenamento durável de terceiros, como Azure, AWS, Google Cloud ou MySQL.
+[Em memória](/vault/docs/configuration/storage/in-memory)           |              NÃO               | Persiste os dados inteiramente na memória da máquina que executa o Vault para desenvolvimento e experimentação.
 
-## Where does Vault store data?
+Recomendamos armazenamento integrado para a maioria das implantações.
+O armazenamento integrado suporta fluxos de trabalho de backup/restauração, alta
+disponibilidade e recursos de replicação empresarial sem depender de sistemas de
+terceiros onde o Vault não pode verificar a segurança e a rastreabilidade do
+acesso aos dados.
 
-Vault supports a variety of options for durable information storage.
+## Quando não devo usar o Vault?
 
-Storage type                                                         | HA support | Description
--------------------------------------------------------------------- | ---------- | -----------
-[Integrated](/vault/docs/configuration/storage/raft)                 | YES        | The "built-in" storage option that encrypts and replicates data across an operating Vault cluster.
-[File system](/vault/docs/configuration/storage/filesystem)          | NO         | Persists data to the local file system on the machine running Vault.
-[External](/vault/docs/configuration/storage#integrated-vs-external) | MAYBE      | A durable third-party storage system like Azure, AWS, Google Cloud, or MySQL.
-[In-memory](/vault/docs/configuration/storage/in-memory)             | NO         | Persists data entirely in-memory on the machine running Vault for development and experimentation.
+O Vault é robusto, poderoso e flexível.
+Mas também pode ser complicado se você tiver necessidades limitadas ou simples
+de gerenciamento de segredos.
 
-We recommend integrated storage for most deployments. Integrated storage
-supports backup/restore workflows, high availability, and Enterprise replication
-features without relying on third-party systems where Vault cannot verify the
-security and traceability of data access.
+Se sua organização está apenas começando com o gerenciamento de segredos ou
+procurando simplificar os processos de gerenciamento de segredos existentes,
+considere começar com [HCP Vault Dedicated](/hcp/docs/vault/what-is-hcp-vault)
+em vez do Vault.
 
-## When should I not use Vault?
+O HCP Vault Dedicated é uma oferta gerenciada do Vault que roda na plataforma de
+nuvem HashiCorp.
+O HCP Vault Dedicated fornece um cluster Vault Enterprise sem a sobrecarga
+operacional de planejar, implantar e gerenciar um cluster Vault com hospedagem
+própria.
 
-Vault is robust, powerful, and flexible. But it can also be overwhelming if
-you have limited or simple secret management needs.
+## Como obtenho o Vault?
 
-If your organization is just getting started with secrets management or looking
-to simplify an existing secrets management processes, consider starting with
-[HCP Vault Dedicated](/hcp/docs/vault/what-is-hcp-vault) instead of Vault.
+Você pode
+[baixar o Vault como um binário pré-compilado](http://releases.hashicorp.com/vault),
+instalar um pacote oficial [Community](/vault/install) ou
+[Enterprise](/vault/install/enterprise) com gerenciadores de pacotes
+compatíveis, ou clonar o repositório Vault Community no GitHub e
+[compilar o Vault a partir do código-fonte](/vault/get-vault/build-from-code).
 
-HCP Vault Dedicated is a managed offering of Vault that runs on the HashiCorp
-cloud platform. HCP Vault Dedicated provides a Vault Enterprise cluster without
-the operational overhead of planning, deploying, and managing a self-hosted
-Vault cluster.
-
-## How do I get Vault?
-
-You can
-[download Vault as a precompiled binary](http://releases.hashicorp.com/vault),
-install an official [Community](/vault/install) or
-[Enterprise](/vault/install/enterprise) package with supported package managers,
-or clone the Vault Community repo in GitHub and
-[build Vault from source code](/vault/get-vault/build-from-code).
-
-To use Vault Enterprise features, you must have a
-[valid license configured](/vault/license).
+Para usar os recursos do Vault Enterprise, você precisa ter uma
+[licença válida configurada](/vault/license).
 
 @include 'social-bar.mdx'
