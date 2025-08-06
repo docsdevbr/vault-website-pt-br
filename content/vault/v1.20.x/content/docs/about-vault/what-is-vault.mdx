@@ -58,7 +58,7 @@ O [ecossistema de plugins](/vault/docs/plugins) inclui:
 
 - plugins de autenticação que gerenciam fluxos de autenticação e controlam o
   acesso do cliente ao Vault.
-- plugins de segredos geral que geram, armazenam, gerenciam ou transformam
+- plugins de segredos em geral que geram, armazenam, gerenciam ou transformam
   informações sensíveis.
 - plugins de segredos de banco de dados que gerenciam credenciais dinâmicas que
   os clientes usam para acessar dados do banco de dados.
@@ -76,7 +76,7 @@ métodos de [autenticação](/vault/docs/concepts/auth) e
 ![Como o Vault funciona](/img/how-vault-works.png)
 
 1. Os clientes se autenticam com tokens gerados manualmente, protocolos como
-   LDAP ou provedores terceirizados como Azure e AWS.
+   LDAP ou provedores de terceiros como Azure e AWS.
 
 1. O Vault gera um token de acesso que vincula a requisição do cliente a uma
    entidade interna e às políticas de segurança aplicáveis.
@@ -85,7 +85,7 @@ métodos de [autenticação](/vault/docs/concepts/auth) e
    caminhos de recursos montados no Vault.
 
 1. O Vault autoriza a requisição do cliente em relação às políticas definidas no
-   caminho de recursos e concede ou nega o acesso de acordo.
+   caminho de recurso e concede ou nega o acesso adequadamente.
 
 Durante todo o processo, o Vault audita todas as atividades, independentemente
 de a autenticação ou autorização ser bem-sucedida, para que você possa rastrear
@@ -104,7 +104,7 @@ Tipo de armazenamento                                               | Suporte a 
 
 Recomendamos armazenamento integrado para a maioria das implantações.
 O armazenamento integrado suporta fluxos de trabalho de backup/restauração, alta
-disponibilidade e recursos de replicação empresarial sem depender de sistemas de
+disponibilidade e recursos de replicação Enterprise sem depender de sistemas de
 terceiros onde o Vault não pode verificar a segurança e a rastreabilidade do
 acesso aos dados.
 
@@ -131,7 +131,7 @@ Você pode
 [baixar o Vault como um binário pré-compilado](http://releases.hashicorp.com/vault),
 instalar um pacote oficial [Community](/vault/install) ou
 [Enterprise](/vault/install/enterprise) com gerenciadores de pacotes
-compatíveis, ou clonar o repositório Vault Community no GitHub e
+compatíveis, ou clonar o repositório do Vault Community no GitHub e
 [compilar o Vault a partir do código-fonte](/vault/get-vault/build-from-code).
 
 Para usar os recursos do Vault Enterprise, você precisa ter uma
