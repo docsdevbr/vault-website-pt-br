@@ -1,4 +1,4 @@
-# [vault-doc-pt-br][page]
+# [vault-website-pt-br][page]
 
 [![README file in English][badge-readme-en]][readme-en]
 [![README file in Brazilian Portuguese][badge-readme-pt-br]][readme-pt-br]
@@ -6,7 +6,7 @@
 [![Contributors][badge-contributors]][contributors]
 [![GitHub Sponsors][badge-github-sponsors]][github-sponsors]
 
-Translation of the Vault Documentation into Brazilian Portuguese.
+Translation of the Vault website into Brazilian Portuguese.
 
 ## Contributing
 
@@ -34,7 +34,7 @@ Documentation licensed under the
 [Business Source License, Version 1.1][license].<br>
 The original work was translated from English into Brazilian Portuguese.
 
-[badge-contributors]: https://img.shields.io/github/contributors/docsdevbr/vault-doc-pt-br
+[badge-contributors]: https://img.shields.io/github/contributors/docsdevbr/vault-website-pt-br
 
 [badge-github-sponsors]: https://img.shields.io/github/sponsors/docsdevbr
 
@@ -48,16 +48,16 @@ The original work was translated from English into Brazilian Portuguese.
 
 [contributing]: https://github.com/docsdevbr/.github/blob/main/CONTRIBUTING.EN.md
 
-[contributors]: https://github.com/docsdevbr/vault-doc-pt-br/graphs/contributors
+[contributors]: https://github.com/docsdevbr/vault-website-pt-br/graphs/contributors
 
 [github-sponsors]: https://github.com/sponsors/docsdevbr
 
 [license]: LICENSE
 
-[page]: https://docs.dev.br/docs/vault/doc/
+[page]: https://pt.docs.dev.br/p/vault/
 
 [readme-en]: README.EN.md
 
 [readme-pt-br]: README.md
 
-[sponsor]: https://docs.dev.br/apoie-o-projeto
+[sponsor]: https://pt.docs.dev.br/sponsor

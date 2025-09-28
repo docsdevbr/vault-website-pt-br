@@ -1,4 +1,4 @@
-# [vault-doc-pt-br][page]
+# [vault-website-pt-br][page]
 
 [![Arquivo README em inglês][badge-readme-en]][readme-en]
 [![Arquivo README em português brasileiro][badge-readme-pt-br]][readme-pt-br]
@@ -6,7 +6,7 @@
 [![Pessoas contribuidoras][badge-contributors]][contributors]
 [![GitHub Sponsors][badge-github-sponsors]][github-sponsors]
 
-Tradução da Documentação do Vault para português brasileiro.
+Tradução do site do Vault para português brasileiro.
 
 ## Contribuindo
 
@@ -34,7 +34,7 @@ Documentação licenciada sob a
 [Business Source License, Versão 1.1][license].<br>
 A obra original foi traduzida do inglês para o português brasileiro.
 
-[badge-contributors]: https://img.shields.io/github/contributors/docsdevbr/vault-doc-pt-br
+[badge-contributors]: https://img.shields.io/github/contributors/docsdevbr/vault-website-pt-br
 
 [badge-github-sponsors]: https://img.shields.io/github/sponsors/docsdevbr
 
@@ -48,16 +48,16 @@ A obra original foi traduzida do inglês para o português brasileiro.
 
 [contributing]: https://github.com/docsdevbr/.github/blob/main/CONTRIBUTING.md
 
-[contributors]: https://github.com/docsdevbr/vault-doc-pt-br/graphs/contributors
+[contributors]: https://github.com/docsdevbr/vault-website-pt-br/graphs/contributors
 
 [github-sponsors]: https://github.com/sponsors/docsdevbr
 
 [license]: LICENSE
 
-[page]: https://docs.dev.br/docs/vault/doc/
+[page]: https://pt.docs.dev.br/p/vault/
 
 [readme-en]: README.EN.md
 
 [readme-pt-br]: README.md
 
-[sponsor]: https://docs.dev.br/apoie-o-projeto
+[sponsor]: https://pt.docs.dev.br/sponsor
