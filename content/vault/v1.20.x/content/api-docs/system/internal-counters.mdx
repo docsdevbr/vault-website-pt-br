@@ -1,11 +1,4 @@
 ---
-# Copyright (c) 2024 HashiCorp, Inc.
-# Vault and the Vault logo are trademarks of HashiCorp.
-
-# Documentation licensed under the Business Source License, Version 1.1.
-# The original work was translated from English into Brazilian Portuguese.
-# https://github.com/hashicorp/web-unified-docs/blob/main/LICENSE
-
 layout: api
 page_title: /sys/internal/counters - HTTP API
 description: >-
@@ -218,8 +211,18 @@ The `start_time` in the response is the earliest time there is activity data
 in the queried period. The `end_time` is the end of the final month of the queried
 period.
 
+The `/sys/internal/counters` endpoint only supports monthly granularity. As a
+result, the `start_time` and `end_time` values in API reponses are normalized to
+align with full calendar months.
+
+Normalization occurs whether you provide explicitly times in the request or use
+the defaults:
+
+- `start_time` normalizes to the start of the month in which the effective `start_time` falls.
+- `end_time` normalizes to the end of the month in which the effective `end_time` falls.
+
 - If the `end_date` supplied to the API is the current month, exact activity
-information will be returned for all months in the queried period. The last element
+information will be returned for all months in the queried period. The last element 
 in the `months` response stanza will signify the current month.
 
 @include 'counters-api-new-clients-behavior-change.mdx'
@@ -230,9 +233,9 @@ The `start_time` and `end_time` request parameters behave differently between
 Vault Enterprise and Vault Community edition.
 
 In Vault Enterprise edition, the time parameters must align with the entire default
-billing period of 12 months. In Vault Community edition, the Get Client Count endpoint
+billing period of 12 months. In Vault Community edition, the Get Client Count endpoint  
 supports flexible historical time ranges, but excludes the current month and any
-future dates.
+future dates. 
 
 
 <Tabs>
@@ -243,7 +246,7 @@ In Vault Enterprise, the Get Client Count endpoint adjusts `start_time` and
 `end_time` to align with the start and end of the corresponding billing period.
 
 - The endpoint only returns data for an entire billing period.
-- By default, the endpoint returns activity data from the start of the current
+- By default, the endpoint returns activity data from the start of the current 
   billing period up to the time you call the endpoint.
 - If you provide a start time outside the current billing period, Vault
   aligns the query to the full default billing period associated with the
@@ -312,11 +315,11 @@ When `end_time` falls in the current month or a future month, Vault adjusts the 
 end time to the last day of the previous month and includes the following
 warning along with the associated counts:
 
-      ```json
-      {
-         "warning": "end_time parameter can only be used to specify a date until the end of previous month. The value provided for this parameter was in the current month or in the future date and was therefore ignored. The response includes data until the end of the previous month."
-      }
-      ```
+   ```json
+   {
+      "warning": "end_time parameter can only be used to specify a date until the end of previous month. The value provided for this parameter was in the current month or in the future date and was therefore ignored. The response includes data until the end of the previous month."
+   }
+   ```
 
 For example, assume the current date is September 25, 2025  and you call the
 Get Client Count endpoint with `end_time` set to `2025-10-01`:
@@ -1290,7 +1293,9 @@ There are a few things to keep in mind while using this API.
 
 - The response includes the actual time period covered, which may not exactly
 match the query parameters due to the month granularity of data or missing
-months in the requested time range.
+months in the requested time range. Vault always normalizes the effective
+`start_time` and `end_time` to full calendar months by adjusting `start_time` to
+the beginning of the month and `end_time` to the end of the month.
 
 - If the `end_date` supplied to the API is for the current month, the activity
 information returned by this API will include activity for this month, however
