@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Telemetry - Configuration
 description: |-
@@ -28,7 +35,7 @@ parameters on this page are grouped by the telemetry provider.
 The following options are available on all telemetry configurations.
 
 - `usage_gauge_period` `(string: "10m")` - Specifies the interval at which high-cardinality
-  usage data is collected, such as token counts, entity counts, and secret counts.  
+  usage data is collected, such as token counts, entity counts, and secret counts.
    A value of "none" disables the collection.
 - `maximum_gauge_cardinality` `(int: 500)` - The maximum cardinality of gauge labels.
 - `disable_hostname` `(bool: false)` - Specifies if gauge values should be
@@ -59,7 +66,7 @@ The following options are available on all telemetry configurations.
   ```json
   ["+vault.token", "-vault.expire", "+vault.expire.num_leases"]
   ```
-  A leading "**+**" will enable any metrics with the given prefix, and a leading "**-**" will block them. 
+  A leading "**+**" will enable any metrics with the given prefix, and a leading "**-**" will block them.
   If there is overlap between two rules, the more specific rule will take precedence. Blocking will take priority if the same prefix is listed multiple times.
 
 
@@ -244,7 +251,7 @@ roles/monitoring.metricWriter
 - `stackdriver_location` `(string: "")` - The GCP or AWS region of the monitored resource.
 - `stackdriver_namespace` `(string: "")` - A namespace identifier for the telemetry data.
 - `stackdriver_debug_logs` `(bool: "false")` - Specifies if Vault writes additional stackdriver
-related debug logs to standard error output (stderr).  
+related debug logs to standard error output (stderr).
 
 It is recommended to also enable the option `disable_hostname` to avoid having prefixed
 metrics with hostname and enable instead `enable_hostname_label`.

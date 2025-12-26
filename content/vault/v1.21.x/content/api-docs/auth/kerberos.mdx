@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: api
 page_title: Kerberos - Auth Methods - HTTP API
 description: This is the API documentation for the Vault Kerberos auth method plugin.
@@ -38,8 +45,8 @@ for verifying inbound SPNEGO tokens.
 - `remove_instance_name` - Removes any instance names from a Kerberos service
   principal name when parsing the keytab file. For example when this is set to true,
   if a keytab has the service principal name `foo/localhost@example.com`, Vault
-  will strip the service principal name to just be `foo@example.com`. 
-- `add_group_aliases` - When set to true, Vault will add any LDAP groups found for 
+  will strip the service principal name to just be `foo@example.com`.
+- `add_group_aliases` - When set to true, Vault will add any LDAP groups found for
   the user as group aliases.
 
 ### Sample request

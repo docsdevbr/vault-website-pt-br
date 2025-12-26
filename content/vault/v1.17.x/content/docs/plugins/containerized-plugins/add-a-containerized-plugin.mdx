@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Add a containerized secrets plugin
 description: >-
@@ -28,7 +35,7 @@ Install one of the supported container engines:
   - [Docker](https://docs.docker.com/engine/install/)
   - [Rootless Docker](https://docs.docker.com/engine/security/rootless/)
 
-## Step 2: Configure your container runtime 
+## Step 2: Configure your container runtime
 
 Update your container engine to use `runsc` for Unix sockets between the host
 and plugin binary.
@@ -174,7 +181,7 @@ other external plugin that is available locally to Vault.
        YOUR_PLUGIN_IMAGE_TAG | cut -d: -f2)
    ```
    For example:
-   
+
    <CodeBlockConfig hideClipboard>
 
    ```shell-session
@@ -183,7 +190,7 @@ other external plugin that is available locally to Vault.
        --format="{{ .ID }}" \
        hashicorp/vault-plugin-secrets-kv:mycontainer | cut -d: -f2)
    ```
-   
+
    </CodeBlockConfig>
 
 1. Register the plugin with `vault plugin register` and specify your plugin
@@ -195,16 +202,16 @@ other external plugin that is available locally to Vault.
        NEW_PLUGIN_TYPE NEW_PLUGIN_ID
    ```
    For example:
-   
+
    <CodeBlockConfig hideClipboard>
-   
+
    ```shell-session
    $ vault plugin register \
        -sha256="${SHA256}" \
        -oci_image=hashicorp/vault-plugin-secrets-kv:mycontainer \
        secret my-kv-container
    ```
-   
+
    </CodeBlockConfig>
 
 1. Enable the new plugin for your Vault instance with `vault secrets enable` and
@@ -213,13 +220,13 @@ other external plugin that is available locally to Vault.
    $ vault secrets enable NEW_PLUGIN_ID
    ```
    For example:
-   
+
    <CodeBlockConfig hideClipboard>
-   
+
    ```shell-session
    $ vault secrets enable my-kv-container
    ```
-        
+
    </CodeBlockConfig>
 
 
@@ -243,14 +250,14 @@ new plugin.
    $ vault write NEW_PLUGIN_ID/SECRET_PATH SECRET_KEY=SECRET_VALUE
    ```
    For example:
-   
+
    <CodeBlockConfig hideClipboard>
-   
+
    ```shell-session
    $ vault write my-kv-container/testing subject=containers
    Success! Data written to: my-kv-container/testing
    ```
-    
+
    </CodeBlockConfig>
 
 1. Fetch the secret you just wrote:
@@ -258,9 +265,9 @@ new plugin.
    $ vault read NEW_PLUGIN_ID/SECRET_PATH
    ```
    For example:
-   
+
    <CodeBlockConfig hideClipboard>
-   
+
    ```shell-session
    $ vault read my-kv-container/testing
    ===== Data =====
@@ -268,7 +275,7 @@ new plugin.
    ---        -----
    subject    containers
    ```
-   
+
    </CodeBlockConfig>
 
 ## Use alternative runtimes ((#alt-runtimes))
@@ -296,9 +303,9 @@ To use an alternative runtime:
       NEW_PLUGIN_TYPE NEW_PLUGIN_ID
    ```
    For example:
-   
+
    <CodeBlockConfig hideClipboard>
-   
+
    ```shell-session
    $ vault plugin register \
       -runtime=docker-rt   \

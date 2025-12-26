@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Seal/Unseal
 description: >-
@@ -335,8 +342,8 @@ migration will not happen again on the peer nodes.
 
 ## Seal High Availability (Enterprise)
 
-Seal high availability (Seal HA) allows the configuration of more than one auto 
-seal mechanism such that Vault can tolerate the temporary loss of a seal service 
+Seal high availability (Seal HA) allows the configuration of more than one auto
+seal mechanism such that Vault can tolerate the temporary loss of a seal service
 or device for a time.  With Seal HA configured with at least two and no more than
 three auto seals, Vault can also start up and unseal if one of the
 configured seals is still available (though Vault will remain in a degraded mode in
@@ -362,7 +369,7 @@ auto seals in a [simplified manner.](#migration-post-vault-1-16-0-via-seal-ha-fo
 Note that Shamir seals are not auto seals and cannot be included in a Seal
 HA setup.  This is because auto seals support seal wrap while Shamir seals
 do not, so the loss of the auto seal does not necessarily leave Vault in a
-fully available state. 
+fully available state.
 
 ### Use and Configuration
 

@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Seal/Unseal
 description: >-
@@ -117,20 +124,20 @@ For a list of examples and supported providers, please see the
 
 -> **Warning:** Recovery keys cannot decrypt the root key, and thus are not
 sufficient to unseal Vault if the Auto Unseal mechanism isn't working. They
-are purely an authorization mechanism.  Using Auto Unseal 
-creates a strict Vault lifecycle dependency on the underlying seal mechanism. 
-This means that if the seal mechanism (such as the Cloud KMS key) becomes unavailable, 
-or deleted before the seal is migrated, then there is no ability to recover 
-access to the Vault cluster until the mechanism is available again. **If the seal 
+are purely an authorization mechanism.  Using Auto Unseal
+creates a strict Vault lifecycle dependency on the underlying seal mechanism.
+This means that if the seal mechanism (such as the Cloud KMS key) becomes unavailable,
+or deleted before the seal is migrated, then there is no ability to recover
+access to the Vault cluster until the mechanism is available again. **If the seal
 mechanism or its keys are permanently deleted, then the Vault cluster cannot be recovered, even
 from backups.**
 To mitigate this risk, we recommend careful controls around management of the seal
-mechanism, for example using 
+mechanism, for example using
 [AWS Service Control Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html)
-or similar.  
+or similar.
 With Vault Enterprise secondary clusters (disaster or performance) can have a
-seal configured independently of the primary, and when properly configured guards 
-against *some* of this risk.  Unreplicated items such as local mounts could still 
+seal configured independently of the primary, and when properly configured guards
+against *some* of this risk.  Unreplicated items such as local mounts could still
 be lost.
 
 

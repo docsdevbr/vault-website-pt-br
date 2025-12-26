@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Configuration
 sidebar_title: Configuration
@@ -67,7 +74,7 @@ and consider if they're appropriate for your deployment.
       - `repository` (`string: "gcr.io/google_containers/leader-elector"`) - The name of the leader election image for the Vault Agent Injector.
 
       - `tag` (`string: "0.4"`) - The tag of the Docker image for the Leader Election. **This should be pinned to a specific version when running in production.**
-    
+
     - `ttl` (`string: "60s"`) - The frequency in which leader elections are performed in the Vault Agent Injector cluster.
 
   - `image` - Values that configure the Vault Agent Injector Docker image.

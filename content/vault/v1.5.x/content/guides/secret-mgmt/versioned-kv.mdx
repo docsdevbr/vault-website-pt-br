@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: guides
 page_title: Versioned KV Secret Engine - Guides
 sidebar_title: Versioned KV Secret Engine
@@ -221,6 +228,13 @@ To write secrets, run `vault kv put` command instead of `vault write`:
 $ vault kv put secret/customer/acme name="ACME Inc." contact_email="jsmith@acme.com"
 Key              Value
 ---              -----
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 created_time     2018-04-14T00:05:47.115378933Z
 deletion_time    n/a
 destroyed        false
@@ -355,6 +369,13 @@ $ vault kv get -version=1 secret/customer/acme
 ====== Metadata ======
 Key              Value
 ---              -----
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 created_time     2018-04-14T00:05:47.115378933Z
 deletion_time    n/a
 destroyed        false
@@ -477,6 +498,13 @@ Success! Data written to: secret/config
 $ vault read secret/config
 Key             Value
 ---             -----
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 cas_required    false
 max_versions    4
 ```
@@ -664,6 +692,13 @@ $ vault kv metadata get secret/customer/acme
 ====== Version 4 ======
 Key              Value
 ---              -----
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 created_time     2018-04-16T00:12:25.404198622Z
 deletion_time    2018-04-16T01:04:01.160426888Z
 destroyed        false

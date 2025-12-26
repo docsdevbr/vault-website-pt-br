@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: operator step-down - Command
 description: |-
@@ -9,10 +16,10 @@ description: |-
 # operator step-down
 
 The `operator step-down` forces the active Vault node within an [HA cluster](/vault/docs/concepts/ha)
-to step down from active duty. When executed against a non-active node, i.e. a 
-standby or [performance standby](/vault/docs/enterprise/performance-standby) node, 
-the request will be forwarded to the active node.  While the 
-affected node will have a delay before attempting to acquire 
+to step down from active duty. When executed against a non-active node, i.e. a
+standby or [performance standby](/vault/docs/enterprise/performance-standby) node,
+the request will be forwarded to the active node.  While the
+affected node will have a delay before attempting to acquire
 the leader lock again, if no other Vault nodes acquire the
 lock beforehand, it is possible for the same node to re-acquire
 the lock and become active again. Due to the locking architecture, there may be a period of time
@@ -36,7 +43,7 @@ included on all commands.
 
 You must belong to a policy with `update` and `sudo` permissions to use the
 `vault operator step-down` command:
- 
+
 ```hcl
 path "sys/step-down" {
   capabilities = ["update", "sudo"]

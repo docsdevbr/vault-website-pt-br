@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Configure Vault ServiceNow Credential Resolver
 description: This section documents the configurables for the Vault ServiceNow Credential Resolver.
@@ -43,6 +50,13 @@ to ensure it is correctly mapped to ServiceNow's credential fields:
 
 Key         | Description                            | Supported aliases
 ------------|----------------------------------------|------------------
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 username    | The username                           | access_key
 password    | The password                           | secret_key, current_password
 private_key | The private SSH key                    |
@@ -84,7 +98,7 @@ Level         | Authentication | Encryption | What Happens
 --------------|----------------|------------|------------------------
 noAuthNoPriv  | Username       | None       | Username match for auth
 authNoPriv    | MD5 or SHA     | None       | Auth based on HMAC-MD5 or HMAC-SHA algorithms
-authPriv      | MD5 or SHA     | DES        | Auth based on HMAC-MD5 or HMAC-SHA algorithms; provides DES 56-bit encryption based on (CBC)-DES (DES-56) 
+authPriv      | MD5 or SHA     | DES        | Auth based on HMAC-MD5 or HMAC-SHA algorithms; provides DES 56-bit encryption based on (CBC)-DES (DES-56)
 
 ### Configuring the resolver to use a secret
 

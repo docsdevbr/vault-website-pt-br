@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: "docs"
 page_title: "Highly Available Vault Enterprise Cluster with Raft"
 sidebar_current: "docs-platform-k8s-examples-enterprise-with-raft"
@@ -28,8 +35,8 @@ kubectl exec -ti vault-0 -- vault operator init
 kubectl exec -ti vault-0 -- vault operator unseal
 ```
 
-Finally, join the remaining pods to the Raft cluster and unseal them.  The pods 
-will need to communicate directly so we'll configure the pods to use the internal 
+Finally, join the remaining pods to the Raft cluster and unseal them.  The pods
+will need to communicate directly so we'll configure the pods to use the internal
 service provided by the Helm chart:
 
 ```shell

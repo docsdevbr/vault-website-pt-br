@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: AWS secret import source
 description: Use the AWS Importer to read secrets from AWS into Vault.
@@ -32,14 +39,14 @@ the relevant secrets:
 The following configuration example uses static credentials in a AWS profile to
 import secrets from AWS:
 
-```hcl  
+```hcl
 source_aws {
   name = "my-aws-source-1"
   credentials_profile = "my-cred-profile-name"
 }
 ```
 
-If you provide a static credential profile you must leave `vault_mount_path`, 
+If you provide a static credential profile you must leave `vault_mount_path`,
 `vault_role_name`, `vault_namespace`, `vault_address`, and
 `vault_credentials_file` unset. If set one of the dynamic credential parameters,
 Vault returns an error.

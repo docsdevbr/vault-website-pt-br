@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Upgrade Vault
 description: >-
@@ -23,7 +30,7 @@ unseal Vault after the upgrade.
 
 - **You must have `sudo` permissions on the Vault server**. Make sure you have
   can install binaries on the Vault server.
-- **You must have admin permissions for Vault**. Make sure you can stop and 
+- **You must have admin permissions for Vault**. Make sure you can stop and
   start the Vault process.
 - **Identify unseal candidates**. Identify and notify enough people with unseal
   shards to meet the unseal threshold after restart.
@@ -51,23 +58,23 @@ To perform an in-place upgrade of a single Vault instance:
 1. Use `SIGINT` or `SIGTERM` to shut down Vault.
 
     <Tabs>
-    
+
     <Tab heading="Bash">
 
     ```shell-session
     $ kill <vault_pid>
     ```
-    
+
     </Tab>
-    
+
     <Tab heading="Powershell">
-    
+
     ```powershell
     Stop-Process <vault_pid>
     ```
 
     </Tab>
-    
+
     </Tabs>
 
 1. [Install the latest version of Vault](/vault/docs/get-vault) over your
@@ -85,15 +92,16 @@ To perform an in-place upgrade of a single Vault instance:
 
 1. Test the upgrade. The best way to test an upgrade is to take a snapshot of
    the Vault data store after upgrading and load the backup into a test instance.
-   
+
 <Warning title="Isolate your test instance">
 
-If you use Vault to coordinate secrets with third party resources (cloud
-credentials, database credentials, etc.) make sure you isolate the test
-instance from external network connectivity during testing. Isolating the test
-instance prevents it from trying to revoke 3rd party resources. Otherwise, the
-third party resource credentials may expire and prevent access from the
-production cluster.
+Upgrade or restore tests should always be performed in a fully isolated
+network environment. This isolation is critical to prevent both unwanted
+cluster-to-cluster communication (which maintains data consistency) and to
+stop the test instance from attempting to revoke 3rd-party
+credentials (secrets, etc.). If the test instance revokes live credentials,
+they may expire, which might result in irrevocable leases for the production
+Vault cluster from which the snapshot was taken.
 
 </Warning>
 

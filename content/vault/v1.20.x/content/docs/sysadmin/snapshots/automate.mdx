@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Automate cluster snapshots
 description: >-
@@ -24,12 +31,12 @@ local or cloud storage.
 
 
 
-## Step 1: Determine your snapshot settings 
+## Step 1: Determine your snapshot settings
 
 Vault can write snapshots to local storage and cloud storage. For longterm
 maintenance, we recommend saving your autosnapshot settings to a JSON file.
 
-### Local storage example 
+### Local storage example
 
 The following JSON file, `local-snapshot.json`, defines an automated snapshot
 configuration that uses local storage with custom file and path prefixes. The
@@ -50,7 +57,7 @@ size exceeds 250 MB (262144000 bytes).
 ```
 
 
-### Cloud storage example 
+### Cloud storage example
 
 The following JSON file, `aws-snapshot.json`, defines an automated snapshot
 configuration that uses AWS S3 cloud storage, customizes AWS configuration

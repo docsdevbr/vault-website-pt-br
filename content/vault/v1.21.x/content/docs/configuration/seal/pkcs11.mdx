@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: HSM PKCS11 seal configuration
 description: >-
@@ -10,12 +17,12 @@ description: >-
 
 <Note title="Auto-unseal and seal wrapping requires Vault Enterprise">
 
-  Auto-unseal **and** seal wrapping for PKCS11 require Vault Enterprise.
-  
-  Vault Enterprise enables seal wrapping by default, which means the KMS service
-  must be available at runtime and not just during the unseal process. Refer to
-  the [Seal wrap](/vault/docs/enterprise/sealwrap) overview for more
-  information.
+Auto-unseal **and** seal wrapping for PKCS11 require Vault Enterprise.
+
+Vault Enterprise enables seal wrapping by default, which means the KMS service
+must be available at runtime and not just during the unseal process. Refer to
+the [Seal wrap](/vault/docs/enterprise/sealwrap) overview for more
+information.
 
 </Note>
 
@@ -46,7 +53,7 @@ The following software packages are required for Vault Enterprise HSM:
   library](https://www.gnu.org/software/libtool/manual/html_node/Using-libltdl.html)
   — ensure that it is installed for the correct architecture of your servers
 
-## `pkcs11` example
+## Basic `pkcs11` example
 
 This example shows configuring HSM PKCS11 seal through the Vault configuration
 file by providing all the required values:
@@ -58,6 +65,27 @@ seal "pkcs11" {
   pin            = "AAAA-BBBB-CCCC-DDDD"
   key_label      = "vault-hsm-key"
   hmac_key_label = "vault-hsm-hmac-key"
+}
+```
+
+## Use `pkcs11` with IBM EP11 tokens
+
+To use the pkcs11 seal with IBM EP11 tokens, you need to have opencryptoki
+installed, and the Crypto Express adapter enabled for LinuxOne or Linux on IBM Z
+instances.
+
+Refer to the [IBM EP11 Token
+Documentation](https://www.ibm.com/docs/en/linux-on-systems?topic=support-exploiting-enterprise-pkcs-11-using-opencryptoki)
+for more details.
+
+```hcl
+seal "pkcs11" {
+  lib                 = "/usr/local/lib/opencryptoki/libopencryptoki.so"
+  slot                = "4"
+  pin                 = "12345678"
+  key_label           = "vault_hsm_key"
+  hmac_key_label      = "vault_hsm_hmac_key"
+  generate_key        = true
 }
 ```
 
@@ -173,7 +201,7 @@ These parameters apply to the `seal` stanza in the Vault configuration file:
 `pin` can be an [indirect value reference](/vault/docs/configuration/seal#indirect-value-references).
 
 Refer to the [Seal Migration](/vault/docs/concepts/seal#seal-migration) documentation for more information about the seal migration process.
-  
+
 ### Mechanism specific flags
 
 - `rsa_encrypt_local` `(string: "false")`: For HSMs that do not support encryption
@@ -287,7 +315,7 @@ configuration with the new key label value. Restart your vault instance to pick 
 label and all new encryption operations will use the updated key label. Old keys must not be disabled
 or deleted and are used to decrypt older data. To disable or delete old keys, Vault needs to
  perform [seal-rewrap](/vault/api-docs/system/sealwrap-rewrap#start-a-seal-rewrap-process)
- so  that data encrypted by the old key can be decrypted using the new key. 
+ so  that data encrypted by the old key can be decrypted using the new key.
 
 **NOTE**: Prior to version 0.10.1, key information was not tracked with the ciphertext. If
 rotation is desired for data that was seal wrapped prior to this version must also set

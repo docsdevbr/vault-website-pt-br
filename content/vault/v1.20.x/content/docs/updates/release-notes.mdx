@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: "Vault release notes"
 description: >-
@@ -45,7 +52,7 @@ recovery, and provides enhanced ecosystem integrations for centralizing secrets.
 
 - Enhances resilience by providing reliability improvements, control over
   traffic flows, and the ability to ensure fairness of Vault consumption across
-  users and applications.   
+  users and applications.
 
 - Better auditability and visibility into audit logs, certificates, Vault
   feature usage, and opinionated suggestions for improving Vault usage, including
@@ -63,7 +70,7 @@ Deprecated in 1.20.x | Retired in 1.20.x
 @include 'release-notes/deprecation-note.mdx'
 
 
-## Important changes 
+## Important changes
 
 @include '../../../global/partials/important-changes/summary-tables/1_20.mdx'
 
@@ -128,7 +135,7 @@ Deprecated in 1.20.x | Retired in 1.20.x
     <td style={{verticalAlign: 'middle'}}>
       Provides improved visibility into client count attribution, increases
       accuracy by removing estimates, and sets the current billing period in
-      Vault GUI based on the current Vault configuration.      
+      Vault GUI based on the current Vault configuration.
       <br /><br />
       Learn more: <a href="/vault/docs/concepts/client-count/client-usage">Client usage</a> overview
     </td>
@@ -140,7 +147,7 @@ Deprecated in 1.20.x | Retired in 1.20.x
     <td style={{verticalAlign: 'middle', textAlign: 'center'}}>Enhanced</td>
     <td style={{verticalAlign: 'middle', textAlign: 'center'}}>Enterprise</td>
     <td style={{verticalAlign: 'middle'}}>
-      Removed partial month estimates from client count to improve client count 
+      Removed partial month estimates from client count to improve client count
       accuracy for the current month.
       <br /><br />
       Learn more: <a href="/vault/api-docs/system/internal-counters#partial-month-client-count">Partial month client count endpoint</a>
@@ -188,21 +195,21 @@ Deprecated in 1.20.x | Retired in 1.20.x
   </tr>
   <tr>
     <td style={{verticalAlign: 'middle'}}>
-      Identity-based rate limit quotas 
+      Identity-based rate limit quotas
     </td>
     <td style={{verticalAlign: 'middle', textAlign: 'center'}}>GA</td>
     <td style={{verticalAlign: 'middle', textAlign: 'center'}}>Enterprise</td>
     <td style={{verticalAlign: 'middle'}}>
       Apply rate limit quotas by entity ID instead of IP for more granular and
       flexible control over traffic flow and easier management of misbehaving
-      applications and users. 
+      applications and users.
       <br /><br />
       Learn more: <a href="/vault/docs/concepts/resource-quotas">Resource quotas</a> overview
     </td>
   </tr>
   <tr>
     <td style={{verticalAlign: 'middle'}}>
-      Collective rate limit quotas 
+      Collective rate limit quotas
     </td>
     <td style={{verticalAlign: 'middle', textAlign: 'center'}}>GA</td>
     <td style={{verticalAlign: 'middle', textAlign: 'center'}}>Enterprise</td>
@@ -216,7 +223,7 @@ Deprecated in 1.20.x | Retired in 1.20.x
   </tr>
   <tr>
     <td style={{verticalAlign: 'middle'}}>
-      Secret recovery  
+      Secret recovery
     </td>
     <td style={{verticalAlign: 'middle', textAlign: 'center'}}>GA</td>
     <td style={{verticalAlign: 'middle', textAlign: 'center'}}>Enterprise</td>
@@ -255,7 +262,7 @@ Deprecated in 1.20.x | Retired in 1.20.x
   </tr>
   <tr>
     <td style={{verticalAlign: 'middle'}}>
-      Secrets import 
+      Secrets import
     </td>
     <td style={{verticalAlign: 'middle', textAlign: 'center'}}>Beta</td>
     <td style={{verticalAlign: 'middle', textAlign: 'center'}}>Enterprise</td>
@@ -300,7 +307,7 @@ Deprecated in 1.20.x | Retired in 1.20.x
     <td style={{verticalAlign: 'middle', textAlign: 'center'}}>Enterprise</td>
     <td style={{verticalAlign: 'middle'}}>
       Use the Vault provider for Terraform with ephemeral resources and write-only
-      attributes in key-value and database secret engines. 
+      attributes in key-value and database secret engines.
       <br /><br />
       Learn more: <a href="https://registry.terraform.io/providers/hashicorp/vault">Vault provider for Terraform</a>
     </td>

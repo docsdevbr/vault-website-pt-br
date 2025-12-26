@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Run Vault on OpenShift
 description: >-
@@ -60,7 +67,7 @@ etc. the Vault cluster.
 
 <Warning title="Security warning">
 
-   By default, the chart runs in standalone mode. Standalone mode uses a single Vault server with a file storage backend. This is a less secure and less resilient installation that is not appropriate for a production setup. 
+   By default, the chart runs in standalone mode. Standalone mode uses a single Vault server with a file storage backend. This is a less secure and less resilient installation that is not appropriate for a production setup.
 
    See documentation for a [properly secured Kubernetes cluster](https://kubernetes.io/docs/tasks/administer-cluster/securing-a-cluster/), [learn the available configuration options](/vault/docs/platform/k8s/helm/configuration), and read the [production deployment checklist](/vault/docs/platform/k8s/helm/run#architecture).
 
@@ -129,7 +136,7 @@ Vault server with a memory storage backend.
 
 <Tip>
    Dev mode is ideal for learning and demonstration environments but NOT recommended for a production environment.
-</Tip> 
+</Tip>
 
 Install the latest Vault Helm chart in development mode.
 

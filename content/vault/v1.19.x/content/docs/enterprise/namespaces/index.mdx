@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Namespace and SMT support in Vault
 description: >-
@@ -79,7 +86,7 @@ related to managing namespaces.
 ## Child namespaces
 
 A **child namespace** is any namespace that exists entirely within the scope of
-another namespace. The containing namespace is the **parent namespace**. For 
+another namespace. The containing namespace is the **parent namespace**. For
 example, given the namespace path `A/B/C`:
 
 - `A` is the top-most namespace and exists under the root namespace for the
@@ -90,12 +97,12 @@ example, given the namespace path `A/B/C`:
 Children can inherit elements from their parent namespaces. For example,
 policies for a child namespace might reference entities or groups from the parent
 namespace. Parent namespaces can also **assert** policies on identities within
-a child namespace. 
+a child namespace.
 
 Vault administrators can configure the desired inheritance behavior with the
 [group-policy-application](/vault/api-docs/system/config-group-policy-application)
 endpoint of the Vault API.
- 
+
 ## Delegation and administrative namespaces
 
 Vault system administrators can assign administration rights to delegate

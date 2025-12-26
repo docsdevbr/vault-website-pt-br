@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: api
 page_title: /sys/storage/raft/snapshot-auto - HTTP API
 description: |-
@@ -61,15 +68,15 @@ environment variables or files on disk in predefined locations.
 - `autoload_enabled` `(bool: false)` - Have Vault automatically load the latest snapshot
   after it is written. This will replace the previously loaded snapshot.
   Note that this does not mean the snapshot is automatically applied to the
-  cluster, it is just loaded and available for recovery operations. Not allowed 
+  cluster, it is just loaded and available for recovery operations. Not allowed
   for `storage_type=local`. Can only be enabled for one configuration at a time.
 
 <Note>
 
-If you set `autoload_enabled=true` for a configuration and that configuration's 
+If you set `autoload_enabled=true` for a configuration and that configuration's
 `interval` is less than 1 hour, Vault will only load a new snapshot at most once
-per hour.    
-    
+per hour.
+
 </Note>
 
 #### storage_type=local
@@ -169,7 +176,7 @@ parameters in the context of AWS EKS & S3 configuration.
   `google_endpoint`.
 
 #### storage_type=azure-blob
- 
+
 - `azure_container_name` `(string: <required>)` - Azure container name to write
   snapshots to.
 
@@ -183,7 +190,7 @@ parameters in the context of AWS EKS & S3 configuration.
 - `azure_auth_mode` `(string)` - One of `shared`, `managed`, or `environment`.
   If `environment` is set, Azure authentication details are retrieved from the
   environment variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`,
-  `AZURE_TENANT_ID`, `AZURE_SUBSCRIPTION_ID`. 
+  `AZURE_TENANT_ID`, `AZURE_SUBSCRIPTION_ID`.
 
 - `azure_account_key` `(string)` - Azure account key. Used for `shared` authentication.
 
@@ -327,7 +334,7 @@ $ curl \
 }
 ```
 
-### Sample response with autoloading enabled 
+### Sample response with autoloading enabled
 
 ```json
 {
@@ -339,7 +346,7 @@ $ curl \
     "loaded_snapshot_expires_at": "2025-09-01T17:41:55+02:00",
     "loaded_snapshot_id": "42596c4c-6f4b-c476-8eb0-90546cdda7f3",
     "loaded_snapshot_status": "ready",
-    "next_snapshot_start": "2025-08-29T17:46:55+02:00", 
+    "next_snapshot_start": "2025-08-29T17:46:55+02:00",
     "snapshot_start": "2025-08-29T17:41:55+02:00",
     "snapshot_url": "https://example.com/snapshots/vault-snapshot-1603898241699731000.snap"
   }
@@ -356,7 +363,7 @@ $ curl \
     "last_snapshot_start": "2025-08-29T17:41:54+02:00",
     "last_snapshot_url": "https://example.com/snapshots/vault-snapshot-1603898241699731000.snap",
     "loading_error": "error loading snapshot: a snapshot is loaded already",
-    "next_snapshot_start": "2025-08-29T17:46:55+02:00", 
+    "next_snapshot_start": "2025-08-29T17:46:55+02:00",
     "snapshot_start": "2025-08-29T17:41:55+02:00",
     "snapshot_url": "https://example.com/snapshots/vault-snapshot-1603898241699731000.snap"
   }

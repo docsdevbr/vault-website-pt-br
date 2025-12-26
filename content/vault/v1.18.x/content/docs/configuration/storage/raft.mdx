@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Integrated storage configuration
 description: >-
@@ -176,7 +183,7 @@ delay) mode. The maximum allowed value is 10.
   log store instead of the default of BoltDB.
 
 - `raft_log_verifier_enabled` `(boolean: false)` - Enables the raft log verifier.
-  The verifier periodically writes small raft logs and verifies checksums to 
+  The verifier periodically writes small raft logs and verifies checksums to
   ensure that data has been written correctly. The verifier works with raft
   write-ahead **and** BoltDB log stores.
 

@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Restore to single cluster
 description: >-
@@ -17,7 +24,7 @@ single, non-replicated cluster.
 
 
 
-## Before you start 
+## Before you start
 
 @include 'sysadmin/snapshots/restore-requirements/load-snapshots.mdx'
 
@@ -89,7 +96,7 @@ from cloud storage directly from the URL.
 
 </Tabs>
 
-Status key | Description 
+Status key | Description
 ---------- | -----------
 `loading`  | Vault is in the process of loading the snapshot and extracting data
 `ready`    | Loading completed successfully. You can read data from the snapshot.
@@ -99,10 +106,10 @@ Status key | Description
 ### Use an autoloaded snapshot
 
 If you configured automated snapshots with [autoloading enabled](/vault/docs/sysadmin/snapshots/automate#step-3-optional-enable-autoloading),
-Vault Enterprise will automatically load a snapshot when the cluster starts and keep 
+Vault Enterprise will automatically load a snapshot when the cluster starts and keep
 updating the loaded snapshot as new automated snapshots are created.
 
-You can check for a loaded snapshot by listing the loaded snapshots: 
+You can check for a loaded snapshot by listing the loaded snapshots:
 
 <Tabs>
 
@@ -111,7 +118,7 @@ You can check for a loaded snapshot by listing the loaded snapshots:
 @include 'sysadmin/snapshots/list-snapshots/gui.mdx'
 
 </Tab>
-    
+
 <Tab heading="CLI" group="cli">
 
 @include 'sysadmin/snapshots/list-snapshots/cli.mdx'

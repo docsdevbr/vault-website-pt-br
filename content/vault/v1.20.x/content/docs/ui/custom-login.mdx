@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Manage custom login settings
 description: >-
@@ -13,7 +20,7 @@ description: >-
 Use can use the Vault CLI or API to customize a default and one or more back up
 login method for the Vault GUI login form.
 
-## Before you start 
+## Before you start
 
 - **You must have Vault Enterprise 1.20.0 or higher installed.**
 - **You must have permission to operate from the `root` or administrative namespace**.
@@ -24,7 +31,7 @@ login method for the Vault GUI login form.
 
 ## Step 1: Select your authentication method
 
-Select a supported authentication method for your default and backup methods. 
+Select a supported authentication method for your default and backup methods.
 You can choose a single default authentication method, multiple backup
 authentication methods, or both.
 
@@ -37,10 +44,10 @@ Backup(s) only          | Users see only from the selected authentication method
 Default and backup(s)   | Users see the default method first but can access the backup methods as alternate options.
 
 
-## Step 2: Make the authentication method visible to the GUI. (Optional, but recommended) 
+## Step 2: Make the authentication method visible to the GUI. (Optional, but recommended)
 
-Set the [listing visibility](/vault/api-docs/system/auth#listing_visibility-1) of your authentication 
-plugin to `unauth` to ensure the Vault GUI uses the correct login URL to use for authentication. 
+Set the [listing visibility](/vault/api-docs/system/auth#listing_visibility-1) of your authentication
+plugin to `unauth` to ensure the Vault GUI uses the correct login URL to use for authentication.
 This also simplifies the customized login form by removing the "Advanced settings" toggle.
 
 Login customizations specify authentication **types**, not specific plugin paths.
@@ -57,7 +64,7 @@ path to authenticate through the customized login view.
 
 Set the [mount description field](/vault/api-docs/system/auth#description) to
 clearly indicate that the mount is a default or backup login method for the
-Vault GUI. 
+Vault GUI.
 
 </Tip>
 
@@ -68,7 +75,7 @@ Vault GUI.
 
 1. Use `vault auth enable` to establish a new instance of the authentication
    plugin and set the `-listing-visibility` flag to `unauth`:
-    
+
     ```shell-session
     $ vault auth enable              \
       -path <mount_path>             \
@@ -77,9 +84,9 @@ Vault GUI.
       -listing-visibility "unauth"   \
       <authentication_method>
     ```
-    
+
     For example:
-    
+
     <CodeBlockConfig hideClipboard>
 
     ```shell-session
@@ -89,21 +96,21 @@ Vault GUI.
       -description "Default GUI auth method" \
       -listing-visibility "unauth"           \
       ldap
-    
+
     Success! Enabled ldap auth method at: gui/ldap/
     ```
 
     </CodeBlockConfig>
 
-1. Use `vault auth list` to verify the plugin configuration. 
+1. Use `vault auth list` to verify the plugin configuration.
 
   For example:
-    
+
   <CodeBlockConfig hideClipboard>
 
   ```shell-session
   $ vault auth list -namespace=admin
-  
+
   Path         Type        Accessor                  Description                Version
   ----         ----        --------                  -----------                -------
   gui/ldap/    ldap        auth_ldap_c84b8cd2        Default GUI auth method    n/a
@@ -130,7 +137,7 @@ Vault GUI.
    plugin. Use the `config` field to set the `listing_visibility` parameter to
    `unauth`.
 
-   For example: 
+   For example:
 
     ```json
     {
@@ -155,7 +162,7 @@ Vault GUI.
     ```
 
   For example:
-  
+
   <CodeBlockConfig hideClipboard>
 
   ```shell-session
@@ -180,7 +187,7 @@ Vault GUI.
 <Tab heading="CLI" group="cli">
 
 Use `vault auth tune` to update the `-listing-visibility` flag to `unauth`:
-    
+
 ```shell-session
 $ vault auth tune              \
   -namespace <plugin_namespace>  \
@@ -188,9 +195,9 @@ $ vault auth tune              \
   -listing-visibility "unauth"   \
   <mount_path>
 ```
-    
+
 For example:
-    
+
 <CodeBlockConfig hideClipboard="true">
 
 ```shell-session
@@ -220,7 +227,7 @@ Success! Tuned the auth method at: gui/ldap/
 
 1. Create a JSON file with the updated configuration information for your
    authentication plugin and set the `listing_visibility` parameter to `unauth`.
-   
+
    For example:
 
     ```json
@@ -265,12 +272,12 @@ Success! Tuned the auth method at: gui/ldap/
 
 ## Step 3: Set your default and backup authentication methods
 
-By default, namespaces inherit login settings from their parent unless you explicitly disable inheritance. 
+By default, namespaces inherit login settings from their parent unless you explicitly disable inheritance.
 To scope a login setting to a specific namespace, set: `disable_inheritance=true`.
 
 <Tip>
 
-- To apply a login customization to the `root` namespace, pass an empty string for the namespace path. 
+- To apply a login customization to the `root` namespace, pass an empty string for the namespace path.
 For example, `namespace_path=""`.
 
 </Tip>
@@ -294,8 +301,8 @@ For example, `namespace_path=""`.
       namespace_path=<namespace_where_the_rule_applies>
     ```
 
-    For example, to customize the login options for the `dev` namespace and set 
-    `userpass` as the default authentication method with `ldap` and `token` 
+    For example, to customize the login options for the `dev` namespace and set
+    `userpass` as the default authentication method with `ldap` and `token`
     as additional, backup options:
 
     <CodeBlockConfig hideClipboard>
@@ -313,8 +320,8 @@ For example, `namespace_path=""`.
 
 1. Use `vault read` with the
    [`sys/config/ui/login/default-auth/{rule_name}`](/vault/api-docs/system/config-ui-login-default-auth)
-   endpoint and the new rule name to verify the login configuration. 
-   
+   endpoint and the new rule name to verify the login configuration.
+
    For example:
 
     <CodeBlockConfig hideClipboard>
@@ -350,9 +357,9 @@ CLI or API, but you can view or delete login settings through the Vault GUI.
 1. Create a JSON file with a new custom login configuration rule that specifies your
    default and/or backup GUI authentication methods. The following types
    are supported:
-   
+
    @include 'ui/supported-login-methods-api-docs.mdx'
-   
+
     ```json
     {
       "namespace_path": "<namespace_where_the_rule_applies>",
@@ -364,8 +371,8 @@ CLI or API, but you can view or delete login settings through the Vault GUI.
     }
     ```
 
-    For example, to customize the login options for the `dev` namespace and set 
-    `userpass` as the default authentication method with `ldap` and `token` 
+    For example, to customize the login options for the `dev` namespace and set
+    `userpass` as the default authentication method with `ldap` and `token`
     as additional, backup options:
 
     <CodeBlockConfig hideClipboard>
@@ -453,9 +460,9 @@ CLI or API, but you can view or delete login settings through the Vault GUI.
 <Tabs>
 <Tab heading="CLI" group="cli">
 
-Use `vault delete` with the 
+Use `vault delete` with the
 [`sys/config/ui/login/default-auth/{rule_name}`](/vault/api-docs/system/config-ui-login-default-auth)
-endpoint and rule name to delete a login setting for a namespace. 
+endpoint and rule name to delete a login setting for a namespace.
 
 ```shell-session
 $ vault delete sys/config/ui/login/default-auth/<unique_rule_name>
@@ -493,7 +500,7 @@ You can delete a login rule in two places from the **UI Login Settings** page.
 
 Make a `DELETE` call to the
 [`sys/config/ui/login/default-auth/{rule_name}`](/vault/api-docs/system/config-ui-login-default-auth)
-endpoint to delete a login setting for a namespace. 
+endpoint to delete a login setting for a namespace.
 
 ```shell-session
 $ curl                                             \
@@ -521,7 +528,7 @@ $ curl                                               \
 ## Bypass custom login settings
 
 Clients can bypass login customization using the `?with=` query parameter with the Vault GUI URL and either specify
-an authentication method [type](/vault/api-docs/system/auth#type) or a plugin mount path whose 
+an authentication method [type](/vault/api-docs/system/auth#type) or a plugin mount path whose
 [listing_visibility](/vault/api-docs/system/auth#listing_visibility-1) is set to `unauth`.
 
 | Namespace     | AuthN mount path    | UI Login URL (appended to `${VAULT_ADDR}`)        |
@@ -541,4 +548,4 @@ an authentication method [type](/vault/api-docs/system/auth#type) or a plugin mo
 You can copy the Vault UI login link from the configuration details page of a given
 mount in the Vault GUI.
 
-</Tip>	
+</Tip>

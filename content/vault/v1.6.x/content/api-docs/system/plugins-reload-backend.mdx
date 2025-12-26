@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: api
 page_title: /sys/plugins/reload/backend - HTTP API
 sidebar_title: <code>/sys/plugins/reload/backend</code>
@@ -28,8 +35,8 @@ This endpoint reloads mounted plugin backends.
 - `mounts` `(array: [])` – Array or comma-separated string mount paths
   of the plugin backends to reload.
 
-- `scope` `(string: "")` - The scope of the reload.  If ommitted, reloads the 
-  plugin or mounts on this Vault instance.  If 'global', will begin reloading the 
+- `scope` `(string: "")` - The scope of the reload.  If ommitted, reloads the
+  plugin or mounts on this Vault instance.  If 'global', will begin reloading the
   plugin on all instances of a cluster.
 
 ### Sample Payload

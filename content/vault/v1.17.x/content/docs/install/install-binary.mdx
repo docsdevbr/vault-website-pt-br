@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Install Vault manually
 description: >-
@@ -92,10 +99,10 @@ Install Vault using a compiled binary.
   ```powershell
   New-Item -ItemType Directory -Path "${env:VAULT_HOME}/Data"
   ```
-   
+
 1. Create the Vault configuration directory. For example,
    `c:\Program Files\Vault\Config`:
-  
+
   ```powershell
   New-Item -ItemType Directory -Path "${env:VAULT_HOME}/Config"
   ```
@@ -157,7 +164,7 @@ Install Vault using a compiled binary.
    directory and related files:
 
   ```powershell
-  $SystemAccessRule = 
+  $SystemAccessRule =
     New-Object System.Security.AccessControl.FileSystemAccessRule(
       "SYSTEM",
       "FullControl",
@@ -281,7 +288,7 @@ listener "tcp" {
   You **must** escape the Windows path character in your Vault configuration
   file or the Vault server will fail with an error claiming the file contains
   invalid characters.
-  
+
 </Note>
 
 </Tab>

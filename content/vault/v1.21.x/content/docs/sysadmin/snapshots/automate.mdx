@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Automate cluster snapshots
 description: >-
@@ -24,12 +31,12 @@ local or cloud storage.
 
 
 
-## Step 1: Determine your snapshot settings 
+## Step 1: Determine your snapshot settings
 
 Vault can write snapshots to local storage and cloud storage. For longterm
 maintenance, we recommend saving your autosnapshot settings to a JSON file.
 
-### Local storage example 
+### Local storage example
 
 The following JSON file, `local-snapshot.json`, defines an automated snapshot
 configuration that uses local storage with custom file and path prefixes. The
@@ -50,7 +57,7 @@ size exceed 250 MB (262144000 bytes).
 ```
 
 
-### Cloud storage example 
+### Cloud storage example
 
 The following JSON file, `aws-snapshot.json`, defines an automated snapshot
 configuration that uses AWS S3 cloud storage, customizes AWS configuration
@@ -176,13 +183,13 @@ $ curl                                       \
 
 ## Step 3 (Optional): Enable autoloading
 
-You can configure Vault to automatically load the latest snapshot after 
+You can configure Vault to automatically load the latest snapshot after
 it is written. This is useful if you want to quickly be able to [recover individual
-secrets](/vault/docs/sysadmin/recover-a-secret) from a snapshot without having to 
+secrets](/vault/docs/sysadmin/recover-a-secret) from a snapshot without having to
 manually load the snapshot.
 
 Only one automated snapshot configuration can have autoloading enabled at a time.
-Automated snapshot configurations with their storage type set to `local` cannot 
+Automated snapshot configurations with their storage type set to `local` cannot
 have autoloading enabled.
 
 If the interval for the automated snapshot configuration is set to less than 1 hour,

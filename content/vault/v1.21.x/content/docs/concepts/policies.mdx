@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Policies
 description: >-
@@ -599,7 +606,7 @@ In Vault v1.21.0 and later, when a request parameter carrying a list value match
 an `allowed_parameters` or `denied_parameters` policy rule, Vault checks each
 element in the list against the list of allowed or denied values in the policy,
 as well as the list as a whole. This means that if `allowed_parameters` is set to
-`"X": ["A", "B"]`, Vault would allow all of the following values for "X": `"A"`, 
+`"X": ["A", "B"]`, Vault would allow all of the following values for "X": `"A"`,
 `"B"`, `["A", "B"]`, `["B", "A"]`, `["A"]`, `["B"]`, `"A,B"`, and `"B,A"`.
 
 Previous versions of Vault did not treat list values in this way, which led to

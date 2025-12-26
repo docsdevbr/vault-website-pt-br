@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Upgrade integrated storage to use Raft WAL
 description: >-
@@ -55,7 +62,7 @@ If you need to revert fully from `raft-wal` to `raft-boltdb` on a node:
 1. Restart the Vault process.
 1. Monitor the node until it syncs with the cluster leader.
 
-Continue reverting nodes one-by-one. Only revert the cluster leader once the 
+Continue reverting nodes one-by-one. Only revert the cluster leader once the
 other nodes are reverted successfully.
 
 <Note title="">

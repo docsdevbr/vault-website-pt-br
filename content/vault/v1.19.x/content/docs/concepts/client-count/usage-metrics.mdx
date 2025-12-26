@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Vault usage metrics
 description: |-
@@ -161,7 +168,7 @@ Keep in mind that Vault begins collecting data when the feature is enabled. For
 example, if you enabled the usage metrics in March of 2023, you cannot query
 data in January of 2023.
 
-Vault will return metrics from March of 2023 through most recent full month. 
+Vault will return metrics from March of 2023 through most recent full month.
 
 ## Filter by namespaces
 
@@ -182,7 +189,7 @@ auth method mounts with respect to client usage. This allows you to detect which
 auth mount had the most number of total clients in the given billing period. You
 can filter for auth mounts within a namespace, or view auth mounts across
 namespaces. The mount attribution is available even if you are not using
-namespaces. 
+namespaces.
 
 ![Usage metrics by mount attribution](/img/ui-usage-metrics-mounts.png)
 
@@ -254,7 +261,7 @@ time.
 ```shell-session
 $ vault operator usage \
      -start-time=2024-06-01T00:00:00Z \
-     -end-time=2024-06-30T23:59:59Z 
+     -end-time=2024-06-30T23:59:59Z
 ```
 
 **Example output:**
@@ -295,7 +302,7 @@ This downloads the usage metrics data on your local drive in comma separated
 values format (`.csv`) or JSON.
 
 
-## API 
+## API
 
 - Refer to the
   [`sys/internal/counters`](/vault/api-docs/system/internal-counters#client-count)

@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: pki health-check - Command
 description: |-
@@ -104,7 +111,7 @@ consumed programatically.
 These correspond to the following health check status values:
 
  - status `not_applicable` / status code `0`: exit code `0`.
- - status `ok` / status code `1`: exit code `0` 
+ - status `ok` / status code `1`: exit code `0`
  - status `informational` / status code `2`: exit code `2`.
  - status `warning` / status code `3`: exit code `3`.
  - status `critical` / status code `4`: exit code `4`.
@@ -287,8 +294,8 @@ This health check verifies if the `If-Modified-Since` header has been added to `
 
 **Config Parameters**:
 
- - `interval_duration_critical` `(duration: 7d)` - the maximum allowed interval_duration to hit critical threshold. 
- - `interval_duration_warning` `(duration: 2d)` - the maximum allowed interval_duration to hit a warning threshold. 
+ - `interval_duration_critical` `(duration: 7d)` - the maximum allowed interval_duration to hit critical threshold.
+ - `interval_duration_warning` `(duration: 2d)` - the maximum allowed interval_duration to hit a warning threshold.
  - `pause_duration_critical` `(duration: 1s)` - the maximum allowed pause_duration to hit a critical threshold.
  - `pause_duration_warning` `(duration: 200ms)` - the maximum allowed pause_duration to hit a warning threshold.
 
@@ -302,7 +309,7 @@ This health check verifies that auto-tidy is enabled, with sane defaults for int
 
  - `READ /tidy-status`
 
-**Config Parameters**: 
+**Config Parameters**:
 
  - `last_run_critical` `(duration: 7d)` - the critical delay threshold between when tidy should have last run.
  - `last_run_warning` `(duration: 2d)` - the warning delay threshold between when tidy should have last run.
@@ -318,7 +325,7 @@ This health check verifies that tidy has run within the last run window. This ca
  - `READ /tidy-status`
  - `LIST /certs`
 
-**Config Parameters**: 
+**Config Parameters**:
 
  - `count_critical` `(int: 250000)` - the critical threshold at which there are too many certs.
  - `count_warning` `(int: 50000)` - the warning threshold at which there are too many certs.

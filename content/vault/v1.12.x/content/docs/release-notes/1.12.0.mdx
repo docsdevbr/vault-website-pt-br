@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: 1.12.0
 description: |-
@@ -25,7 +32,7 @@ Some of these enhancements and changes in this release include the following:
 - **Path and Role-based Quotas** extend the existing Vault Quota support by allowing quotas to be extended to the API path suffixes and auth mount roles.
 - **Licensing** termination behavior has changed where non-evaluation licenses (production licenses) will no longer have a termination date.
 - **Redis Database Secrets Engine** is now available to manage static roles or generation of dynamic credentials, as well as root credential rotation on a stand-alone Redis server.
-- **AWS Elasticache Database Secrets Engine** is introduced to manage static credentials for AWS Elasticache instances. 
+- **AWS Elasticache Database Secrets Engine** is introduced to manage static credentials for AWS Elasticache instances.
 
 ~> **Vault Enterprise:** Use [Integrated Storage](/vault/docs/configuration/storage/raft) or [Consul](/vault/docs/configuration/storage/consul) as your Vault's storage backend. Vault Enterprise will no longer start up if configured to use a storage backend other than Integrated Storage or Consul. (See the [Upgrade Guide](/vault/docs/upgrading/upgrade-to-1.12.x).)
 
@@ -56,7 +63,7 @@ Refer to the following documentation [Tokenization Transform](/vault/docs/secret
 
 #### PKI secrets engine revocation enhancements
 
-We are improving Vault PKI Engine’s revocation capabilities by adding support for the Online Certificate Status Protocol (OCSP) and a delta Certificate Revocation List (CRL) to track changes to the main CRL. These enhancements significantly streamline customer experience with the PKI engine making the certification revocation semantics easier to understand and manage. Additionally, support for automatic CRL rotation and periodic tidy operations help reduce operator burden, alleviate the demand on cluster resources during periods of high revocation, and ensure clients are always served valid CRLs. Finally, support for Bring-Your-Own-Cert (BYOC) allows revocation of `no_store=true` certificates and for Proof-of-Possession (PoP) allows end-users to safely revoke their own certificates (with corresponding private key) without operator intervention. 
+We are improving Vault PKI Engine’s revocation capabilities by adding support for the Online Certificate Status Protocol (OCSP) and a delta Certificate Revocation List (CRL) to track changes to the main CRL. These enhancements significantly streamline customer experience with the PKI engine making the certification revocation semantics easier to understand and manage. Additionally, support for automatic CRL rotation and periodic tidy operations help reduce operator burden, alleviate the demand on cluster resources during periods of high revocation, and ensure clients are always served valid CRLs. Finally, support for Bring-Your-Own-Cert (BYOC) allows revocation of `no_store=true` certificates and for Proof-of-Possession (PoP) allows end-users to safely revoke their own certificates (with corresponding private key) without operator intervention.
 
 #### PKI and managed key support for RSA-PSS signatures
 

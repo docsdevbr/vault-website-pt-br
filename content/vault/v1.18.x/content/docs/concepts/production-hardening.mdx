@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Production hardening
 description: >-
@@ -123,7 +130,7 @@ not be suitable for every deployment.
 
   When using platform-specific identity solutions, you should be mindful of auth
   method and secret engine configuration within namespaces. You can share
-  platform identity across Vault namespaces, as these provider features 
+  platform identity across Vault namespaces, as these provider features
   generally offer host-based identity solutions.
 
   If that is not applicable, set the credentials as environment variables
@@ -154,7 +161,7 @@ not be suitable for every deployment.
   give secret values from either standard input or with command-line arguments.
   Command-line arguments can persisted in shell history, and are readable by other unprivileged users on the same host.
 
-- **Develop an off-boarding process**. Removing accounts in Vault or associated 
+- **Develop an off-boarding process**. Removing accounts in Vault or associated
   identity providers may not immediately revoke [token-based access](/vault/docs/concepts/tokens#user-management-considerations).
   Depending on how you manage access to Vault, operators should consider:
 

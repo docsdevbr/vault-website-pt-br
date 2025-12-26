@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: api
 page_title: AWS - Auth Methods - HTTP API
 description: This is the API documentation for the Vault AWS auth method.
@@ -208,8 +215,8 @@ This configures the way that Vault interacts with the
   is used. When `unique_id` is selected, the [IAM Unique
   ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers#identifiers-unique-ids)
   of the IAM principal (either the user or role) is used as the identity alias
-  name. When `canonical_arn` is selected, the role ARN returned by the `sts:GetCallerIdentity`call 
-  will be used. This will be `arn:aws:iam::<account_id>:role/<role name>`. When `full_arn` is selected, 
+  name. When `canonical_arn` is selected, the role ARN returned by the `sts:GetCallerIdentity`call
+  will be used. This will be `arn:aws:iam::<account_id>:role/<role name>`. When `full_arn` is selected,
   the ARN returned by the `sts:GetCallerIdentity` call is used as the alias name. This is either
   `arn:aws:iam::<account_id>:user/<optional_path/><user_name>` or
   `arn:aws:sts::<account_id>:assumed-role/<role_name_without_path>/<role_session_name>`.

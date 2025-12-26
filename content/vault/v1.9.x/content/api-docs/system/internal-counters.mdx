@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: api
 page_title: /sys/internal/counters - HTTP API
 description: >-
@@ -89,12 +96,12 @@ $ curl \
 
 ## Client Count
 
-This endpoint returns the number of clients per namespace, as the sum of clients calculated from the use 
+This endpoint returns the number of clients per namespace, as the sum of clients calculated from the use
 of active entities and non-entity tokens.
 An "active entity" is a distinct entity that has created one or more tokens in the given time period.
-A "non-entity token" is a token with no attached entity ID. 
+A "non-entity token" is a token with no attached entity ID.
 Both non-entity tokens and active entities have distinct client IDs. For more information on how clients
-map to these client IDs, and how clients are counted, please visit the 
+map to these client IDs, and how clients are counted, please visit the
 [client count](/vault/docs/concepts/client-count) concepts page.
 
 A time period may be specified; otherwise it reports on a default reporting period, such as the
@@ -195,7 +202,7 @@ $ curl \
 
 ## Partial Month Client Count
 
-This endpoint returns the number of clients per namespace for the current month, as the sum of clients calculated from the use 
+This endpoint returns the number of clients per namespace for the current month, as the sum of clients calculated from the use
 of active entities and non-entity tokens.
 An "active entity" is a distinct entity that has created one or more tokens in the given time period.
 A "non-entity token" is a token with no attached entity ID.
@@ -237,7 +244,7 @@ $ curl \
            "distinct_entities":0,
            "non_entity_tokens":100,
            "clients":100
-        } 
+        }
       },
       {
         "namespace_id":"RxD81",

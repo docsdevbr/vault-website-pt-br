@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: api
 page_title: /sys/remount - HTTP API
 description: >-
@@ -12,11 +19,11 @@ The Remount documentation details the endpoints required to trigger and monitor 
 
 ## Move Backend
 
-The `/sys/remount` endpoint moves an already-mounted backend to a new mount point. This process works for both secret 
+The `/sys/remount` endpoint moves an already-mounted backend to a new mount point. This process works for both secret
 engines and auth methods.
 
-The remount operation returns a migration ID to the user. The user may utlizie the migration ID to look up 
-the status of the mount migration. More details about the remount operation are described in 
+The remount operation returns a migration ID to the user. The user may utlizie the migration ID to look up
+the status of the mount migration. More details about the remount operation are described in
 [Mount Migration](/vault/docs/concepts/mount-migration).
 
 ~> Note: This endpoint requires a policy with both `sudo` and `update` capabilities to `sys/remount`

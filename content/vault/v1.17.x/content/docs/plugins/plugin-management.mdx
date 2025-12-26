@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Plugin Management
 description: >-
@@ -58,7 +65,7 @@ in any way. Vault Enterprise will verify the plugin's integrity
 and compatibility and unzip during the registration process.
 
 ```shell-session
-$ vault plugin register 
+$ vault plugin register
     -version=<version of the plugin> # version must match the plugin version on the releases page
     secret \                         # type
     vault-plugin-secrets-keymgmt     # name must match the plugin name on the releases page
@@ -66,7 +73,7 @@ $ vault plugin register
 Success! Registered plugin: vault-plugin-secrets-keymgmt
 ```
 
-See [plugin register](/vault/docs/commands/plugin/register) for more details on 
+See [plugin register](/vault/docs/commands/plugin/register) for more details on
 how to register Enterprise plugins.
 
 ## Enabling/Disabling external plugins

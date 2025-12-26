@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Seal/Unseal
 description: >-
@@ -116,10 +123,10 @@ When DR replication is enabled in Vault Enterprise, [Performance Standby](/vault
 
 Recovery keys cannot decrypt the root key and thus are not sufficient to unseal
 Vault if the auto unseal mechanism isn't working. They are purely an authorization mechanism.
-Using auto unseal creates a strict Vault lifecycle dependency on the underlying seal mechanism. 
-This means that if the seal mechanism (such as the Cloud KMS key) becomes unavailable, 
-or deleted before the seal is migrated, then there is no ability to recover 
-access to the Vault cluster until the mechanism is available again. **If the seal 
+Using auto unseal creates a strict Vault lifecycle dependency on the underlying seal mechanism.
+This means that if the seal mechanism (such as the Cloud KMS key) becomes unavailable,
+or deleted before the seal is migrated, then there is no ability to recover
+access to the Vault cluster until the mechanism is available again. **If the seal
 mechanism or its keys are permanently deleted, then the Vault cluster cannot be recovered, even
 from backups.**
 To mitigate this risk, we recommend careful controls around management of the seal
@@ -267,7 +274,7 @@ any storage backend.
    Wait for a little while for the migration information to replicate to all the
    nodes in case of Integrated Storage. In enterprise Vault, switching an Auto seal
    implies that the seal wrapped storage entries get re-wrapped. Monitor the log
-   and wait until this process is complete (look for `seal re-wrap completed`). 
+   and wait until this process is complete (look for `seal re-wrap completed`).
 
 <Warning heading="Seal configuration changes will invoke rewrap">
 
@@ -344,8 +351,8 @@ migration will not happen again on the peer nodes.
 
 ## Seal high availability <EnterpriseAlert inline="true" />
 
-Seal high availability (Seal HA) allows the configuration of more than one auto 
-seal mechanism such that Vault can tolerate the temporary loss of a seal service 
+Seal high availability (Seal HA) allows the configuration of more than one auto
+seal mechanism such that Vault can tolerate the temporary loss of a seal service
 or device for a time.  With Seal HA configured with at least two and no more than
 three auto seals, Vault can also start up and unseal if one of the
 configured seals is still available (though Vault will remain in a degraded mode in
@@ -360,11 +367,11 @@ two different providers; or a mix of HSM, KMS, or Transit seals.
 When an operator configures an additional seal or removes a seal (one at a time)
 and restarts Vault, Vault will automatically detect that it needs to re-wrap
 CSPs and seal wrapped values, and will start the process.  Seal re-wrapping can
-be monitored via the logs or via the `sys/seal-status` endpoint.  While a 
+be monitored via the logs or via the `sys/seal-status` endpoint.  While a
 re-wrap is in progress (or could not complete successfully), changes to the
 seal configuration are not allowed.
 
-In additional to high availability, seal HA can be used to migrate between two 
+In additional to high availability, seal HA can be used to migrate between two
 auto seals in a simplified manner.  To migrate in this way:
 
 In additional to high availability, Seal HA can be used to migrate between two
@@ -373,7 +380,7 @@ auto seals in a [simplified manner.](#migration-post-vault-1-16-0-via-seal-ha-fo
 Note that Shamir seals are not auto seals and cannot be included in a Seal
 HA setup.  This is because auto seals support seal wrap while Shamir seals
 do not, so the loss of the auto seal does not necessarily leave Vault in a
-fully available state. 
+fully available state.
 
 ### Use and Configuration
 

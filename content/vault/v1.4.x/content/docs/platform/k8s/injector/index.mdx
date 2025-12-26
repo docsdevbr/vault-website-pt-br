@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Agent Sidecar Injector Overview
 sidebar_title: Agent Injector
@@ -116,7 +123,7 @@ the secret. The annotation must have the following format:
 
 ```yaml
 vault.hashicorp.com/agent-inject-template-<unique-name>: |
-  < 
+  <
     TEMPLATE
     HERE
   >
@@ -204,7 +211,7 @@ An example of mounting a Vault Agent configmap [can be found here](/vault/docs/p
   unique value provided in `vault.hashicorp.com/agent-inject-secret-`. If not provided,
   a default generic template is used.
 
-- `vault.hashicorp.com/auth-path` - configures the auth path for the Kubernetes 
+- `vault.hashicorp.com/auth-path` - configures the auth path for the Kubernetes
   auth method.  Defaults to `kubernetes`.
 
 - `vault.hashicorp.com/role` - configures the Vault role used by the Vault Agent

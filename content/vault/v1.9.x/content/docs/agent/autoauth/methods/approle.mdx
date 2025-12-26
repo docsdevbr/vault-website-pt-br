@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Vault Agent Auto-Auth AppRole Method
 description: AppRole Method for Vault Agent Auto-Auth
@@ -23,7 +30,7 @@ cached.
 - `secret_id_file_path` `(string: optional)` - The path to the file with secret
   ID.
   If not set, only the `role-id` will be used. \
-  In that case, the AppRole should have `bind_secret_id` set to `false` otherwise 
+  In that case, the AppRole should have `bind_secret_id` set to `false` otherwise
   Vault Agent wouldn't be able to login.
 
 - `remove_secret_id_file_after_reading` `(bool: optional, defaults to true)` -
@@ -39,7 +46,7 @@ cached.
 
 ## Example Configuration
 
-An example configuration, using approle to enable [auto-auth](/vault/docs/agent/autoauth) 
+An example configuration, using approle to enable [auto-auth](/vault/docs/agent/autoauth)
 and creating both a plaintext token sink and a [response-wrapped token sink file](/vault/docs/agent/autoauth#wrap_ttl), follows:
 
 ```python

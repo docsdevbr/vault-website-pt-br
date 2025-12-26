@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: api
 page_title: /sys/storage/raft/snapshot-auto - HTTP API
 description: |-
@@ -61,7 +68,7 @@ environment variables or files on disk in predefined locations.
 #### storage_type=local
 
 - `local_max_space` `(integer: <required>)` - For `storage_type=local`, the maximum
-  space, in bytes, to use for all snapshots with the given `file_prefix` in the `path_prefix` directory. 
+  space, in bytes, to use for all snapshots with the given `file_prefix` in the `path_prefix` directory.
   Snapshot attempts will fail if there is not enough
   space left in this allowance.
 
@@ -158,7 +165,7 @@ look like:
   - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
   - `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`
 
-- `azure_auth_mode` `(string)` - One of `shared`, `managed`, or `environment`. If `environment` is set, Azure authentication details are retrieved from the environment variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, `AZURE_TENANT_ID`, `AZURE_SUBSCRIPTION_ID`. 
+- `azure_auth_mode` `(string)` - One of `shared`, `managed`, or `environment`. If `environment` is set, Azure authentication details are retrieved from the environment variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, `AZURE_TENANT_ID`, `AZURE_SUBSCRIPTION_ID`.
 
 - `azure_account_key` `(string)` - Azure account key. Used for `shared` authentication.
 

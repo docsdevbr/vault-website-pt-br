@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: HSM partners
 description: >-
@@ -41,14 +48,14 @@ functionality.
 | AliCloud          | AliCloud KMS                           | Yes         | **No**          | Yes       | **No**       | 0.11.2+
 | Atos              | Trustway Proteccio HSM                 | Yes         | Yes             | Yes       | **No**       | 1.9+
 | AWS               | AWS KMS                                | Yes         | Yes             | Yes       | Yes          | 0.9+
-| Blockdaemon       | Blockdaemon Builder Vault              | Yes         | **No**          | Yes       | **No**       | 1.17.5+          
+| Blockdaemon       | Blockdaemon Builder Vault              | Yes         | **No**          | Yes       | **No**       | 1.17.5+
 | Crypto4a          | QxEDGE&tm; HSP                         | Yes         | Yes             | Yes       | Yes          | 1.9+
 | Entrust           | nShield HSM                            | Yes         | Yes             | Yes       | Yes          | 1.3+
 | Fortanix          | FX2200 Series                          | Yes         | Yes             | Yes       | **No**       | 0.10+
 | FutureX           | Vectera Plus, KMES Series 3            | Yes         | Yes             | Yes       | Yes          | 1.5+
 | FutureX           | VirtuCrypt cloud HSM                   | Yes         | Yes             | Yes       | Yes          | 1.5+
-| IBM		    | IBM Z				     | Yes	   | Yes	     | Yes	 | **No**	| 1.19+
-| IBM		    | LinuxONE				     | Yes	   | Yes	     | Yes	 | **No**	| 1.19+
+| IBM*		    | IBM Z				     | Yes	   | Yes	     | Yes	 | Yes	| 1.19+
+| IBM 		    | LinuxONE				     | Yes	   | Yes	     | Yes	 | Yes	| 1.19+
 | Google            | GCP Cloud KMS                          | Yes         | **No**          | Yes       | Yes          | 0.9+
 | Marvell           | Cavium HSM                             | Yes         | Yes             | Yes       | Yes          | 1.11+
 | Microsoft         | Azure Key Vault                        | Yes         | **No**          | Yes       | Yes          | 0.10.2+
@@ -69,3 +76,8 @@ functionality.
     May 03, 2023
   </em>
 </span>
+
+<Note title="Vault on IBM Z">
+IBM Z is a broader term and might mean running z/OS as well as Linux on IBM Z mainframe (s390x architecture).
+Vault is supported on Linux running on IBM Z environment.
+</Note>

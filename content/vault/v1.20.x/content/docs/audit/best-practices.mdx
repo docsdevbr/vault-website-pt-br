@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Audit logging best practices
 description: Recommendations for setting up audit logging in HashiCorp Vault.
@@ -41,7 +48,7 @@ Additionally, establish a log rotation process that is appropriate for your orga
 <Tip title="Logging with Kubernetes">
 
   When running Vault on a Kubernetes cluster, a common approach is to configure a `file` audit device with `file_path` set to `stdout`. Vault will write audit logs to the standard output for the container, which lets you process the logs with a Kubernetes cluster-level log collector.
-  
+
   If you choose this approach, we suggest configuring the audit device with a `prefix`, so your log collector can separate audit logs from server logs.
 
 </Tip>
@@ -70,7 +77,7 @@ Review the configuration options that are specific to the type of audit device, 
 
 In general, we recommend the following options for all audit devices:
 
-- Set `elide_list_responses = true` to reduce the volume of log data produced by API list requests (see [Eliding list response bodies](/vault/docs/audit#eliding-list-response-bodies)).  
+- Set `elide_list_responses = true` to reduce the volume of log data produced by API list requests (see [Eliding list response bodies](/vault/docs/audit#eliding-list-response-bodies)).
 - Set `hmac_accessor = false`. A token accessor is generally not considered sensitive information: it does not grant any access to Vault, but rather serves as a unique identifier for a single Vault token. A token accessor enables you to [revoke](/vault/docs/commands/token/revoke) its corresponding Vault token, even when you do not know the token itself. By disabling token accessor hashing, if you identify unusual access patterns in your audit logs, you can quickly revoke the corresponding Vault token through its accessor.
 
 ## Monitor audit device health

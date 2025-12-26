@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: 'Lease Explosions'
 description: >-
@@ -50,7 +57,7 @@ A combination of both.
 
 #### AppRole
 
-As Vault matures in your environment, it's important to review and ensure client behavior best practices around machine-based authentication as it can have more impact on lease explosion than human-based authentication typically does. 
+As Vault matures in your environment, it's important to review and ensure client behavior best practices around machine-based authentication as it can have more impact on lease explosion than human-based authentication typically does.
 
 - [Recommended pattern for Vault AppRole use](/vault/tutorials/recommended-patterns/pattern-approle)
 
@@ -242,9 +249,9 @@ The following examples demonstrate creating a lease count quota on an instance o
    ```
 
    Example output:
-   
+
    <CodeBlockConfig hideClipboard>
-   
+
    ```json
    {
      "request_id": "188e22f1-dc1a-251a-a0a1-005e256fe70f",
@@ -345,7 +352,7 @@ In some use cases, batch tokens can be a better fit than service tokens with res
 
 ## Mitigating lease explosions
 
-Ultimately, the number of leases a system can handle is unique to the Vault deployment and environment. 
+Ultimately, the number of leases a system can handle is unique to the Vault deployment and environment.
 
 ### Increase resources
 

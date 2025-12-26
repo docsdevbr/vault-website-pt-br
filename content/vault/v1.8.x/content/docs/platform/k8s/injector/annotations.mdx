@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Agent Sidecar Injector Annotations
 description: This section documents the configurable annotations for the Vault Agent Injector.
@@ -72,14 +79,14 @@ them, optional commands to run, etc.
   `vault.hashicorp.com/agent-inject-secret-foobar` is configured,
   `vault.hashicorp.com/agent-inject-file-foobar` would configure the filename.
 
-- `vault.hashicorp.com/agent-inject-template-file` - configures the path and filename of the 
-  custom template to use. This should be used with `vault.hashicorp.com/extra-secret`, 
-  which mounts a Kubernetes secret to `/vault/custom`. To map a template file to a specific secret, 
-  use the same unique secret name: `vault.hashicorp.com/agent-inject-template-file-SECRET-NAME`. 
+- `vault.hashicorp.com/agent-inject-template-file` - configures the path and filename of the
+  custom template to use. This should be used with `vault.hashicorp.com/extra-secret`,
+  which mounts a Kubernetes secret to `/vault/custom`. To map a template file to a specific secret,
+  use the same unique secret name: `vault.hashicorp.com/agent-inject-template-file-SECRET-NAME`.
   For example, if a secret annotation `vault.hashicorp.com/agent-inject-secret-foobar` is configured,
   `vault.hashicorp.com/agent-inject-template-file-foobar` would configure the template file.
 
-- `vault.hashicorp.com/agent-inject-default-template` - configures the default template type for rendering 
+- `vault.hashicorp.com/agent-inject-default-template` - configures the default template type for rendering
   secrets if no custom template is defined. Possible values include `map` and `json`. Defaults to `map`.
 
 - `vault.hashicorp.com/agent-extra-secret` - mounts Kubernetes secret as a volume at

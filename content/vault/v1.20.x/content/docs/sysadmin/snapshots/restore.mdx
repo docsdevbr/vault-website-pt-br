@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Restore a snapshot
 description: >-
@@ -18,6 +25,16 @@ Manually restore data for a Vault cluster leader node with a saved snapshot.
   original cluster unseal keys to unseal Vault after restoring the snapshot.
 - **You must have permission to access encrypted data in backed storage**.
 
+<Warning title="Isolate your test instance">
+
+Always perform your upgrade and restore tests in a fully isolated network
+environment to avoid accidentally revoking 3rd-party credentials (secrets, etc.)
+and to maintain data consistency by preventing unwanted cluster-to-cluster
+communication. If your test instance revokes live credentials, they may expire
+and result in irrevocable leases for the production cluster associated with the
+snapshot.
+
+</Warning>
 
 ## Step 1: Bring your Vault cluster back online
 
@@ -63,7 +80,7 @@ $ vault operator raft snapshot restore -force <local_file_path>
 ```
 
 For example:
-   
+
 <CodeBlockConfig hideClipboard>
 
 ```shell-session
@@ -140,7 +157,7 @@ Have each person with an unseal key share run
 [`v1/sys/unseal`](/vault/api-docs/system/unseal) with their original unseal
 key until reaching the number of key shares required by your original quorum
 configuration to unseal your Vault cluster:
-   
+
 ```shell-session
 $ curl                                       \
    --request POST                            \

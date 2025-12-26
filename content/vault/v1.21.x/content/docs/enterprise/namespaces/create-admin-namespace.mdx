@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Configure an administrative namespace
 description: >-
@@ -29,7 +36,7 @@ the Vault API with an administrative namespace.
 
 ## Step 1: Create your namespace
 
-Use the `namespace create` CLI command to create a new namespace: 
+Use the `namespace create` CLI command to create a new namespace:
 
 ```shell-session
 $ vault namespace create YOUR_NAMESPACE_NAME
@@ -50,11 +57,11 @@ $ vault namespace create ns_admin
 To create an administrative namespace, set the `administrative_namespace_path`
 parameter in your Vault configuration with the absolute path of your new
 namespace. We recommend setting the namespace path with the other string
-assignments in your configuration file. For example: 
+assignments in your configuration file. For example:
 
 <CodeBlockConfig highlight="3">
 
-```hcl 
+```hcl
 ui = true
 api_addr = "https://127.0.0.1:8200"
 administrative_namespace_path = "ns_admin/"

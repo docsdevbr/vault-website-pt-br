@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Limits and Maximums
 sidebar_title: Limits and Maximums
@@ -126,11 +133,11 @@ group has a large number of members.
 |---|--------------------------|------------------------------------|
 | Maximum number of identity entities (best case, 200 bytes per entity) | ~610,000 | ~1,1250,000 |
 | Maximum number of identity entities (conservative case, 500 bytes per entity) | ~250,000 | ~480,000 |
-| Maximum number of identity entities (maximum permitted metadata, 41160 bytes per entity) | 670 | 2,400 | 
+| Maximum number of identity entities (maximum permitted metadata, 41160 bytes per entity) | 670 | 2,400 |
 | Maximum number of groups (10 entities per group) | ~250,000 | ~480,000 |
 | Maximum number of groups (100 entities per group) | ~22,000 | ~50,000 |
 | Maximum number of members in a group | ~11,500 | ~23,000 |
- 
+
 The number of entities can be monitored using Vault's [telemetry](/vault/docs/internals/telemetry#token-identity-and-lease-metrics); see `vault.identity.num_entities` (total) or `vault.identity.entities.count` (by namespace).
 
 The cost of entity and group updates grows as the number of objects in
@@ -149,7 +156,7 @@ upper bound on the number of active tokens.  There are no restrictions on
 the token metadata field, other than the entire token must fit into one
 storage entry:
 
-|                                       | Limit    | 
+|                                       | Limit    |
 |---------------------------------------|----------|
 | Number of key-value pairs in metadata | no limit |
 | Metadata key size | no limit |
@@ -180,7 +187,7 @@ is becoming excessive.
 
 ### Versioned key-value store (kv-v2 secret engine)
 
-|                                       | Limit    | 
+|                                       | Limit    |
 |---------------------------------------|----------|
 | Number of secrets | no limit, up to available storage capacity |
 | Maximum size of one version of a secret | slightly less than one storage entry (512 KiB or 1024 KiB) |
@@ -245,7 +252,7 @@ Monitor the active Vault node's CPU and network utilization, as well as
 the lag between the last WAL and replica WAL, to determine if the
 maximum number of replicas has been exceeded.
 
-|                                       | Limit    | 
+|                                       | Limit    |
 |---------------------------------------|----------|
 | Maximum cluster size | no limit, up to active node capability |
 | Maximum number of DR replicas | no limit, up to active node capability |
@@ -262,7 +269,7 @@ degradation in system performance.  We recommend short default
 time-to-live values on tokens and leases to avoid a large backlog of
 unexpired leases, or a large number of simultaneous expirations.
 
-|                                       | Limit    | 
+|                                       | Limit    |
 |---------------------------------------|----------|
 | Maximum number of leases | advisory limit at 256,000 |
 | Maximum duration of lease or token | 768 hours by default |

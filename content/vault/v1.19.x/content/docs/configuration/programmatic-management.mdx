@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Manage Vault programmatically with Terraform
 description: >-
@@ -14,7 +21,7 @@ Use Terraform to manage policies, namespaces, and plugins in Vault.
 
 - **You must have [Terraform installed](/terraform/install)**.
 - **You must have the [Terraform Vault provider](https://registry.terraform.io/providers/hashicorp/vault/latest) configured**.
-- **You must have sufficient access to run Terraform**. 
+- **You must have sufficient access to run Terraform**.
 - **You must have a [Vault server running](/vault/tutorials/getting-started/getting-started-dev-server)**.
 
 ## Step 1: Create a resource file for namespaces
@@ -44,7 +51,7 @@ To manage your Vault namespaces in Terraform:
 1. Create a new Terraform Vault Provider resource file called
    `vault_namespaces.tf` that defines `vault_namespace` resources for each of
    the new or existing namespaces resources you want to manage.
-   
+
    For example, to migrate the `admin` namespace in the example and create a new
    `dev` namespace:
 
@@ -60,7 +67,7 @@ To manage your Vault namespaces in Terraform:
 
 ## Step 2: Create a resource file for secret engines
 
-Terraform Vault provider supports discrete types for the different 
+Terraform Vault provider supports discrete types for the different
 [auth](https://registry.terraform.io/providers/hashicorp/vault/latest/docs#vault-authentication-configuration-options),
 [secret](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/mount),
 and [database](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/database_secrets_mount)
@@ -103,7 +110,7 @@ To manage your Vault secret engines in Terraform:
 1. Create a new Terraform Vault Provider resource file called `vault_secrets.tf`
    that defines `vault_mount` resources for each of the new or existing secret
    engines you want to manage.
-   
+
    For example, to  migrate the `transit` and `admin_keys` secret engines in the
    example and enable a new `kv` engine under the new `dev` namespace called
    `dev_keys`:
@@ -188,7 +195,7 @@ To manage your Vault policies in Terraform:
     }
     EOT
    }
-   ``` 
+   ```
 
 ## Step 4: Update your Terraform configuration
 
@@ -210,7 +217,7 @@ To manage your Vault policies in Terraform:
 1. Use `terraform validate` to confirm the new configuration is valid:
   ```shell-session
   $ terraform validate
-  
+
   Success! The configuration is valid.
   ```
 
@@ -342,7 +349,7 @@ For example, to import the `admin_keys` secret engine from the `admin` namespace
   Path           Type            Accessor                 Description
   ----           ----            --------                 -----------
   admin_keys/    kv              kv_87edfc65              n/a
-  ``` 
+  ```
 
 ## Step 7: Add new Vault resources
 
@@ -456,7 +463,7 @@ For example, to import the `admin_keys` secret engine from the `admin` namespace
   Path          Type            Accessor                 Description
   ----          ----            --------                 -----------
   dev_keys/     kv              kv_b3d2dd6f              n/a
-  ``` 
+  ```
 
 <Tip title="Additional guide">
 

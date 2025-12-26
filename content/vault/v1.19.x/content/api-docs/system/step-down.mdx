@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: api
 page_title: /sys/step-down - HTTP API
 description: The `/sys/step-down` endpoint causes the node to give up active status.
@@ -16,7 +23,7 @@ The step-down endpoint forces nodes to give up "active" status. If you
 call the endpoint against a non-active node, for example, a DR or
  performance standby node, Vault forwards the request to the active
   node.
-  
+
     Note that the node will sleep
 for ten seconds before attempting to grab the active lock again, but if no
 standby nodes grab the active lock in the interim, the same node may become the

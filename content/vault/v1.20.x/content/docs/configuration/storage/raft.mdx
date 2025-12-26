@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Integrated storage configuration
 description: >-
@@ -54,7 +61,7 @@ set [`disable_mlock`](/vault/docs/configuration#disable_mlock) to `true`, and to
 
 - `performance_multiplier` `(integer: 5)` - An integer multiplier used by
   servers to scale key Raft timing parameters, where each increment translates
-  to approximately 1 – 2 seconds of delay. For example, setting the multiplier 
+  to approximately 1 – 2 seconds of delay. For example, setting the multiplier
   to "3" translates to 3 – 6 seconds of total delay. Tuning the multiplier affects the time it
   takes Vault to detect leader failures and to perform leader elections, at the
   expense of requiring more network and CPU resources for better performance.
@@ -66,7 +73,7 @@ set [`disable_mlock`](/vault/docs/configuration#disable_mlock) to `true`, and to
   platforms and scenarios. You should only adjust the timing value when platform
   telemetry indicators that a change is needed or different timing is required due
   to the overall reliability your platform (network, etc.).
-  
+
   Setting the timing value to 1 configures Raft to its highest performance (lowest
   delay) mode. The maximum allowed value is 10.
 
@@ -177,7 +184,7 @@ set [`disable_mlock`](/vault/docs/configuration#disable_mlock) to `true`, and to
   log store instead of the default of BoltDB.
 
 - `raft_log_verifier_enabled` `(boolean: false)` - Enables the raft log verifier.
-  The verifier periodically writes small raft logs and verifies checksums to 
+  The verifier periodically writes small raft logs and verifies checksums to
   ensure that data has been written correctly. The verifier works with raft
   write-ahead **and** BoltDB log stores.
 

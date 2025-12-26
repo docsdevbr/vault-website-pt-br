@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: api
 page_title: /sys/rotate/config - HTTP API
 sidebar_title: <code>/sys/rotate/config</code>
@@ -12,9 +19,9 @@ The `/sys/rotate` endpoint is used to configure automatic key rotation.
 ## Configure Automatic Key Rotation
 
 This endpoint configures the automatic rotation of the backend encryption key.  By
-default, the key is rotated after just under 4 billion encryptions, to satisfy the 
+default, the key is rotated after just under 4 billion encryptions, to satisfy the
 recommendation of [NIST SP 800-38D](https://csrc.nist.gov/publications/detail/sp/800-38d/final).
-One can configure rotations after fewer encryptions or on a time based schedule.  
+One can configure rotations after fewer encryptions or on a time based schedule.
 
 ## Create or Update the Auto Rotation Configuration
 

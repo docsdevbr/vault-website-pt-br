@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Vault Agent Auto-Auth File Sink
 description: File sink for Vault Agent Auto-Auth
@@ -23,5 +30,5 @@ written with `0640` permissions as default, but can be overridden with the optio
 - `path` `(string: required)` - The path to use to write the token file
 - `mode` `(int: optional)` - A string containing an octal number representing the bit pattern for the file mode, similar to chmod. Set to `0000` to prevent Vault from modifying the file mode. Note: This configuration option is only available in Vault 1.3.0 and above.
 
-~> Note: Configuration options for response-wrapping and encryption for the sink 
-file are located within the [options common to all sinks](/vault/docs/agent/autoauth#configuration-sinks) documentation. 
+~> Note: Configuration options for response-wrapping and encryption for the sink
+file are located within the [options common to all sinks](/vault/docs/agent/autoauth#configuration-sinks) documentation.

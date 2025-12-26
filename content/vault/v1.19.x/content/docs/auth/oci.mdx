@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: OCI Auth method
 description: >-
@@ -58,8 +65,8 @@ First, enable the OCI Auth method.
 $ vault auth enable oci
 ```
 
-Then, configure your home tenancy in the Vault, so that only users or instances from your tenancy will be allowed to log into Vault through the OCI Auth method. 
-  
+Then, configure your home tenancy in the Vault, so that only users or instances from your tenancy will be allowed to log into Vault through the OCI Auth method.
+
 1. Create a file named `hometenancyid.json` with the below content using the
    tenancy OCID. To find your tenancy OCID, see
   the [Oracle Cloud IDs documentation](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
@@ -115,7 +122,7 @@ For both methods to work:
 $ vault login -method=oci auth_type=instance role=vaultadminrole
 ```
 
-This assumes that the compute instance that you are logging in from should be a part of a dynamic group that was added to the Vault admin role. If logging on from a different compute instance than the one on which Vault is running on, the compute should have connectivity to the endpoint specified in VAULT_ADDR. 
+This assumes that the compute instance that you are logging in from should be a part of a dynamic group that was added to the Vault admin role. If logging on from a different compute instance than the one on which Vault is running on, the compute should have connectivity to the endpoint specified in VAULT_ADDR.
 
 #### Log in with an API key
 

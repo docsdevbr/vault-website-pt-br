@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: External Plugin Architecture
 description: Learn about Vault's plugin architecture.
@@ -94,8 +101,8 @@ added to Vault.
 
 ~> Warning: By default, Vault expects the plugin directory and files to be owned by the
 user running Vault. It also expects no write or execute permissions for group or others.
-Vault allows operators to specify the user and permissions of the plugin directory and binaries 
-using parameters `plugin_file_uid` and `plugin_file_permissions` in config if an operator needs those to be different.  
+Vault allows operators to specify the user and permissions of the plugin directory and binaries
+using parameters `plugin_file_uid` and `plugin_file_permissions` in config if an operator needs those to be different.
 This check can be disabled via the environment variable `VAULT_DISABLE_FILE_PERMISSIONS_CHECK`.
 
 ### Plugin catalog

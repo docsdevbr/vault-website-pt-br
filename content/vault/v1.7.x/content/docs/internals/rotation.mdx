@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Key Rotation
 sidebar_title: Key Rotation
@@ -57,8 +64,8 @@ without requiring operators to perform another unseal.
 
 ## NIST Rotation Guidance
 
-Period rotation of the encryption keys is recommended, even in the absence of 
-compromise.  Due to the nature of the AES-256-GCM encryption used, keys should be 
+Period rotation of the encryption keys is recommended, even in the absence of
+compromise.  Due to the nature of the AES-256-GCM encryption used, keys should be
 rotated before approximately 2<sup>32</sup> encryptions have been performed, following
 the guidelines of NIST publication 800-38D.  Operators can estimate the number
 of encryptions by summing the following:
@@ -68,7 +75,7 @@ of encryptions by summing the following:
 * The `merkle.flushDirty.num_pages` metric.
 * The WAL index.
 
-The simplest strategy may be to use those metrics to determine a frequency of 
-rotation and make that part of the operational process.  For example, if one 
-determines that the estimated rate is 40 million operations per day, then 
-rotating the key every three months is sufficient.  
+The simplest strategy may be to use those metrics to determine a frequency of
+rotation and make that part of the operational process.  For example, if one
+determines that the estimated rate is 40 million operations per day, then
+rotating the key every three months is sufficient.

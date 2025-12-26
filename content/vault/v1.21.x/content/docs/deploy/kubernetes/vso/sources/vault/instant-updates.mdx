@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Instant updates with Vault Secrets Operator
 description: >-
@@ -89,10 +96,10 @@ Events:
   Type     Reason             Age   From               Message
   ----     ------             ----  ----               -------
   Normal   SecretSynced       2s    VaultStaticSecret  Secret synced
-  Warning  EventWatcherError  2s    VaultStaticSecret  Error while watching events: 
+  Warning  EventWatcherError  2s    VaultStaticSecret  Error while watching events:
    failed to connect to vault websocket: error returned when opening event stream
-   web socket to wss://vault.vault.svc.cluster.local:8200/v1/sys/events/subscribe/kv%2A?json=true, 
-   ensure VaultAuth role has correct permissions and Vault is Enterprise version 
+   web socket to wss://vault.vault.svc.cluster.local:8200/v1/sys/events/subscribe/kv%2A?json=true,
+   ensure VaultAuth role has correct permissions and Vault is Enterprise version
    1.16 or above: {"errors":["1 error occurred:\n\t* permission denied\n\n"]}
   Normal   SecretRotated      2s    VaultStaticSecret  Secret synced
 ```

@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: api
 page_title: /sys/storage/raft/snapshot-auto - HTTP API
 description: |-
@@ -61,7 +68,7 @@ environment variables or files on disk in predefined locations.
 #### storage_type=local
 
 - `local_max_space` `(integer: <required>)` - For `storage_type=local`, the maximum
-  space, in bytes, to use for all snapshots with the given `file_prefix` in the `path_prefix` directory. 
+  space, in bytes, to use for all snapshots with the given `file_prefix` in the `path_prefix` directory.
   Snapshot attempts will fail if there is not enough
   space left in this allowance.
 
@@ -123,7 +130,7 @@ environment variables or files on disk in predefined locations.
     "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/service-account-email"
   }
     ```
-  
+
   The associated Google service account must have the following permissions in Google Cloud Storage so that Vault can store and manage the snapshots:
   - `storage.objects.create`
   - `storage.objects.list`

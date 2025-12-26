@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: JWT/OIDC - Auth Methods
 description: >-
@@ -190,23 +197,23 @@ only configure one JWT signature verification method per mounted backend from
 the following options:
 
 - **Static Keys**. A set of public keys is stored directly in the backend configuration. See the
-  [jwt_validation_pubkeys](/vault/api-docs/auth/jwt#jwt_validation_pubkeys) 
+  [jwt_validation_pubkeys](/vault/api-docs/auth/jwt#jwt_validation_pubkeys)
   configuration option.
 
 - **JWKS**. A JSON Web Key Set ([JWKS](https://tools.ietf.org/html/rfc7517)) URL and optional
   certificate chain is configured. Keys will be fetched from this endpoint for authentication.
-  See the [jwks_url](/vault/api-docs/auth/jwt#jwks_url) and [jwks_ca_pem](/vault/api-docs/auth/jwt#jwks_ca_pem) 
+  See the [jwks_url](/vault/api-docs/auth/jwt#jwks_url) and [jwks_ca_pem](/vault/api-docs/auth/jwt#jwks_ca_pem)
   configuration options.
 
 - **JWKS Pairs**. A list of JSON Web Key Set ([JWKS](https://tools.ietf.org/html/rfc7517)) URLs and optional
-  certificate chain for each is configured. Keys will be fetched from each endpoint for authentication, 
-  stopping at the first set to successfully verify the JWT signature. See the 
+  certificate chain for each is configured. Keys will be fetched from each endpoint for authentication,
+  stopping at the first set to successfully verify the JWT signature. See the
   [jwks_pairs](/vault/api-docs/auth/jwt#jwks_pairs) configuration option.
 
 - **OIDC Discovery**. An OIDC Discovery URL and optional certificate chain is configured. Keys
   will be fetched from this URL during authentication. When OIDC Discovery is used, OIDC validation
   criteria (e.g. `iss`, `aud`, etc.) will be applied. See the [oidc_discovery_url](/vault/api-docs/auth/jwt#oidc_discovery_url)
-  and [oidc_discovery_ca_pem](/vault/api-docs/auth/jwt#oidc_discovery_ca_pem) configuration 
+  and [oidc_discovery_ca_pem](/vault/api-docs/auth/jwt#oidc_discovery_ca_pem) configuration
   options.
 
 
@@ -289,7 +296,7 @@ management tool.
        default_role="demo"
    ```
 
-   If you need to perform JWT verification with JWT token validation, then leave the `oidc_client_id` and `oidc_client_secret` blank. 
+   If you need to perform JWT verification with JWT token validation, then leave the `oidc_client_id` and `oidc_client_secret` blank.
 
    ```text
    $ vault write auth/jwt/config \
@@ -368,7 +375,7 @@ This specifies that the value in the JWT claim "division" should be copied to th
 "department" claim value will also be copied into metadata but will retain the key name. If a claim is configured in `claim_mappings`,
 it must existing in the JWT or else the authentication will fail.
 
-Note: the metadata key name "role" is reserved and may not be used for claim mappings. Since Vault 1.16 the role name is available 
+Note: the metadata key name "role" is reserved and may not be used for claim mappings. Since Vault 1.16 the role name is available
 by the key `role` in the alias metadata of the entity after a successful login.
 
 ### Claim specifications and JSON pointer

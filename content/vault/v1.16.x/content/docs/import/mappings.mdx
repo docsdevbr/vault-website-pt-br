@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Secrets import mappings
 description: Mappings lets users apply various filtering methods to secrets being imported in to Vault.
@@ -56,7 +63,7 @@ an empty value, i.e. `""`, acts as a wildcard match to the external system's key
 ### Example
 
 In this example, `my-map-1` will only import the secrets into the destination `my-dest-1` that contain a tag with
-a key named `importable` and its value set to `true`. 
+a key named `importable` and its value set to `true`.
 
 ```hcl
 mapping_metadata {
@@ -104,7 +111,7 @@ into the destination `my-dest-1` that contain both tag keys `database` and `impo
 must also match to `users` and `true` respectively. The second, `my-map-2`, has a priority of 2. Even though all
 the secrets in the first mapping would also qualify for the second mapping's filtering rule, those secrets will only
 be imported into `my-dest-1` because of `my-map-2`'s lower priority. All remaining secrets that have the tag
-`importable` with a value of `true` will be imported into `my-dest-2`. 
+`importable` with a value of `true` will be imported into `my-dest-2`.
 
 ```hcl
 mapping_metadata {

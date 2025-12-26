@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Configure Vault with ADFS for OIDC
 description: >-
@@ -53,7 +60,7 @@ Configure your Vault instance to work with Active Directory Federation Services
    ```
 
    </CodeBlockConfig>
- 
+
 1. **If you use Vault Enterprise or Vault HCP**, set the namespace where you
    have the OIDC plugin mounted to the `VAULT_NAMESPACE` environment variable:
    ```shell-session
@@ -89,7 +96,7 @@ Configure your Vault instance to work with Active Directory Federation Services
 
 1. Open the web UI for your Vault instance.
 1. Select **Access** from the left-hand menu.
-1. Right click **Enable new method** on the Access page. 
+1. Right click **Enable new method** on the Access page.
 1. Select **OIDC**.
 1. Click **Next**.
 1. Set the mount path for the OIDC plugin. For example, `adfs`.
@@ -115,7 +122,7 @@ Configure your Vault instance to work with Active Directory Federation Services
 1. Select **AD FS Management**.
 1. Right-click on **Application Groups** and select **Add Application Group...**.
 1. Follow the prompts to create a new application group with the following
-   information: 
+   information:
     - **Name**: Vault
     - **Description**: a short description explaining the purpose of the application
       group. For example, "Enable access to Vault".
@@ -146,7 +153,7 @@ Configure your Vault instance to work with Active Directory Federation Services
    - Attribute store: `Active Directory`
    - LDAP attribute: `Token-Groups - Unqualified Names`
    - Outgoing claim type: `Group`
-      
+
 [![Screenshot of the Transform Claim Rule Configuration](/img/adfs-oidc-ldapgroupoption.png)](/img/adfs-oidc-ldapgroupoption.png)
 
 ## Step 4: Create a default ADFS role in Vault
@@ -177,7 +184,7 @@ associated with the ADFS authentication token as an entity alias.
 ## Step 5: Configure the OIDC plugin
 
 Use the client ID and shared secret for your ADFS application group to finish
-configuring the OIDC plugin. 
+configuring the OIDC plugin.
 
 <Tabs>
 
@@ -201,7 +208,7 @@ $ vault write auth/<YOUR_OIDC_MOUNT_PATH>/config \
   oidc_discovery_url="<ADFS_URL>" \
   oidc_client_id="<ADFS_APPLICATION_GROUP_CLIENT_ID>" \
   oidc_client_secret="<ADFS_APPLICATION_GROUP_SECRET>" \
-  default_role="<ADFS_ROLE>" 
+  default_role="<ADFS_ROLE>"
 ```
 
 </Tab>
@@ -319,7 +326,7 @@ Now you can create a Vault group and link to an AD group:
 <Tab heading="Vault UI">
 
 1. Open the Vault UI.
-1. Select **Access**. 
+1. Select **Access**.
 1. Select **Groups**.
 1. Click **Create group**.
 1. Follow the prompts to create an external group with the following

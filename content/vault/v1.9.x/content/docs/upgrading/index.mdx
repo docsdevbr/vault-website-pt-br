@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Upgrading Vault - Guides
 description: |-
@@ -10,7 +17,7 @@ description: |-
 
 These are general upgrade instructions for Vault for both non-HA and HA setups.
 _Please ensure that you also read any version-specific upgrade notes which can be
-found in the sidebar._ 
+found in the sidebar._
 
 !> **IMPORTANT NOTE:** Always back up your data before upgrading! Vault does not
 make backward-compatibility guarantees for its data store. Simply replacing the
@@ -94,15 +101,15 @@ At this point all standby nodes will be upgraded and ready to take over. The
 upgrade will not be complete until one of the upgraded standby nodes takes over
 active duty. To do this:
 
-1. Properly shut down the remaining (active) node 
+1. Properly shut down the remaining (active) node
 
-   ~> **Note:** It is important that you shut the node down properly. 
+   ~> **Note:** It is important that you shut the node down properly.
    This will perform a step-down and release the HA lock, allowing a standby
    node to take over with a very short delay.
    If you kill Vault without letting it release the lock, a standby node will
    not be able to take over until the lock's timeout period has expired. This
    is backend-specific but could be ten seconds or more.
-   
+
 2. Replace the Vault binary with the new version; ensure that `mlock()` capability is added to the new binary with [setcap](/vault/docs/configuration#disable_mlock)
 4. Start the node
 5. Unseal the node

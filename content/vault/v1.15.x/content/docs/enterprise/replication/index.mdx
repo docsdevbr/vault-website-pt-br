@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Replication - Vault Enterprise
 description: >-
@@ -12,7 +19,7 @@ description: >-
 @include 'alerts/enterprise-and-hcp.mdx'
 
 ## Overview
- 
+
 Many organizations have infrastructure that spans multiple datacenters. Vault
 provides the critical services of identity management, secrets storage, and
 policy management. This functionality is expected to be highly available and
@@ -101,7 +108,7 @@ in the past.
 <Note title="Performance replication does not include automated integrated storage snapshots">
 
 Vault does not replicate automated integrated storage snapshots as a part of
-performance replication. 
+performance replication.
 
 You must explicitly configure each of the primary and secondary performance
 clusters to create individual automated snapshots replicas.

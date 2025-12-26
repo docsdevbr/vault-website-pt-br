@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Kerberos - Auth Methods
 description: The Kerberos auth method allows automated authentication of Kerberos entities.
@@ -164,9 +171,9 @@ $ vault login -method=kerberos \
   It includes a mechanism for tunneling pre-authentication exchanges using armoured
   KDC messages. FAST provides increased resistance to passive password guessing attacks.
   Some common Kerberos implementations do not support FAST negotiation.
-- `remove_instance_name` removes any instance names from a Kerberos service 
-  principal name when parsing the keytab file. For example when this is set to true, 
-  if a keytab has the service principal name `foo/localhost@example.com`, the CLI 
+- `remove_instance_name` removes any instance names from a Kerberos service
+  principal name when parsing the keytab file. For example when this is set to true,
+  if a keytab has the service principal name `foo/localhost@example.com`, the CLI
   will strip the service principal name to just be `foo@example.com`.
 
 ## Troubleshooting

@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Key Rotation
 description: Learn about the details of key rotation within Vault.
@@ -74,10 +81,10 @@ Operators can estimate the number of encryptions by summing the following:
 - The `merkle.flushDirty.num_pages` metric.
 - The WAL index.
 
-Vault periodically persists the number of encryptions to support rotation. 
+Vault periodically persists the number of encryptions to support rotation.
 This save operation has a 1 second timeout to prevent impact to performance
 if Vault is under heavy load.  Because persisting encryptions involves the
 seal backend (if seal wrap is enabled), some seals (such as HSMs) may take
 regularly longer than 1 second to respond.  If this is the case, operators
-may override that timeout by setting the environment variable 
+may override that timeout by setting the environment variable
 `VAULT_ENCRYPTION_COUNT_PERSIST_TIMEOUT` to a larger value, such as "5s".

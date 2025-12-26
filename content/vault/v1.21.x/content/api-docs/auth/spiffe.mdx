@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: api
 page_title: SPIFFE - Auth Methods - HTTP API
 description: This is the API documentation for the Vault SPIFFE authentication method.
@@ -15,7 +22,7 @@ please update your API calls accordingly.
 
 Configure or refresh the SPIFFE trust domain and associated trust bundle for the
 plugin. To refresh an existing cached bundle, call the endpoint with an empty
-payload. 
+payload.
 
 If you use profiles that fetch the trust bundle from a remote endpoint, Vault
 immediately fetches a trust bundle when you create the configuration unless you
@@ -164,7 +171,7 @@ different roles (e.g. role1 has `team1/*` and role2 has `team1/service1`).
 issued  when authenticating against the role. Defaults to the value provided for
 `name`.
 - `workload_id_patterns` `(array: <required>)` - A comma separated list of
-  patterns that match an incoming workload ID associated with the SPIFFE role. 
+  patterns that match an incoming workload ID associated with the SPIFFE role.
   You can find the workload ID by stripping the trust domain prefix and slash
   separator from the associated SPIFFE ID. You can use the following special
   characters with the workload ID:

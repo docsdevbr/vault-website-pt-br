@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Running Vault - OpenShift
 sidebar_title: Running Vault on OpenShift
@@ -12,12 +19,12 @@ description: >-
 
 ~> **Note:** OpenShift support is a beta feature.
 
-The following documentation describes installing, running and using 
+The following documentation describes installing, running and using
 Vault and Vault Agent Injector on OpenShift.
 
 ## Requirements
 
-The following are required to install Vault and Vault Agent Injector 
+The following are required to install Vault and Vault Agent Injector
 on OpenShift:
 
 * Cluster Admin privileges to bind the `auth-delegator` role to Vault's service account
@@ -31,7 +38,7 @@ on OpenShift:
 
 ## Additional Resources
 
-The documentation, configuration and examples for Vault Helm and Vault K8s Agent Injector 
+The documentation, configuration and examples for Vault Helm and Vault K8s Agent Injector
 are applicable to OpenShift installations.  For more examples see the existing documentation:
 
 * [Vault Helm documentation](/vault/docs/platform/k8s/helm)
@@ -42,7 +49,7 @@ are applicable to OpenShift installations.  For more examples see the existing d
 The [Vault Helm chart](https://github.com/hashicorp/vault-helm)
 is the recommended way to install and configure Vault on OpenShift.
 In addition to running Vault itself, the Helm chart is the primary
-method for installing and configuring Vault Agent Injection Mutating 
+method for installing and configuring Vault Agent Injection Mutating
 Webhook.
 
 While the Helm chart automatically sets up complex resources and exposes the
@@ -100,7 +107,7 @@ $ helm install vault hashicorp/vault --version 0.5.0
 ```
 
 The `helm install` command accepts parameters to override default configuration
-values inline or defined in a file.  For all OpenShift deployments, `global.openshift` 
+values inline or defined in a file.  For all OpenShift deployments, `global.openshift`
 should be set to `true`.
 
 Override the `server.dev.enabled` configuration value:

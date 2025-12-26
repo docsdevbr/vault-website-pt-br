@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Key Rotation
 description: Learn about the details of key rotation within Vault.
@@ -93,7 +100,7 @@ where:
   save operation has a 1 second timeout to limit performance impact when Vault is
   under heavy load. If you use seal wrap, persisting encryptions involves the seal
   backend, which means that some seals, like HSMs, may routinely take longer than
-  1 second to respond. You can override the save timeout by setting the 
+  1 second to respond. You can override the save timeout by setting the
   `VAULT_ENCRYPTION_COUNT_PERSIST_TIMEOUT` environment variable on your Vault
   server to a larger value, such as "5s".
 

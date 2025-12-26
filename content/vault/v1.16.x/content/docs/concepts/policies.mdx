@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Policies
 description: >-
@@ -574,6 +581,15 @@ path "secret/foo" {
 ```
 
 @include '../../../global/partials/policies/list-allowed-parameters.mdx'
+
+<Tip title="Consider upgrading to a fixed version">
+
+Vault 1.21.x introduced a more intuitive list processing for `allowed_parameters`
+and `denied_parameters`. You can enable the intuitive list processing behavior
+for Vault 1.16.x by upgrading to 1.16.28 or later and setting the
+`VAULT_NEW_PER_ELEMENT_MATCHING_ON_LIST` environment variable.
+
+</Tip>
 
 ### Required response wrapping TTLs
 

@@ -1,5 +1,12 @@
 ---
-page_title: Deploy the Vault model context protocol (MCP) server 
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
+page_title: Deploy the Vault model context protocol (MCP) server
 description: |-
  Learn how to deploy the Vault MCP server, which helps you interact with HashiCorp Vault APIs.
 ---
@@ -142,7 +149,7 @@ Docker provides the most reliable and consistent way to run the Vault MCP server
 <Tab heading="Cursor">
 
 1. Verify [Cursor](https://www.cursor.com) is installed.
-1. Verify the MCP support configured, refer to [Cursor's MCP documentation](https://docs.cursor.com/context/model-context-protocol#configuring-mcp-servers) for more information.    
+1. Verify the MCP support configured, refer to [Cursor's MCP documentation](https://docs.cursor.com/context/model-context-protocol#configuring-mcp-servers) for more information.
 1. To use the MCP server in all workspaces, add the following configuration to your user settings JSON file:
 
   ```json
@@ -192,12 +199,12 @@ Docker provides the most reliable and consistent way to run the Vault MCP server
 1. Verify the installation by opening the chat pane and selecting **Chat Settings** from the ellipses menu.
 1. Choose **Agent** from the **Default new chat mode** drop-down menu.
 1. Select **MCP** from the **Cursor Settings** sidebar to verify that Vault MCP server tools are enabled.
-  
+
 </Tab>
 <Tab heading="Claude Desktop">
 
 1. Verify [Claude Desktop](https://support.anthropic.com/en/articles/10065433-installing-claude-for-desktop) is installed.
-1. Verify MCP support is configured, refer to [Claude Desktop's MCP documentation](https://modelcontextprotocol.io/quickstart/user) for more information.    
+1. Verify MCP support is configured, refer to [Claude Desktop's MCP documentation](https://modelcontextprotocol.io/quickstart/user) for more information.
 1. Create or edit the `mcp.json` file and add the following configuration:
 
   ```json
@@ -229,7 +236,7 @@ Docker provides the most reliable and consistent way to run the Vault MCP server
 <Tab heading="Amazon Q">
 
 1. Verify [Amazon Q](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line-installing.html) is installed.
-1. Verify MCP support is configured, refer to [Amazon Q's MCP documentation](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/qdev-mcp.html) for more information.    
+1. Verify MCP support is configured, refer to [Amazon Q's MCP documentation](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/qdev-mcp.html) for more information.
 1. Create or edit the `mcp.json` file with the following configuration:
 
 ```json
@@ -253,7 +260,7 @@ Docker provides the most reliable and consistent way to run the Vault MCP server
   }
 }
 ```
-  
+
 </Tab>
 </Tabs>
 
@@ -261,7 +268,7 @@ Docker provides the most reliable and consistent way to run the Vault MCP server
 
 The compiled binary option provides a lightweight installation without Docker dependencies. This method is ideal when you want to minimize resource usage or work in environments with restricted container access.
 
-1. Download the binary for your operating system and architecture, visit the [release library](https://releases.hashicorp.com/vault-mcp-server).  
+1. Download the binary for your operating system and architecture, visit the [release library](https://releases.hashicorp.com/vault-mcp-server).
 1. Add the following configuration to your client settings. Replace `/path/to/vault-mcp-server` with the actual path to your downloaded binary.
 
   <CodeBlockConfig highlight="5">
@@ -322,15 +329,15 @@ Installing from source gives you access to the latest features and allows for cu
   }
   ```
 
-  Replace `/path/to/vault-mcp-server` with the actual path to your downloaded binary. The binary location depends on your Go installation and `GOPATH` configuration. 
-  
+  Replace `/path/to/vault-mcp-server` with the actual path to your downloaded binary. The binary location depends on your Go installation and `GOPATH` configuration.
+
   Use `which vault-mcp-server` to find the installed binary path.
 
 ## Start the server
 
 You can use the `vault-mcp-server` CLI and specify the transport protocol you want to use to start the server. Refer to the [transport protocols reference](/vault/docs/mcp-server/reference#transport-protocols) for more information.
 
-Start the server in `stdio` mode. 
+Start the server in `stdio` mode.
 
 ```shell-session
 $ vault-mcp-server stdio [--log-file /path/to/log]

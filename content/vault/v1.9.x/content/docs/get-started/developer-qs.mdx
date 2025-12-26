@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Developer Quick Start
 description: Learn how to store and retrieve your first secret.
@@ -23,7 +30,7 @@ Run the Vault server in a non-production "dev" mode in one of the following ways
 
 **For Docker users, run this command**:
 
-```shell-session 
+```shell-session
 $ docker run -p 8200:8200 -e 'VAULT_DEV_ROOT_TOKEN_ID=dev-only-token' vault
 ```
 
@@ -50,8 +57,8 @@ Let's install the Vault client library for your language of choice.
 <Tab heading="Go">
 
 [Go](https://pkg.go.dev/github.com/hashicorp/vault/api) (official) client library:
-   
-```shell-session 
+
+```shell-session
 $ go get github.com/hashicorp/vault/api
 ```
 
@@ -68,10 +75,10 @@ import vault "github.com/hashicorp/vault/api"
 </Tab>
 <Tab heading="Ruby">
 
-   
+
 [Ruby](https://github.com/hashicorp/vault-ruby) (official) client library:
-   
-```shell-session 
+
+```shell-session
 $ gem install vault
 ```
 
@@ -88,9 +95,9 @@ require "vault"
 </Tab>
 <Tab heading="C#">
 
-   
+
 [C#](https://github.com/rajanadar/VaultSharp) client library:
-   
+
 ```shell-session
 $ dotnet add package VaultSharp
 ```
@@ -111,10 +118,10 @@ using VaultSharp.V1.Commons;
 </Tab>
 <Tab heading="Python">
 
-   
+
 [Python](https://github.com/hvac/hvac) client library:
 
-```shell-session 
+```shell-session
 $ pip install hvac
 ```
 
@@ -131,9 +138,9 @@ import hvac
 </Tab>
 <Tab heading="Java">
 
-   
+
 [Java (Spring)](https://spring.io/projects/spring-vault) client library:
-   
+
 Add the following to pom.xml:
 
 ```xml

@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Policies
 description: >-
@@ -354,13 +361,13 @@ constrain requests, using the following options:
 
   ```ruby
   # This requires the user to create "secret/profile" with a parameter/key named
-  # "name" and "id" where kv v1 is enabled at "secret/". 
+  # "name" and "id" where kv v1 is enabled at "secret/".
   path "secret/profile" {
     capabilities = ["create"]
     required_parameters = ["name", "id"]
   }
   ```
-  
+
 - `allowed_parameters` - A list of keys and values that are
   permitted on the given path.
 
@@ -371,7 +378,7 @@ constrain requests, using the following options:
     # This allows the user to update the password parameter value set on any
     # users configured for userpass auth method. The password value can be
     # anything. However, the user cannot update other parameter values such as
-    # token_ttl. 
+    # token_ttl.
     path "auth/userpass/users/*" {
       capabilities = ["update"]
       allowed_parameters = {
@@ -384,7 +391,7 @@ constrain requests, using the following options:
      Templating](/vault/tutorials/policies/policy-templating)
      tutorial demonstrates the use of `allowed_parameters` to permit a user to
      update the user's password when using the [userpass auth
-     method](/vault/docs/auth/userpass) to log in with Vault. 
+     method](/vault/docs/auth/userpass) to log in with Vault.
 
   - Setting a parameter with a value of a populated list allows the parameter
     to contain only those values.
@@ -422,7 +429,7 @@ constrain requests, using the following options:
     }
     ```
 
-- `denied_parameters` - A list of keys and values that are not permitted on the given 
+- `denied_parameters` - A list of keys and values that are not permitted on the given
   path. Any values specified here take precedence over `allowed_parameters`.
 
   - Setting a parameter with a value of the empty list denies any changes to
@@ -447,7 +454,7 @@ constrain requests, using the following options:
     ```ruby
     # This allows the user to create or update token roles. However, the
     # "allowed_policies" parameter value cannot be "admin", but the user can
-    # assign any other policies to the parameter.   
+    # assign any other policies to the parameter.
     path "auth/token/roles/*" {
       capabilities = ["create", "update"]
       denied_parameters = {

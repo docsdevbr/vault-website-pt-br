@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Create a rate limit quota
 description: >-
@@ -25,7 +32,7 @@ capability.
 
 </Tip>
 
-## Before you start 
+## Before you start
 
 - **Confirm you have access to the root or administration namespace for your
   Vault instance**. Modifying rate limit quotas is a restricted activity.
@@ -166,18 +173,18 @@ Create a rate limit quota using the following parameters:
 - `name` `(string: "")` - Name of the quota rule
 - `path` `(string: "")` - Target namespace, mount, or path to apply the quota
   rule. It can end with `*` (e.g., `auth/token/create*`). A blank path
-  configures a global rate limit quota. 
-- `rate` `float` - Rate for the number of allowed _requests per second_ (RPS)  
+  configures a global rate limit quota.
+- `rate` `float` - Rate for the number of allowed _requests per second_ (RPS)
 - `role` `(string: "")` - Login role to apply this quota to. When you set this
   parameter, you must configure the path to a valid auth method with a concept
-  of roles.  
+  of roles.
 - `interval` `(int: 0)` - The duration to enforce rate limiting for (default is
   1 second)
 - `block_interval` `(string: "")` - If set, when a client reaches a rate limit
   threshold, Vault prohibits the client from any further requests until after
-  the `block_interval` has elapsed. 
+  the `block_interval` has elapsed.
 - `inheritable` `(boolean: false)` - <EnterpriseAlert product="vault" inline /> Determine whether to
-  apply the quota rule to child namespaces.   
+  apply the quota rule to child namespaces.
 - `group_by` `(string: "")` - <EnterpriseAlert product="vault" inline /> Define how to group incoming
   requests. Refer to the [identity-based rate limit quotas](/vault/docs/configuration/identity-based-rate-limit) for more details.
 - `secondary_rate` `(float: 0.0)` – <EnterpriseAlert product="vault" inline /> Can only be set
@@ -204,7 +211,7 @@ $ vault write sys/quotas/rate-limit/<QUOTA_NAME> \
     interval=<DURATION_OF_RATE_LIMIT> \
     block_interval=<DURATION_TO_BLOCK_REQUESTS> \
     inheritable=<BOOLEAN> \
-``` 
+```
 
 </CodeBlockConfig>
 
@@ -824,7 +831,7 @@ resource "vault_namespace" "us-west" {
    path = "us-west"
 }
 
-# Create a "us-west" rate limit quota 
+# Create a "us-west" rate limit quota
 resource "vault_quota_rate_limit" "us-west" {
   name = "us-west"
   path = "us-west"
@@ -838,7 +845,7 @@ resource "vault_quota_rate_limit" "us-west" {
 </Tabs>
 
 
-## Next steps 
+## Next steps
 
 Proactive monitoring and periodic usage analysis can help you identify potential
 problems before they escalate.

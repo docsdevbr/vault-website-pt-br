@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Vault Enterprise Control Groups
 description: Vault Enterprise has support for Control Group Authorization.
@@ -27,14 +34,14 @@ Control Groups can verify the following factors:
 
 ### Controlled capabilities
 Control group factors can be configured to trigger the control group workflow
-on specific capabilities. This is done with the `controlled_capabilities` field. 
-Not specifying the `controlled_capabilities` field will necessitate the factor to be 
-checked for all operations to the specified policy path. The `controlled_capabilities` 
+on specific capabilities. This is done with the `controlled_capabilities` field.
+Not specifying the `controlled_capabilities` field will necessitate the factor to be
+checked for all operations to the specified policy path. The `controlled_capabilities`
 field can differ per factor, so that different factors can be required for different
-operations. 
+operations.
 
-Finally, the capabilities in the `controlled_capabilities` stanza must be a subset of the 
-`capabilities` specifed in the policy itself. For example, a policy giving only `read` access to 
+Finally, the capabilities in the `controlled_capabilities` stanza must be a subset of the
+`capabilities` specifed in the policy itself. For example, a policy giving only `read` access to
 the path `secret/foo` cannot specify a control group factor with `list` as a controlled capability.
 
 Please see the following section for example ACL Policies.
@@ -107,7 +114,7 @@ path "secret/foo" {
 
 The above policy grants `read` access to `secret/foo` for anyone that has a vault token
 with this policy. It grants `write` access to `secret/foo` only after one member from the
-admin group authorizes the request. 
+admin group authorizes the request.
 
 ```
 path "kv/*" {
@@ -163,10 +170,10 @@ path "kv/*" {
 }
 ```
 
-In this case, `read` will require one admin approval and `create` will require 
+In this case, `read` will require one admin approval and `create` will require
 one superuser approval and one admin approval. `List` will require no extra approvals
-from any of the control group factors, and a token with this policy will not be required 
-to go through the control group workflow in order to execute a read operation against `kv/*`.  
+from any of the control group factors, and a token with this policy will not be required
+to go through the control group workflow in order to execute a read operation against `kv/*`.
 
 ## Control Groups in Sentinel
 

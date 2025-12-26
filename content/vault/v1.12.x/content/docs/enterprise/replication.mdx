@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Replication - Vault Enterprise
 description: >-
@@ -222,9 +229,9 @@ its encrypted barrier.
 
 ## Mutual TLS and load balancers
 
-Vault generates its own certificates for cluster members. All replication traffic 
-uses the cluster port using these Vault-generated certificates after initial 
-bootstrapping. Because of this, the cluster traffic can NOT be terminated at the 
+Vault generates its own certificates for cluster members. All replication traffic
+uses the cluster port using these Vault-generated certificates after initial
+bootstrapping. Because of this, the cluster traffic can NOT be terminated at the
 cluster port at a load balancer level.
 
 ## Tutorial

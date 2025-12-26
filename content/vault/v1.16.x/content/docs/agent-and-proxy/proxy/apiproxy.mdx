@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Vault Proxy API Proxy
 description: >-
@@ -55,10 +62,10 @@ configuration will be overridden and the token in the request will be used to
 forward the request to the Vault server. If set to `"force"` Proxy will use the
 auto-auth token, overwriting the attached Vault token if set.
 
-~> **Note**: When using the proxy's auto-auth token with the `use_auto_auth_token` 
+~> **Note**: When using the proxy's auto-auth token with the `use_auto_auth_token`
    configuration, one proxy per application is very strongly recommended, as Vault will
-   unable to distinguish requests coming from multiple applications through a single proxy. 
-   In situations where a single proxy is shared by multiple applications, setting `use_auto_auth_token` 
+   unable to distinguish requests coming from multiple applications through a single proxy.
+   In situations where a single proxy is shared by multiple applications, setting `use_auto_auth_token`
    to `false` (the default) is recommended.
 
 - `prepend_configured_namespace` `(bool: false)` - If set, when Proxy has a

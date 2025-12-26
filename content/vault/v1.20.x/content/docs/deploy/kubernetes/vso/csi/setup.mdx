@@ -1,8 +1,15 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Vault Secrets Operator CSI driver setup
 description: >-
-  Install the Vault Secrets Operator CSI driver and 
+  Install the Vault Secrets Operator CSI driver and
   mount secrets into your applications as ephemeral volumes.
 ---
 
@@ -17,7 +24,7 @@ associated position in the associated `vaultStaticSecrets` or
 `vaultAppRoleSecretIDs` list in the `CSISecrets` resource.  For example,
 `static_secret_0_secret`, `static_secret_1_secret`, ... `static_secret_N_secret`.
 
-The CSI driver generates and syncs new AppRole secret IDs on container startup. 
+The CSI driver generates and syncs new AppRole secret IDs on container startup.
 All other secrets sync when a requesting container starts or restarts, or when a user modifies a `CSISecrets` resource.
 
 ## Before you start
@@ -53,10 +60,10 @@ Refer to the [Helm chart documentation](/vault/docs/deploy/kubernetes/vso/helm#c
 
 ## Step 2: Create your Vault policies
 
-You must create a Vault [policy](https://developer.hashicorp.com/vault/docs/concepts/policies) to allow the CSI driver to fetch secrets and/or 
+You must create a Vault [policy](https://developer.hashicorp.com/vault/docs/concepts/policies) to allow the CSI driver to fetch secrets and/or
 generate AppRole secret IDs.
-	
-For example, the following policy lets the CSI driver fetch secrets from the 
+
+For example, the following policy lets the CSI driver fetch secrets from the
 Key/Value plugin:
 
 ```hcl
@@ -73,11 +80,11 @@ path "sys/license/status" {
 }
 ```
 
-To generate AppRole secret IDs with the CSI driver so application Pods can 
-log into Vault and fetch secrets independently, your Vault policy must grant the CSI driver 
-permissions for the associated role. 
+To generate AppRole secret IDs with the CSI driver so application Pods can
+log into Vault and fetch secrets independently, your Vault policy must grant the CSI driver
+permissions for the associated role.
 
-For example, the following policy lets the CSI driver generate secret IDs 
+For example, the following policy lets the CSI driver generate secret IDs
 using the AppRole plugin:
 
 ```
@@ -90,7 +97,7 @@ path "auth/approle/role/example-role/role-id" {
 }
 ```
 
-Once you write the policy to Vault, you can create a role that uses that policy 
+Once you write the policy to Vault, you can create a role that uses that policy
 in any auth method supported by Vault Secrets Operator.
 
 For example, to use the policy with the [Kubernetes](/vault/docs/auth/kubernetes)
@@ -108,8 +115,8 @@ $ vault write auth/kubernetes/role/example-auth-role                       \
 ## Step 3: Create your auth custom resources
 
 To authenticate the CSI driver to Vault, you must create [`VaultAuth`](/vault/docs/deploy/kubernetes/vso/api-reference#vaultauth) and
-[`VaultConnection`](/vault/docs/deploy/kubernetes/vso/api-reference#vaultconnection) resources, 
-as defined in the Custom Resource Definitions (CRDs) of the Vault Secrets Operator Helm chart and apply it to your cluster. 
+[`VaultConnection`](/vault/docs/deploy/kubernetes/vso/api-reference#vaultconnection) resources,
+as defined in the Custom Resource Definitions (CRDs) of the Vault Secrets Operator Helm chart and apply it to your cluster.
 
 You can reference existing auth resources from Vault Secrets Operator or create entirely new resources. For example:
 
@@ -124,6 +131,13 @@ spec:
    name: default
 
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 
 apiVersion: secrets.hashicorp.com/v1beta1
 kind: VaultAuthGlobal
@@ -264,7 +278,7 @@ You can also use the Kubernetes
 field and the associated file index to limit which secret files a container can
 access. For example, the following `subPath` limits access to the first `approle`
 secret (`app_role_0_wrap_info.json`):
-	
+
 ```yaml
 volumeMounts:
 - name: csi-secrets
@@ -280,7 +294,7 @@ a volume containing all the secrets from the `CSISecrets` resource.
 
 ## Step 6: Verify Pods can access secrets appropriately
 
-Once a Pod starts, you can verify whether it does, or does not, have access to the relevant `CSISecrets` resource 
-by inspecting files on the configured mount. 
+Once a Pod starts, you can verify whether it does, or does not, have access to the relevant `CSISecrets` resource
+by inspecting files on the configured mount.
 For example, `/var/run/csi-secrets`.
 

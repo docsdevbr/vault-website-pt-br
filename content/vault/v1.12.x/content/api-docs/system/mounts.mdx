@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: api
 page_title: /sys/mounts - HTTP API
 description: The `/sys/mounts` endpoint is used to manage secrets engines in Vault.
@@ -246,7 +253,7 @@ simple as increasing the timeout (in the event of timeout errors).
 For recovery situations where the secret was manually removed from the
 secrets backing service, one can force a secrets engine disable in Vault by
 performing a [force revoke](/vault/api-docs/system/leases)
-on the mount prefix, followed by a secrets disable when that completes. 
+on the mount prefix, followed by a secrets disable when that completes.
 If the underlying secrets were not manually cleaned up, this method might result
 in dangling credentials. This is meant for extreme circumstances.
 

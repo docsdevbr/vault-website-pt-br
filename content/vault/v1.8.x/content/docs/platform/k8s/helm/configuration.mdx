@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Configuration
 description: This section documents configuration options for the Vault Helm chart
@@ -86,11 +93,11 @@ and consider if they're appropriate for your deployment.
   - `agentDefaults` - Values that configure the injected Vault Agent containers default values.
 
     - `cpuLimit` (`string: "500m"`) - The default CPU limit for injected Vault Agent containers.
-    
+
     - `cpuRequest` (`string: "250m"`) - The default CPU request for injected Vault Agent containers.
 
     - `memLimit` (`string: "128Mi"`) - The default memory limit for injected Vault Agent containers.
-    
+
     - `memRequest` (`string: "64Mi"`) - The default memory request for injected Vault Agent containers.
 
     - `template` (`string: "map"`) - The default template type for rendered secrets if no custom templates are defined.
@@ -209,7 +216,7 @@ and consider if they're appropriate for your deployment.
         "sample/annotation1": "foo"
         "sample/annotation2": "bar"
       ```
-  - `hostNetwork` (`boolean: false`) - When set to true, configures the Vault Agent Injector to run on the host network. This is useful 
+  - `hostNetwork` (`boolean: false`) - When set to true, configures the Vault Agent Injector to run on the host network. This is useful
     when alternative cluster networking is used.
 
   - `port` (`int: 8080`) - Configures the port the Vault Agent Injector listens on.
@@ -234,10 +241,10 @@ and consider if they're appropriate for your deployment.
 
   - `updateStrategyType` (`string: "OnDelete"`) - Configure the [Update Strategy Type](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#update-strategies) for the StatefulSet.
 
-  - `logLevel` (`string: ""`) - Configures the Vault server logging verbosity. If set this will override values defined in the Vault configuration file. 
+  - `logLevel` (`string: ""`) - Configures the Vault server logging verbosity. If set this will override values defined in the Vault configuration file.
     Supported log levels include: `trace`, `debug`, `info`, `warn`, `error`.
 
-  - `logFormat` (`string: ""`) - Configures the Vault server logging format. If set this will override values defined in the Vault configuration file. 
+  - `logFormat` (`string: ""`) - Configures the Vault server logging format. If set this will override values defined in the Vault configuration file.
     Supported log formats include: `standard`, `json`.
 
   - `resources` (`dictionary: {}`) - The resource requests and limits (CPU, memory, etc.) for each container of the server. This should be a YAML dictionary of a Kubernetes [ResourceRequirements](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.15/#resourcerequirements-v1-core) object. If this isn't specified, then the pods won't request any specific amount of resources, which limits the ability for Kubernetes to make efficient use of compute resources. **Setting this is highly recommended.**
@@ -273,11 +280,11 @@ and consider if they're appropriate for your deployment.
         kubernetes.io/tls-acme: "true"
       ```
 
-    - `extraPaths` (`array: {}`) - Configures extra paths to prepend to the host configuration. 
+    - `extraPaths` (`array: {}`) - Configures extra paths to prepend to the host configuration.
       This is useful when working with annotation based services.
 
       ```yaml
-      extraPaths: 
+      extraPaths:
         - path: /*
           backend:
             serviceName: ssl-redirect
@@ -886,7 +893,7 @@ and consider if they're appropriate for your deployment.
       annotations: |
         foo: bar
       ```
-    
+
     - `tolerations` (`string: null`) - Toleration Settings for CSI pods. This should be a multi-line string matching the Toleration array in a PodSpec.
 
 

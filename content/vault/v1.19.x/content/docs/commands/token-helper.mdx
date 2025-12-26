@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Use a custom token helper
 description: >-
@@ -91,13 +98,13 @@ function write_error(){ >&2 echo $@; }
 # by default) because jq has trouble with special characeters in JSON field
 # names
 function createHashKey {
-  
+
   local key=""
 
-  if [[ -z "${1}" ]] ; then key="${VAULT_ADDR}" 
+  if [[ -z "${1}" ]] ; then key="${VAULT_ADDR}"
   else                      key="${1}"
   fi
-  
+
   # We index the token according to the Vault server address by default so
   # return an error if the address is empty
   if [[ -z "${key}" ]] ; then
@@ -126,8 +133,8 @@ case "${1}" in
 
       # Read the current JSON data and pull the token associated with ${KEY}
       TOKEN=$(cat ${TOKEN_FILE} | jq --arg key "${KEY}" -r '.[$key]')
-      
-      # If the token != to the string "null", print the token to stdout 
+
+      # If the token != to the string "null", print the token to stdout
       # jq returns "null" if the key was not found in the JSON data
       if [ ! "${TOKEN}" == "null" ] ; then
         echo "${TOKEN}"
@@ -136,7 +143,7 @@ case "${1}" in
     ;;
 
     "store")
-      
+
       # Get the token from stdin
       read TOKEN
 
@@ -147,7 +154,7 @@ case "${1}" in
         --arg token "${TOKEN}"  \
         '.[$key] = $token' ${TOKEN_FILE}
       )
-      
+
     ;;
 
     "erase")
@@ -158,7 +165,7 @@ case "${1}" in
         --arg token "${TOKEN}"  \
         'del(.[$key])' ${TOKEN_FILE}
       )
-    
+
     ;;
 
     *)
@@ -195,7 +202,7 @@ exit 0
 function CreateHashKey {
 
   Param($address = "${env:VAULT_ADDR}")
-  
+
   # We index the token according to the Vault server address by default so
   # return an error if the address is empty
   if ( -not $address) {
@@ -211,7 +218,7 @@ function CreateHashKey {
 .Synopsis
   GetTokenCache
 .DESCRIPTION
-  Read in or create a new token cache and initialize the hash 
+  Read in or create a new token cache and initialize the hash
 #>
 function GetTokenCache {
 
@@ -223,7 +230,7 @@ function GetTokenCache {
     $fileData = (Get-Content "${filename}" -Raw | ConvertFrom-Json -AsHashtable)
   } else {
     $fileData = (Write-Output "{}" | ConvertFrom-Json -AsHashtable)
-  } 
+  }
 
   return $fileData
 }
@@ -232,12 +239,12 @@ function GetTokenCache {
 .Synopsis
   UpdateTokenCache
 .DESCRIPTION
-  Write the token hash out to the cache 
+  Write the token hash out to the cache
 #>
 function UpdateTokenCache {
 
   Param($filename, $fileData)
-  $jsonData = ($fileData | ConvertTo-Json) 
+  $jsonData = ($fileData | ConvertTo-Json)
 
   # Convert the hash to JSON and update the token cache
   $jsonData | Out-File -Encoding ascii "${filename}"
@@ -261,7 +268,7 @@ switch -Exact -CaseSensitive (${args}[0]) {
   "store" {
     $token = Read-Host
     # Add the new token to the hash
-    $hashData["${key}"] = "${token}" 
+    $hashData["${key}"] = "${token}"
   }
 
   "erase" {
@@ -291,7 +298,7 @@ exit 0
 require 'json'
 
 // We index the token according to the Vault server address
-// so the VAULT_ADDR variable is required 
+// so the VAULT_ADDR variable is required
 unless ENV['VAULT_ADDR']
   STDERR.puts "No VAULT_ADDR environment variable set. Set it and run me again!"
   exit 100

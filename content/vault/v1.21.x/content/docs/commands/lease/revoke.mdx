@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: lease revoke - Command
 description: |-
@@ -25,6 +32,15 @@ Revoke a lease which starts with a prefix:
 ```shell-session
 $ vault lease revoke -prefix database/creds
 Success! Revoked any leases with prefix: database/creds
+```
+
+Force revoke an irrevocable lease which starts with a prefix plus lease ID:
+
+```shell-session
+$ vault lease revoke -force -prefix database/creds/test-role/9Y5YA7vmRs2uESbSOInm0BpC
+Warning! Force-removing leases can cause Vault to become out of sync with
+secret engines!
+Success! Force revoked any leases with prefix: database/creds/test-role/9Y5YA7vmRs2uESbSOInm0BpC```
 ```
 
 ## Usage

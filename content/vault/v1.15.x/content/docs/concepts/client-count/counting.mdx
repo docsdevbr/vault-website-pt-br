@@ -1,8 +1,15 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Client count calculation
 description: |-
-  Technical overview of client count calculations in Vault 
+  Technical overview of client count calculations in Vault
 ---
 
 # Client count calculation
@@ -10,7 +17,7 @@ description: |-
 Vault provides usage telemetry for the number of clients based on the number of
 unique entity assignments within a Vault cluster over a given billing period:
 
-- Standard entity assignments based on authentication method for active entities. 
+- Standard entity assignments based on authentication method for active entities.
 - Constructed entity assignments for active non-entity tokens, including batch
   tokens created by performance standby nodes.
 - Certificate entity assignments for ACME connections.
@@ -86,7 +93,7 @@ accuracy estimate for the approximation decreases as the difference between the
 number of clients in the current month and the number of clients in the billing
 period increases.
 
-### Testing verification for client count approximations 
+### Testing verification for client count approximations
 
 Given `CM` as the number of clients for the current month and `BP` as the number
 of clients in the billing period, we found that the approximation becomes

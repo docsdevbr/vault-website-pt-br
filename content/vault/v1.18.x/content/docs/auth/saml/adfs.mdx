@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Use Active Directory Federation Services for SAML
 description: >-
@@ -98,7 +105,7 @@ Configure your Vault instance to work with Active Directory Federation Services
   The callback endpoint for your SAML plugin is:
 
   `https://${VAULT_ADDRESS}/v1/<NAMESPACE>/<MOUNT_PATH>/auth/<PLUGIN_NAME>/callback`
-  
+
   For example, if you mounted the plugin under the `ns_admin` namespace on the
   path `org/security`, the callback endpoint URL would be:
 

@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Sync secrets from Vault to GCP Secret Manager
 description: >-
@@ -122,11 +129,11 @@ or the association in Vault will delete the secret in your GCP project as well.
 ### Replication policy
 
 GCP can target specific geographic regions to provide strict control on where
-your applications store data and sync secrets. You can target specific GCP 
-regions for each sync destinations during creation which will limit where Vault writes 
-secrets. 
+your applications store data and sync secrets. You can target specific GCP
+regions for each sync destinations during creation which will limit where Vault writes
+secrets.
 
-Regardless of the region limits on writes, synced secrets are always readable 
+Regardless of the region limits on writes, synced secrets are always readable
 globally when the client has the required permissions.
 
 ## Permissions
@@ -138,7 +145,7 @@ secretmanager.secrets.create
 secretmanager.secrets.delete
 secretmanager.secrets.update
 secretmanager.versions.add
-secretmanager.versions.destroy 
+secretmanager.versions.destroy
 ```
 
 ## Provision service account
@@ -254,13 +261,13 @@ following the [setup](/vault/docs/sync/gcpsm#setup) steps.
 
 ## Targeting specific GCP projects
 
-By default, the target GCP project to sync secrets with is derived from the service 
-account JSON [credentials](/vault/api-docs/system/secrets-sync#credentials) or application 
+By default, the target GCP project to sync secrets with is derived from the service
+account JSON [credentials](/vault/api-docs/system/secrets-sync#credentials) or application
 default credentials for a particular GCP sync destination. This means secrets will be synced
 within the parent project of the configured service account.
 
 In some cases, it's desirable to use a single service account or [workload identity](https://cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances)
-to sync secrets with any number of GCP projects within an organization. To achieve this, 
+to sync secrets with any number of GCP projects within an organization. To achieve this,
 you can set the `project_id` parameter to the target project to sync secrets with:
 
 ```shell-session
@@ -281,7 +288,7 @@ format:
 
   `projects/<project_number>/secrets/<secret_name>`
 
-<Tip title="Use the project number, not the project ID"> 
+<Tip title="Use the project number, not the project ID">
 
   The project **number** is not the same as the project **ID**. Project numbers
   are **numeric** while project IDs are **alphanumeric**. They can be found on
@@ -314,7 +321,7 @@ To add conditions to IAM principles in GCP, click "+ADD IAM CONDITION" on the **
 ![Assign Roles screen in GCP with the "+ADD IAM CONDITION" link circled in red](/img/gcp-add-iam-conditions_light.png#light-theme-only)
 ![Assign Roles screen in GCP with the "+ADD IAM CONDITION" link circled in red](/img/gcp-add-iam-conditions_dark.png#dark-theme-only)
 
-<Tip title="Refer to Google's Overview of IAM Conditions documentation"> 
+<Tip title="Refer to Google's Overview of IAM Conditions documentation">
 
   [Google's documentation](https://cloud.google.com/iam/docs/conditions-overview) on IAM Conditions provides
   further information on how they work and how they should be used, as well as their limits.

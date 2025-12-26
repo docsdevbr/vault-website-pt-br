@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Built-in FIPS 140-3 support
 description: >-
@@ -93,7 +100,7 @@ either technically or via non-compliance that results from converting
 existing cluster workloads to the FIPS 140-3 Inside binary.
 
 Instead, we suggest leaving the existing cluster in place, and carefully
-consider migration of specific workloads to the FIPS-backed cluster.  
+consider migration of specific workloads to the FIPS-backed cluster.
 
 #### Entropy augmentation restrictions
 
@@ -233,9 +240,9 @@ version:
 
 -### Leidos compliance
 
-Leidos evaluated Vault for compliance with the FIPS 140-2 version of BoringCrypto.  HashiCorp will be seeking an evaluation against FIPS 140-3 
-in the near future.  In the meantime, Vault has not modified it's integration with BoringCrypto since the FIPS 140-2 evaluation except to 
-enable TLS 1.3 as is now allowed by the standard, and BoringCrypto itself is largely unchanged and has been certified as FIPS 140-3 validated.  
+Leidos evaluated Vault for compliance with the FIPS 140-2 version of BoringCrypto.  HashiCorp will be seeking an evaluation against FIPS 140-3
+in the near future.  In the meantime, Vault has not modified it's integration with BoringCrypto since the FIPS 140-2 evaluation except to
+enable TLS 1.3 as is now allowed by the standard, and BoringCrypto itself is largely unchanged and has been certified as FIPS 140-3 validated.
 
 -What is the difference between Seal Wrap FIPS 140 compliance and the new FIPS Inside compliance?
 - Only the storage of sensitive entries (seal wrapped entries) is covered by FIPS-validated crypto when using Seal Wrapping.

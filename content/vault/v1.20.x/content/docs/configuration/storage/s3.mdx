@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: S3 configuration
 description: >-
@@ -67,7 +74,7 @@ cause Vault to attempt to retrieve credentials from the AWS metadata service.
 
 - `kms_key_id` `(string: "")` - Specifies the ID or Alias of the KMS key used to
   encrypt data in the S3 backend. Vault must have `kms:Encrypt`, `kms:Decrypt`
-  and `kms:GenerateDataKey` permissions for this KMS key. You can use 
+  and `kms:GenerateDataKey` permissions for this KMS key. You can use
   `alias/aws/s3` to specify the default key for the account.
 
 - `path` `(string: "")` - Specifies the path in the S3 Bucket where Vault

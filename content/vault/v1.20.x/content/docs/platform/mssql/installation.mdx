@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Install the Vault EKM provider
 description: Installation steps for the Vault EKM provider for Microsoft SQL Server.
@@ -203,7 +210,7 @@ DB using the EKM provider.
     Vault is misconfigured, this step is likely to fail. See
     [troubleshooting](/vault/docs/platform/mssql/troubleshooting) for tips on specific error codes.
 
-    The above steps use the latest version of the specified Transit key as the asymmetric Key Encryption Key (KEK). To 
+    The above steps use the latest version of the specified Transit key as the asymmetric Key Encryption Key (KEK). To
     use a different version of the Transit key, please specify the version as shown below.
 
     ```sql
@@ -215,7 +222,7 @@ DB using the EKM provider.
     ```
     -> **Note:** Specifying the version
     of the Transit key can be useful when sharing KEKs across different SQL Server instances, or in cases of restoring
-    a database backup that was protected by an older Transit key.    
+    a database backup that was protected by an older Transit key.
     **Note:** This requires vault-mssql-ekm-provider version >= 0.3.0.
 
 1. Create another login from the new asymmetric key:

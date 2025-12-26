@@ -1,4 +1,11 @@
 ---
+# Copyright (c) 2024 HashiCorp, Inc.
+# Vault and the Vault logo are trademarks of HashiCorp.
+#
+# Documentation licensed under the Business Source License, Version 1.1.
+# The original work was translated from English into Brazilian Portuguese.
+# https://github.com/hashicorp/vault/blob/-/LICENSE
+
 layout: docs
 page_title: Use protected secrets in Kubernetes
 description: >-
@@ -38,8 +45,8 @@ to use protected secrets with your Vault Secrets Operator instance.
 
 ## Secrets flow: Traditional VSO vs CSI driver
 
-In the traditional workflow, the Vault Secrets Operator caches Vault secrets as Kubernetes Secrets stored in `etcd`  
-and watches for changes to custom resources such as [VaultStaticSecret](/vault/docs/platform/k8s/vso/api-reference#vaultstaticsecret) or [VaultDynamicSecret](/vault/docs/platform/k8s/vso/api-reference#vaultdynamicsecret). 
+In the traditional workflow, the Vault Secrets Operator caches Vault secrets as Kubernetes Secrets stored in `etcd`
+and watches for changes to custom resources such as [VaultStaticSecret](/vault/docs/platform/k8s/vso/api-reference#vaultstaticsecret) or [VaultDynamicSecret](/vault/docs/platform/k8s/vso/api-reference#vaultdynamicsecret).
 When the resource definition changes, Vault Secrets Operator overwrites secret data in the associated Kubernetes Secret with the new information.
 
 [![Diagram showing a secret flowing from Vault, through VSO, into the associated Kubernetes Secrets objects across all nodes in an app namespace](/img/vso_secrets_flow.png)](/img/vso_secrets_flow.png)
@@ -49,7 +56,7 @@ Instead, the driver watches for changes to a custom resource (CR) called `CSISec
 [CSISecrets](/vault/docs/deploy/kubernetes/vso/api-reference#csisecrets) resource
 contains a declarative list of secrets to fetch and an access control
 configuration that only allows the designated Pods to mount those secrets.
-When an approved Pod starts with a reference to the `CSISecrets` resource as a volume mount, the Vault Secrets Operator CSI driver populates 
+When an approved Pod starts with a reference to the `CSISecrets` resource as a volume mount, the Vault Secrets Operator CSI driver populates
 that volume with the associated secrets for all referencing containers in the Pod.
 
 The Pod starts with all of the secrets from the `CSISecrets` resource mounted
