@@ -6,129 +6,131 @@
 # The original work was translated from English into Brazilian Portuguese.
 # https://github.com/hashicorp/web-unified-docs/blob/-/LICENSE
 
+source_url: https://github.com/hashicorp/web-unified-docs/blob/main/content/vault/v1.21.x/content/docs/about-vault/why-use-vault/identities.mdx
+revision: 5d99b2512343175fc9945749c06393460283f0d2
+status: ready
+
 layout: docs
-page_title: Manage identities and authentication
+page_title: Gerencie identidades e autenticação
 description: >-
-  Control client access to sensitive information with managed entities, identity
-  tokens, OIDC workflows, and WIF
+  Controle o acesso do cliente a informações confidenciais com entidades
+  gerenciadas, tokens de identidade, fluxos de trabalho OIDC e WIF.
 ---
 
-# Manage identities and authentication
+# Gerencie identidades e autenticação
 
 @include '/why-use-vault/manage-identities-small.mdx'
 
+## Gerenciar identidades e entidades
 
-## Manage identities and entities
-
-Vault provides centralized identity management through the identity plugin so
-clients can use accounts with different identity providers to authenticate to
-Vault. The identity plugin ties authentication instances to a single,
-consolidated representation called an **entity**. Entities map to aliases for
-corresponding accounts with authentication providers and policies that authorize
-those entities to take action within Vault.
-
+O Vault oferece gerenciamento centralizado de identidades por meio do plugin de
+identidade, permitindo que os clientes usem contas com diferentes provedores de
+identidade para autenticar no Vault.
+O plugin de identidade vincula instâncias de autenticação a uma única
+representação consolidada chamada **entidade**.
+As entidades são mapeadas para apelidos de contas correspondentes com provedores
+de autenticação e políticas que autorizam essas entidades a executar ações no
+Vault.
 
 <Tabs>
-<Tab heading="Key concepts + Overviews" group="overviews">
+<Tab heading="Conceitos-chave e visões gerais" group="overviews">
 
-- [Identities overview](/vault/docs/concepts/identity)
-- [Policies overview](/vault/docs/concepts/policies)
-- [Authentication overview](/vault/docs/concepts/auth)
-- [Clients and entities overview](/vault/docs/concepts/client-count)
-
-
-</Tab>
-<Tab heading="Guides" group="guides">
-
-- [Find and resolve duplicate Vault identities](/vault/docs/secrets/identity/deduplication)
-- [Use identity tokens](/vault/docs/secrets/identity/identity-token)
-- [Identity plugin overview](/vault/docs/secrets/identity)
+- [Visão geral de identidades](/vault/docs/concepts/identity)
+- [Visão geral de políticas](/vault/docs/concepts/policies)
+- [Visão geral de autenticação](/vault/docs/concepts/auth)
+- [Visão geral de clientes e entidades](/vault/docs/concepts/client-count)
 
 </Tab>
-<Tab heading="Tutorials" group="tutorials">
+<Tab heading="Guias" group="guides">
 
-- [Introduction to tokens](/vault/tutorials/get-started/introduction-tokens)
-- [Introduction to roles](/vault/tutorials/get-started/introduction-roles)
-- [Introduction to policies](/vault/tutorials/get-started/introduction-policies)
-- [Implement identity entities and groups](/vault/tutorials/auth-methods/identity)
-- [Generate tokens for machine authentication with AppRole](/vault/tutorials/auth-methods/approle)
+- [Encontre e resolva identidades duplicadas do Vault](/vault/docs/secrets/identity/deduplication)
+- [Use tokens de identidade](/vault/docs/secrets/identity/identity-token)
+- [Visão geral do plugin de identidade](/vault/docs/secrets/identity)
 
 </Tab>
-<Tab heading="References" group="reference">
+<Tab heading="Tutoriais" group="tutorials">
 
-- [Identity tokens API](/vault/api-docs/secret/identity/tokens)
-- [`vault policy` CLI commands](/vault/docs/commands/policy)
-- [`vault token` CLI commands](/vault/docs/commands/token)
-- [Authentication telemetry metrics](/vault/docs/internals/telemetry/metrics/authn)
+- [Introdução a tokens](/vault/tutorials/get-started/introduction-tokens)
+- [Introdução a funções](/vault/tutorials/get-started/introduction-roles)
+- [Introdução a políticas](/vault/tutorials/get-started/introduction-policies)
+- [Implemente entidades e grupos de identidade](/vault/tutorials/auth-methods/identity)
+- [Gere tokens para autenticação de máquina com AppRole](/vault/tutorials/auth-methods/approle)
+
+</Tab>
+<Tab heading="Referências" group="reference">
+
+- [API de tokens de identidade](/vault/api-docs/secret/identity/tokens)
+- [Comandos da CLI `vault policy`](/vault/docs/commands/policy)
+- [Comandos da CLI `vault token`](/vault/docs/commands/token)
+- [Métricas de telemetria de autenticação](/vault/docs/internals/telemetry/metrics/authn)
 
 </Tab>
 </Tabs>
-
 
 ## Use OIDC
 
-Use Vault as an OpenID Connect (OIDC) identity provider to let client
-applications that speak the OIDC protocol to leverage Vault as a source of
-identity.
+Use o Vault como um provedor de identidade OpenID Connect (OIDC) para permitir
+que aplicações cliente que utilizam o protocolo OIDC aproveitem o Vault como
+fonte de identidade.
 
-Vault generates OIDC-compliant ID tokens against internal roles that can
-configure authentication token claims with a templating system, token TTLs, and
-explicit mapping to specify signing keys.
+O Vault gera tokens de ID compatíveis com OIDC para funções internas que podem
+configurar declarações de token de autenticação com um sistema de modelos, TTLs
+de token e mapeamento explícito para especificar chaves de assinatura.
 
 <Tabs>
-<Tab heading="Key concepts + Overviews" group="overviews">
+<Tab heading="Conceitos-chave e visões gerais" group="overviews">
 
-- [Using Vault as an OIDC provider](/vault/docs/concepts/oidc-provider)
-
-</Tab>
-<Tab heading="Guides" group="guides">
-
-- [Setup an OIDC identity provider](/vault/docs/secrets/identity/oidc-provider)
-- [Use JWT/OIDC authentication](/vault/docs/auth/jwt)
-- [Supported OIDC providers](/vault/docs/auth/jwt/oidc-providers)
-- [Use Kubernetes for OIDC authentication](/vault/docs/auth/jwt/oidc-providers/kubernetes)
+- [Usando o Vault como um provedor OIDC](/vault/docs/concepts/oidc-provider)
 
 </Tab>
-<Tab heading="Tutorials" group="tutorials">
+<Tab heading="Guias" group="guides">
 
-- [Confirm client identity with an OIDC identity provider](/vault/tutorials/auth-methods/oidc-identity-provider)
-- [OIDC authentication with Okta](/vault/tutorials/manage-hcp-vault-dedicated/vault-oidc-okta)
-- [Secure workflows with OIDC authentication](/vault/tutorials/auth-methods/oidc-auth)
-- [Use Vault as an OIDC provider for single sign-on](/nomad/tutorials/single-sign-on/sso-oidc-vault)
+- [Configure um provedor de identidade OIDC](/vault/docs/secrets/identity/oidc-provider)
+- [Use autenticação JWT/OIDC](/vault/docs/auth/jwt)
+- [Provedores OIDC suportados](/vault/docs/auth/jwt/oidc-providers)
+- [Use o Kubernetes para autenticação OIDC](/vault/docs/auth/jwt/oidc-providers/kubernetes)
 
 </Tab>
-<Tab heading="References" group="reference">
+<Tab heading="Tutoriais" group="tutorials">
 
-- [JWT/OIDC authentication API](/vault/api-docs/auth/jwt)
-- [OIDC provider API](/vault/api-docs/secret/identity/oidc-provider)
+- [Confirme a identidade do cliente com um provedor de identidade OIDC](/vault/tutorials/auth-methods/oidc-identity-provider)
+- [Autenticação OIDC com Okta](/vault/tutorials/manage-hcp-vault-dedicated/vault-oidc-okta)
+- [Fluxos de trabalho seguros com autenticação OIDC](/vault/tutorials/auth-methods/oidc-auth)
+- [Use o Vault como um provedor OIDC para logon único](/nomad/tutorials/single-sign-on/sso-oidc-vault)
+
+</Tab>
+<Tab heading="Referências" group="reference">
+
+- [API de autenticação JWT/OIDC](/vault/api-docs/auth/jwt)
+- [API do provedor OIDC](/vault/api-docs/secret/identity/oidc-provider)
 
 </Tab>
 </Tabs>
 
+## Use a WIF
 
-## Use WIF
+Use o Vault com a Federação de Identidade de Carga de Trabalho (WIF) para
+permitir que suas aplicações se autentiquem em serviços de nuvem com segurança
+usando tokens de curta duração obtidos de um provedor de identidade (IdP)
+confiável.
 
-Use Vault with workload identity federation (WIF) to let your applications
-authenticate to cloud services securely with short-lived tokens obtained from a
-trusted identity provider (IdP).
-
-When you configure a WIF-enabled plugin and establish a trusted relationship
-between Vault and the associated  provider like AWS, Azure, and Google Cloud
-Platform, Vault can exchange internal identity tokens for short-lived STS
-credentials so the associated plugin can operate without configuring explicit
-access to sensitive IAM security credentials.
+Ao configurar um plugin habilitado para WIF e estabelecer uma relação de
+confiança entre o Vault e o provedor associado, como AWS, Azure e Google Cloud
+Platform, o Vault pode trocar tokens de identidade internos por credenciais STS
+de curta duração, permitindo que o plugin associado opere sem configurar o
+acesso explícito a credenciais de segurança IAM confidenciais.
 
 <Tabs>
-<Tab heading="Guides" group="guides">
+<Tab heading="Guias" group="guides">
 
-- [Workload Identity Federation with AWS](/vault/docs/secrets/aws#plugin-workload-identity-federation-wif)
-- [Workload Identity Federation with Azure](/vault/docs/secrets/azure#plugin-workload-identity-federation-wif)
-- [Workload Identity Federation with GCP](/vault/docs/secrets/gcp#plugin-workload-identity-federation-wif)
+- [Federação de identidades de cargas de trabalho com a AWS](/vault/docs/secrets/aws#plugin-workload-identity-federation-wif)
+- [Federação de identidades de cargas de trabalho com o Azure](/vault/docs/secrets/azure#plugin-workload-identity-federation-wif)
+- [Federação de identidades de cargas de trabalho com a GCP](/vault/docs/secrets/gcp#plugin-workload-identity-federation-wif)
 
 </Tab>
-<Tab heading="Tutorials" group="tutorials">
+<Tab heading="Tutoriais" group="tutorials">
 
-- [Manage federated workload identities with AWS IAM and Vault Enterprise](/vault/tutorials/enterprise/plugin-workoad-identity-federation)
+- [Gerencie identidades de cargas de trabalho federadas com o AWS IAM e o Vault Enterprise](/vault/tutorials/enterprise/plugin-workload-identity-federation)
 
 </Tab>
 </Tabs>
