@@ -6,127 +6,197 @@
 # The original work was translated from English into Brazilian Portuguese.
 # https://github.com/hashicorp/web-unified-docs/blob/-/LICENSE
 
+source_url: https://github.com/hashicorp/web-unified-docs/blob/main/content/vault/v1.21.x/content/docs/about-vault/how-vault-works.mdx
+revision: 5d99b2512343175fc9945749c06393460283f0d2
+status: ready
+
 layout: docs
-page_title: How Vault works
-description: >-
-  Learn about the internal architecture of Vault.
+page_title: Como o Vault funciona
+description: Saiba mais sobre a arquitetura interna do Vault.
 ---
 
-# How Vault works
+# Como o Vault funciona
 
-Vault is an identity-based secrets and encryption management system
-that centralizes secret management, rotates old credentials, generates
-credentials on demand, audits client interactions, and supports regulatory
-compliance.
+O Vault é um sistema de gerenciamento de segredos e criptografia baseado em
+identidade que centraliza o gerenciamento de segredos, rotaciona credenciais
+antigas, gera credenciais sob demanda, audita as interações do cliente e oferece
+suporte à conformidade regulatória.
 
-It provides encryption services that are gated by authentication and authorization
-methods to ensure secure, auditable and restricted access to _secrets_.
+Ele fornece serviços de criptografia protegidos por métodos de autenticação e
+autorização para garantir acesso seguro, auditável e restrito a _segredos_.
 
-A secret is anything that you want to tightly control access to, such as tokens,
-API keys, passwords, encryption keys or certificates. Vault provides a unified
-interface to any secret, while providing tight access control and recording a
-detailed audit log.
+Um segredo é qualquer coisa cujo acesso você queira controlar rigorosamente,
+como tokens, chaves de API, senhas, chaves de criptografia ou certificados.
+O Vault fornece uma interface unificada para qualquer segredo, ao mesmo tempo
+que oferece controle de acesso rigoroso e registra um log de auditoria
+detalhado.
 
-API keys for external services, credentials for service-oriented architecture
-communication, etc. It can be difficult to understand who is accessing which
-secrets, especially since this can be platform-specific. Adding on key rolling,
-secure storage, and detailed audit logs is almost impossible without a custom
-solution. This is where Vault steps in.
+Chaves de API para serviços externos, credenciais para comunicação em
+arquitetura orientada a serviços, etc.
+Pode ser difícil entender quem está acessando quais segredos, especialmente
+porque isso pode ser específico da plataforma.
+Adicionar recursos como rotação de chaves, armazenamento seguro e registros de
+auditoria detalhados é praticamente impossível sem uma solução personalizada.
+É aí que o Vault entra em ação.
 
-Vault validates and authorizes clients (users, machines, apps) before providing
-them access to secrets or stored sensitive data.
+O Vault valida e autoriza clientes (pessoas usuárias, máquinas, aplicações)
+antes de conceder acesso a segredos ou dados confidenciais armazenados.
 
-![How Vault Works](/img/how-vault-works.png)
+![Como o Vault funciona](/img/how-vault-works.png)
 
+## Fluxo de trabalho principal do Vault
 
-## Core Vault workflow
+O Vault funciona principalmente com tokens associados a uma política de cliente.
+A política baseada em caminho define regras que restringem as ações e a
+acessibilidade dos caminhos associados para cada cliente.
 
-Vault works primarily with tokens associated to a client policy. The path-based
-policy defines rules that constrain the actions and accessibility of the
-associated paths for each client.
+Os clientes podem se autenticar no Vault para fazer login e obter um token
+automaticamente, ou você pode criar tokens manualmente e atribuí-los
+explicitamente aos seus clientes.
 
-Clients can authenticate against Vault to log in and obtain a token automatically
-or you can create tokens manually and explicitly assign them to your clients.
+![Fluxo de trabalho do Vault](/img/vault-workflow-diagram1.png)
 
-![Vault Workflow](/img/vault-workflow-diagram1.png)
+O fluxo de trabalho principal do Vault consiste em quatro etapas:
 
- The core Vault workflow consists of four stages:
+- **Autenticação:** A autenticação no Vault é o processo pelo qual um cliente
+  fornece informações que o Vault usa para determinar se ele é quem diz ser.
+  Assim que o cliente é autenticado por um método de autenticação, um token é
+  gerado e associado a uma política.
+- **Validação:** O Vault valida o cliente em relação a fontes confiáveis de
+  terceiros, como GitHub, LDAP, AppRole e outras.
+- **Autorização:** O cliente é comparado com a política de segurança do Vault.
+  Essa política é um conjunto de regras que define a quais endpoints de API um
+  cliente tem acesso com seu token do Vault.
+  As políticas fornecem uma maneira declarativa de conceder ou negar acesso a
+  determinados caminhos e operações no Vault.
+- **Acesso:** O Vault concede acesso a segredos, chaves e recursos de
+  criptografia emitindo um token com base nas políticas associadas à identidade
+  do cliente.
+  O cliente pode então usar seu token do Vault para operações futuras.
 
-- **Authenticate:** Authentication in Vault is the process by which a client supplies information that Vault uses to determine if they are who they say they are. Once the client is authenticated against an auth method, a token is generated and associated to a policy.
-- **Validation:** Vault validates the client against third-party trusted sources, such as Github, LDAP, AppRole, and more.
-- **Authorize**: A client is matched against the Vault security policy.  This policy is a set of rules defining which API endpoints a client has access to with its Vault token. Policies provide a declarative way to grant or forbid access to certain paths and operations in Vault.
-- **Access**: Vault grants access to secrets, keys, and encryption capabilities by issuing a token based on policies associated with the client’s identity. The client can then use their Vault token for future operations.
+## A barreira de criptografia
 
+O diagrama abaixo ilustra as complexidades e os componentes distintos do Vault.
 
-## The encryption barrier
+[![Visão geral da arquitetura](/img/layers.png)](/img/layers.png)
 
-The diagram below illustrates the intricacies and distinct components of Vault.
+A camada de criptografia do Vault, chamada de _barreira_, é responsável por
+criptografar e descriptografar os dados do Vault.
+Quando o servidor Vault é iniciado, ele grava dados em seu backend de
+armazenamento.
+Como o backend de armazenamento reside fora da barreira, ele é considerado não
+confiável, portanto, o Vault criptografa os dados antes de enviá-los para o
+backend de armazenamento.
+Esse mecanismo garante que, se um invasor malicioso tentar obter acesso ao
+backend de armazenamento, os dados não poderão ser comprometidos, pois
+permanecerão criptografados até que o Vault os descriptografe.
+O backend de armazenamento fornece uma camada de persistência de dados durável,
+onde os dados são protegidos e disponíveis mesmo após reinicializações do
+servidor.
 
-[![Architecture Overview](/img/layers.png)](/img/layers.png)
+Quando um servidor Vault é iniciado, ele começa em um estado _selado_.
+Antes que qualquer operação possa ser realizada no Vault, o _selo deve ser
+retirado_.
+Isso é feito fornecendo as chaves de retirada de selo.
+Durante a inicialização do Vault, ele gera uma chave de criptografia, usada para
+proteger todos os dados do Vault.
+Esta chave é protegida por uma chave raiz armazenada com todos os outros dados
+do Vault, mas criptografada por outro mecanismo: a chave de retirada de selo.
 
-Vault’s encryption layer, referred to as the _barrier_, is responsible for encrypting and decrypting Vault data. When the Vault server starts, it writes data to its storage backend. Since the storage backend resides outside the barrier, it’s considered untrusted so Vault will encrypt the data before it sends them to the storage backend. This mechanism ensures that if a malicious attacker attempts to gain access to the storage backend, the data cannot be compromised since it remains encrypted, until Vault decrypts the data. The storage backend provides a durable data persistent layer where data is secured and available across server restarts.
+Por padrão, o Vault usa o
+[Compartilhamento de segredo de Shamir](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing)
+para dividir a chave de retirada de selo em um número configurado de fragmentos
+(partes da chave ou chaves de retirada de selo).
+Um número preciso de fragmentos é necessário para reconstruir a chave de
+retirada de selo, que é então usada para descriptografar a chave raiz do Vault.
 
-When a Vault server is started, it begins in a _sealed_ state. Before any
-operation can be performed on Vault, it must be _unsealed_. This is done by
-providing the unseal keys. During the Vault initialization, it generates an
-encryption key, which is used to protect all Vault data. This key is protected by
-a root key that is stored alongside all other Vault data, but is encrypted by another mechanism: the unseal key.
+![Chaves de retirada de selo](/img/vault-shamir-seal.png)
 
+Consulte a documentação de
+[Selar/Retirar selo](/vault/docs/concepts/seal#seal-unseal) para obter mais
+detalhes.
 
+O número de partes e o número mínimo de fragmentos necessários podem ser
+especificados.
+A técnica de Shamir pode ser desativada e a chave raiz pode ser usada
+diretamente para a retirada de selo.
+Assim que o Vault recupera a chave de criptografia, ele descriptografa os dados
+no backend de armazenamento e entra no estado _sem selo_.
+Uma vez sem selo, o Vault carrega os dispositivos de auditoria, os métodos de
+autenticação e os mecanismos de segredos configurados.
 
+**Nota:** A configuração padrão do Vault usa um selo de Shamir; no entanto, o
+Vault pode ter o
+[selo retirado automaticamente](/vault/docs/concepts/seal#auto-unseal) por um
+sistema de gerenciamento de chaves na nuvem (KMS) ou módulo de segurança de
+hardware (HSM) confiável para aumentar a segurança.
 
-By default, Vault uses [Shamir's Secret
-Sharing](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing) to split the
-unseal key into a configured number of shards (key shares or unseal
-keys). A precise number of shards are required to reconstruct the unseal key,
-which is then used to decrypt the Vault's root key.
+A configuração dos dispositivos de auditoria, métodos de autenticação e
+mecanismos de segredos é sensível à segurança e é armazenada no Vault.
+Pessoas usuárias com permissões podem modificá-los e não podem ser especificadas
+fora da barreira.
+Ao armazená-los no Vault, as alterações são protegidas pelo sistema de ACL e
+rastreadas por logs de auditoria.
 
-![Unseal keys](/img/vault-shamir-seal.png)
+As requisições podem ser processadas da API HTTP para o núcleo assim que o selo
+do Vault for retirado.
+O núcleo gerencia o fluxo de requisições pelo sistema, aplica ACLs e garante que
+o registro de auditoria seja feito.
 
-Refer to the [Seal/Unseal](/vault/docs/concepts/seal#seal-unseal) documentation for
-further details.
+Quando um cliente se conecta ao Vault pela primeira vez, ele precisa se
+autenticar.
+O Vault fornece métodos de autenticação configuráveis e oferece flexibilidade no
+mecanismo de autenticação usado.
+Mecanismos como nome de usuário/senha ou GitHub podem ser usados para pessoas
+operadoras, enquanto aplicações podem usar chaves públicas/privadas ou tokens
+para se autenticar.
+Uma requisição de autenticação que flui pelo núcleo e para um método de
+autenticação determina se a requisição é válida e retorna uma lista de políticas
+associadas.
 
-The number of shares and the minimum number of shards required can both be specified.
-Shamir's technique can be disabled, and the root key can be used directly for
-unsealing. Once Vault retrieves the encryption key, it decrypts the
-data in the storage backend, and enters the _unsealed_ state. Once unsealed,
-Vault loads the configured audit devices, auth methods, and secrets
-engines.
+Políticas são apenas regras ACL nomeadas.
+Por exemplo, a política "root" é integrada e permite acesso a todos os recursos.
+Você pode criar qualquer número de políticas nomeadas com controle granular
+sobre os caminhos.
+O Vault opera em um modo de acesso permitido, o que significa que a ação não é
+permitida a menos que o acesso seja concedido explicitamente por meio de uma
+política.
+Como um usuário pode ter várias políticas associadas, as ações são permitidas
+quando a política permite.
+As políticas são armazenadas e gerenciadas por um repositório de políticas
+interno.
+Este repositório interno é afetado pelo backend do sistema, que está sempre
+montado em `sys/`.
 
-~> **Note:** The default Vault configuration uses a Shamir seal; however, Vault can be [auto
-unsealed](/vault/docs/concepts/seal#auto-unseal) by a trusted cloud key management
-system (KMS) or hardware security module (HSM) to increase security.
+Assim que a autenticação ocorre e um método de autenticação fornece um conjunto
+de políticas aplicáveis, um novo token de cliente é gerado e gerenciado pelo
+repositório de tokens.
+Este token de cliente é usado para fazer requisições futuras.
+Este método de token é semelhante a um cookie enviado por um site quando uma
+pessoa usuária faz login.
+Dependendo da configuração do método de autenticação, o token de cliente pode
+ter um período de concessão associado a ele e pode precisar ser renovado
+periodicamente para evitar a invalidação.
 
-The configuration of the audit devices, auth methods, and secrets engines are security sensitive and are stored in Vault. Users with permissions can modify them and cannot be specified outside of the barrier. By storing them in Vault, changes are protected by the ACL system and tracked by audit logs.
+Uma vez autenticado, as requisições são feitas fornecendo o token de cliente.
+O token de cliente é usado para verificar o cliente, garantindo que ele esteja
+autorizado durante o carregamento das políticas relevantes.
+As políticas são usadas para autorizar a requisição do cliente.
+A requisição é então roteada para o mecanismo de segredos, que é processado
+dependendo do seu tipo.
+Quando o mecanismo de segredos retorna o segredo, o núcleo o registra com o
+gerenciador de expiração e anexa um ID de concessão.
+Os clientes usam o ID de concessão para renovar ou revogar seu segredo.
+O gerenciador de expiração revoga automaticamente o segredo se um cliente
+permitir que a concessão expire.
 
-Requests may be processed from the HTTP API to the core once Vault is unsealed.
-The core manages the flow of requests through the system,
-enforces ACLs, and ensures audit logging is done.
-
-When a client first connects to Vault, the client needs to authenticate. Vault provides
-configurable auth methods and offers flexibility within the authentication mechanism
-used. Mechanisms such as username/password or GitHub may be
-used for operators, while applications may use public/private keys or tokens to
-authenticate. An authentication request that flows through the core and into an auth
-method determines if the request is valid and returns a list of
-associated policies.
-
-Policies are just a named ACL rule. For example, the "root" policy is built-in
-and permits access to all resources. You may create any number of named policies
-with fine-grained control over paths. Vault operates in an allowed-access mode, meaning the action is not allowed unless access is granted via a policy explicitly. Since a user may have multiple policies associated, actions are allowed when policy permits. Policies are stored and managed by an internal
-policy store. This internal store is affected through the system backend,
-which is always mounted at `sys/`.
-
-Once authentication takes place and an auth method provides a set of applicable
-policies, a new client token is generated and managed by the token store. This
-client token is used to make future requests.
-This token method is similar to a cookie sent by a website when a user logs in. Depending on the auth method configuration, the client
-token may have a lease associated with it, and may need to be renewed periodically to avoid invalidation.
-
-Once authenticated, requests are made by providing the client token. The client token is
-used to verify the client, ensuring they are authorized while loading the relevant policies. The
-policies are used to authorize the client request. The request is then routed to the secrets engine, which is processed depending on its type. When the secrets engine returns the secret, the core registers it with the expiration manager and attaches a lease ID.  Clients use the lease ID to renew or revoke their
-secret. The expiration manager automatically revokes the secret if a client allows the lease to expire.
-
-The core logs requests and responses to the audit broker, distributing the requests to all configured audit devices. Outside of the request
-flow, the core performs specific background activities. Lease management is critical, allowing expired client tokens or secrets to be revoked automatically. Additionally, Vault handles specific partial-failure cases by using write-ahead logging with a rollback manager. This is managed transparently within the core and is not user-visible.
+O núcleo registra requisições e respostas no agente de auditoria, distribuindo
+as requisições para todos os dispositivos de auditoria configurados.
+Fora do fluxo de requisição, o núcleo executa atividades específicas em segundo
+plano.
+O gerenciamento de contratos de concessão é crucial, permitindo que tokens ou
+segredos de clientes expirados sejam revogados automaticamente.
+Além disso, o Vault lida com casos específicos de falha parcial usando registro
+antecipado de transações com um gerenciador de reversão.
+Isso é gerenciado de forma transparente no núcleo do sistema e não é visível
+para a pessoa usuária.
