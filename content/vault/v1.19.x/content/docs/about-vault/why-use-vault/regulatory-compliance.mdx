@@ -6,52 +6,55 @@
 # The original work was translated from English into Brazilian Portuguese.
 # https://github.com/hashicorp/web-unified-docs/blob/-/LICENSE
 
+source_url: https://github.com/hashicorp/web-unified-docs/blob/main/content/vault/v1.19.x/content/docs/about-vault/why-use-vault/regulatory-compliance.mdx
+revision: 5d99b2512343175fc9945749c06393460283f0d2
+status: ready
+
 layout: docs
-page_title: Support regulatory compliance
+page_title: Suporte a conformidade regulatória
 description: >-
-  Configure Vault as part of an HSM solution, FIPS compliant architecture, or
-  PKCS11 authentication workflow.
+  Configure o Vault como parte de uma solução HSM, arquitetura compatível com
+  FIPS ou fluxo de trabalho de autenticação PKCS11.
 ---
 
-# Support regulatory compliance
+# Suporte a conformidade regulatória
 
 @include '/why-use-vault/regulatory-compliance-small.mdx'
 
-Vault Enterprise supports HSM for devices with PKCS#11 version 2.20+ interfaces
-with integration libraries for Linux/amd64 platforms. Compliance support
-includes:
+O Vault Enterprise oferece suporte a HSM para dispositivos com interfaces
+PKCS#11 versão 2.20 ou superior com bibliotecas de integração para plataformas
+Linux/amd64.
+O suporte à conformidade inclui:
 
-- HSM-wrapped root keys
-- automatic unsealing with the HSM-wrapped root key
-- entropy augmentation from external cryptographic modules
-- FIPS 140-2 compliant cryptography built into the Vault binary
-- FIPS seal wrapping for critical Security parameters
-
+- Chaves raiz encapsuladas em HSM.
+- Retirada de selo automática com a chave raiz encapsulada em HSM.
+- Aumento de entropia a partir de módulos criptográficos externos.
+- Criptografia compatível com FIPS 140-2 integrada ao binário do Vault.
+- Encapsulamento de selo FIPS para parâmetros de segurança críticos.
 
 <Tabs>
-<Tab heading="Key concepts + Overviews" group="overviews">
+<Tab heading="Conceitos-chave e visões gerais" group="overviews">
 
-- [How HSM support changes Vault behavioral](/vault/docs/enterprise/hsm/behavior)
-- [HSM security details](/vault/docs/enterprise/hsm/security)
-- [FIPS compliance in Vault](/vault/docs/enterprise/fips)
-- [Built-in FIPS 140-2 support](/vault/docs/enterprise/fips/fips1402)
-
-</Tab>
-<Tab heading="Guides" group="guides">
-
-- [Configure auto-unseal and seal wrapping for HSM PKCS11](/vault/docs/configuration/seal/pkcs11)
-- [Seal wrap for FIPS compliance](/vault/docs/enterprise/fips/sealwrap)
+- [Como o suporte a HSM altera o comportamento do Vault](/vault/docs/enterprise/hsm/behavior)
+- [Detalhes de segurança do HSM](/vault/docs/enterprise/hsm/security)
+- [Conformidade com FIPS no Vault](/vault/docs/enterprise/fips)
+- [Suporte integrado a FIPS 140-2](/vault/docs/enterprise/fips/fips1402)
 
 </Tab>
-<Tab heading="Tutorials" group="tutorials">
+<Tab heading="Guias" group="guides">
 
-- [Generate certificates with HSM or KMS managed keys](/vault/tutorials/pki/managed-key-pki)
+- [Configure a retirada de selo automática e encapsulamento de selo para HSM PKCS11](/vault/docs/configuration/seal/pkcs11)
+- [Encapsulamento de selo para conformidade com FIPS](/vault/docs/enterprise/fips/sealwrap)
 
 </Tab>
-<Tab heading="References" group="reference">
+<Tab heading="Tutoriais" group="tutorials">
 
-- [Verified HSM partners](/vault/docs/partners/hsm)
+- [Gere certificados com chaves gerenciadas por HSM ou KMS](/vault/tutorials/pki/managed-key-pki)
+
+</Tab>
+<Tab heading="Referências" group="reference">
+
+- [Parceiros HSM verificados](/vault/docs/partners/hsm)
 
 </Tab>
 </Tabs>
-
